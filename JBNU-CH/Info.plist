@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NMFClientId</key>
+	<string>v60rvp0b1d</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>ic_quickaction_products</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>대여사업 잔여 수량 확인</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>kr.ac.jbnu.ch.openProducts</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>ic_quickaction_campusmap</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>캠퍼스 맵</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>kr.ac.jbnu.ch.openCampusMap</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>ic_quickaction_notice</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>공지사항 확인</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>kr.ac.jbnu.ch.openNotice</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>ic_quickaction_affiliates</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>제휴업체 보기</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>kr.ac.jbnu.ch.openAffiliates</string>
+		</dict>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
+</dict>
+</plist>

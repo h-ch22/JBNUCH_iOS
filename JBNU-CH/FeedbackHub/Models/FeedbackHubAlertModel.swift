@@ -1,0 +1,12 @@
+//
+//  FeedbackHubAlertModel.swift
+//  JBNU-CH
+//
+//  Created by 하창진 on 2021/12/29.
+//
+
+import Foundation
+
+enum FeedbackHubAlertModel{
+    case success, fail, confirm
+}
