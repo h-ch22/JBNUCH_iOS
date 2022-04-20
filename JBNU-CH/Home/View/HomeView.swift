@@ -90,7 +90,7 @@ struct HomeView: View {
                                 
                                 Spacer().frame(width : 50)
 
-                                NavigationLink(destination : ProductView(userManagement: helper)){
+                                NavigationLink(destination : ProductsMainView().environmentObject(helper)){
                                     VStack{
                                         Image("ic_products")
                                             .resizable()
@@ -133,6 +133,8 @@ struct HomeView: View {
                                     ForEach(noticeHelper.noticeList, id : \.self){index in
                                         NavigationLink(destination : NoticeDetailView(data : index, userInfo : helper.userInfo, userManagement: helper).environmentObject(noticeHelper)){
                                             HomeListModel(title: index.title ?? "", dateTime: index.dateTime ?? "")
+                                                .padding(5)
+
                                         }
                                     }
                                 }
@@ -156,6 +158,8 @@ struct HomeView: View {
                                     ForEach(sportsHelper.sportsList, id : \.self){index in
                                         NavigationLink(destination : SportsDetailView(data: index, helper: sportsHelper).environmentObject(helper)){
                                             HomeListModel(title: index.roomName ?? "", dateTime: index.dateTime ?? "")
+                                                .padding(5)
+
                                         }
                                     }
                                 }
@@ -179,6 +183,7 @@ struct HomeView: View {
                                     ForEach(petitionHelper.petitionList, id : \.self){index in
                                         NavigationLink(destination : PetitionDetailView(item: index, userInfo: helper, helper: petitionHelper)){
                                             HomeListModel(title: index.title ?? "", dateTime: index.timeStamp ?? "")
+                                                .padding(5)
                                         }
                                     }
                                 }
@@ -189,6 +194,8 @@ struct HomeView: View {
                 }
             }.background(Color.background.edgesIgnoringSafeArea(.all))
                 .navigationBarHidden(true)
+                .animation(.easeOut)
+
                 .onAppear{
                     noticeHelper.noticeList.removeAll()
 

@@ -76,7 +76,6 @@ class CampusMapViewController : UIViewController, CLLocationManagerDelegate{
     ]
 
     private let latLng_Restaurant = [
-        "정담원" : "35.84449217509675, 127.13020293337858",
         "진수당" : "35.84518712791879, 127.13132344965273",
         "후생관" : "35.84770178115334, 127.13434089675506"
     ]

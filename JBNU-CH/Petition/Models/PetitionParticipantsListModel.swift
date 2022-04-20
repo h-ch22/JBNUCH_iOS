@@ -13,7 +13,7 @@ struct PetitionParticipantsListModel: View {
     var body: some View {
         VStack{
             HStack {
-                Text("청원합니다.")
+                Text("동의합니다.")
                     .fontWeight(.semibold)
                 
                 Spacer()

@@ -11,6 +11,8 @@ struct ProductView: View {
     @StateObject private var helper = ProductHelper()
     @StateObject var userManagement : UserManagement
 
+    let type : String
+    
     var body: some View {
         ZStack {
             Color.background.edgesIgnoringSafeArea(.all)
@@ -48,19 +50,37 @@ struct ProductView: View {
                     ForEach(helper.productList, id : \.self){product in
                             ProductListModel(imgName: product.icName, productName: product.productName_KR, all: product.all, late: product.late)
                     }
+                    
+                    
                 }.padding(20)
             }.background(Color.background.edgesIgnoringSafeArea(.all))
                 .navigationTitle(Text("대여사업 물품 잔여수량 확인"))
                 .navigationBarTitleDisplayMode(.inline)
-                .navigationBarItems(trailing: NavigationLink(destination : ProductLogView(userManagement: userManagement)){
+                .navigationBarItems(trailing: NavigationLink(destination : ProductLogView_Tabs().environmentObject(userManagement)){
                     Text("대여 기록")
                 })
+                .animation(.easeOut)
+
             
 
         }.onAppear{
             helper.calcTime()
-            helper.getProductList(type : "CH"){ result in
-                guard let result = result else{return}
+            
+            switch type{
+            case "CH":
+                helper.getProductList(userManagement : userManagement, type : "CH"){ result in
+                    guard let result = result else{return}
+                }
+                
+            case "College":
+                helper.getProductList(userManagement : userManagement, type : "College"){ result in
+                    guard let result = result else{return}
+                }
+                
+            default:
+                helper.getProductList(userManagement : userManagement, type : "CH"){ result in
+                    guard let result = result else{return}
+                }
             }
         }
     }

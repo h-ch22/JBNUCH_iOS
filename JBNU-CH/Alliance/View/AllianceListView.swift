@@ -42,7 +42,7 @@ struct AllianceListView: View {
             List{
                 ForEach(filtertedList, id : \.self){index in
                     NavigationLink(destination : AllianceDetailView(data : index)){
-                        AllianceListModel(data: index)
+                        AllianceListModel(data: index, college : userManagement.userInfo?.collegeCode)
                     }
                     
                 }
@@ -64,5 +64,6 @@ struct AllianceListView: View {
         .navigationBarItems(trailing: NavigationLink(destination : displayMapList(data : helper.allianceList).navigationBarTitle("지도 보기", displayMode: .inline)){
             Image(systemName: "map.fill")
         })
+
     }
 }

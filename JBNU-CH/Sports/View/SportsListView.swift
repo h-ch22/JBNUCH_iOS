@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SportsListView: View {
     @State private var showSheet = false
+    @State private var isAdmin = false
     @State private var searchText = ""
     @StateObject private var helper = SportsHelper()
     @EnvironmentObject var userManagement : UserManagement

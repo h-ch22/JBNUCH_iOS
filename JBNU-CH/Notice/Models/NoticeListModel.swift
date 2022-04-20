@@ -33,9 +33,7 @@ struct NoticeListModel: View {
                 Text(data.title ?? "")
                     .fontWeight(.semibold)
                     .foregroundColor(.txtColor)
-                
-                
-
+                    .multilineTextAlignment(.leading)
                 
                 Spacer()
             }
@@ -46,9 +44,10 @@ struct NoticeListModel: View {
                 Text(data.dateTime ?? "")
                     .font(.caption)
                     .foregroundColor(.gray)
+                    .multilineTextAlignment(.leading)
                 
                 Spacer()
             }
-        }
+        }.padding(5)
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SportsParticipantsListModel: View {
     let data : SportsParticipantsDataModel
+    let isAdmin : Bool
     
     var body: some View {
         HStack{
@@ -36,15 +37,19 @@ struct SportsParticipantsListModel: View {
                     Spacer()
                 }
                 
-                Spacer().frame(height : 5)
-                
-                HStack {
-                    Text(data.phone)
-                        .font(.caption)
-                    .foregroundColor(.gray)
+                if isAdmin{
+                    Spacer().frame(height : 5)
                     
-                    Spacer()
+                    HStack {
+                        Text(data.phone)
+                            .font(.caption)
+                        .foregroundColor(.gray)
+                        
+                        Spacer()
+                    }
                 }
+                
+
             }
         }.padding(20)
             .background(RoundedRectangle(cornerRadius: 15.0)

@@ -10,6 +10,7 @@ import SwiftUI
 struct ProductLogView: View {
     @StateObject private var helper = ProductHelper()
     @StateObject var userManagement : UserManagement
+    let type : String
     
     var body: some View {
         ZStack{
@@ -20,14 +21,18 @@ struct ProductLogView: View {
                     LazyVStack{
                         ForEach(helper.productLogList, id : \.self){product in
                             ProductLogListModel(imgName: product.icName, productName: product.productName, number: product.number, isReturned: product.isReturned, dayLimit: product.dayLimit, day: product.dateTime)
+                                .padding(5)
                         }
                     }
                 }.background(Color.background.edgesIgnoringSafeArea(.all))
             }.padding(20)
         }.onAppear{
-            helper.getLog(userInfo : userManagement.userInfo){result in
+            helper.getLog(type : type, userInfo : userManagement.userInfo){result in
                 guard let result = result else{return}
             }
         }
+        .navigationBarTitle("대여 기록", displayMode: .inline)
+        .animation(.easeOut)
+
     }
 }

@@ -64,14 +64,27 @@ class StoreListMapView : UIViewController, CLLocationManagerDelegate{
             
             let marker = NMFMarker(position: NMGLatLng(lat: Double(position_split[0])!, lng: Double(position_split[1])!))
             
-            marker.captionText = models[index].storeName ?? ""
-            marker.captionColor = UIColor(Color.accent)
+            if models[index].allianceType == "단대"{
+                marker.captionText = models[index].storeName ?? ""
+                marker.captionColor = UIColor(Color.orange)
+                
+                marker.subCaptionText = models[index].benefits ?? ""
+                marker.subCaptionColor = .black
+                
+                marker.iconImage = NMF_MARKER_IMAGE_BLACK
+                marker.iconTintColor = UIColor(Color.orange)
+            }
             
-            marker.subCaptionText = models[index].benefits ?? ""
-            marker.subCaptionColor = .black
-            
-            marker.iconImage = NMF_MARKER_IMAGE_BLACK
-            marker.iconTintColor = UIColor(Color.accent)
+            else{
+                marker.captionText = models[index].storeName ?? ""
+                marker.captionColor = UIColor(Color.accent)
+                
+                marker.subCaptionText = models[index].benefits ?? ""
+                marker.subCaptionColor = .black
+                
+                marker.iconImage = NMF_MARKER_IMAGE_BLACK
+                marker.iconTintColor = UIColor(Color.accent)
+            }
             
             marker.touchHandler = {(overlay : NMFOverlay) -> Bool in
                 let hostingView = UIHostingController(rootView : AllianceDetailView(data: self.models[index]))

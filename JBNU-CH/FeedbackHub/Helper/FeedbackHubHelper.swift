@@ -138,6 +138,9 @@ class FeedbackHubHelper : ObservableObject{
                 }
                 
             }
+            
+            self.feedbackList.sort(by: {$0.date > $1.date})
+
         }
     }
     
@@ -200,6 +203,8 @@ class FeedbackHubHelper : ObservableObject{
                     }
                 }
             }
+            
+            self.feedbackList.sort(by: {$0.date > $1.date})
         }
     }
     

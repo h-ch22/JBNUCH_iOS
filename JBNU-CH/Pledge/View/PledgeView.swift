@@ -193,6 +193,10 @@ struct PledgeView: View {
         }.animation(.easeIn)
             .padding([.horizontal], 20)
             .onAppear{
+                let apparence = UITabBarAppearance()
+                apparence.configureWithOpaqueBackground()
+                if #available(iOS 15.0, *) {UITabBar.appearance().scrollEdgeAppearance = apparence}
+                
                 switch self.college{
                 case "CH":
                     self.pledgeCount = 80.0

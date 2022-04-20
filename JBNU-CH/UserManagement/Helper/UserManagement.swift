@@ -123,6 +123,26 @@ class UserManagement : ObservableObject{
         }
     }
     
+    func changeCollege(college : String, completion : @escaping(_ result : Bool?) -> Void){
+        let collegeCode = self.convertCollegeCode(college: college)
+        let collegeCodeAsString = self.convertCollegeCodeAsString(collegeCode: collegeCode)
+        
+        db.collection("Users").document(userInfo?.uid ?? "").updateData([
+            "college" : AES256Util.encrypt(string: college),
+            "collegeCode" : collegeCodeAsString
+        ]){error in
+            if error != nil{
+                print(error)
+                completion(false)
+                return
+            }
+            
+            else{
+                completion(true)
+            }
+        }
+    }
+    
     func getUserInfo(completion : @escaping(_ result : UserManagementResultModel?) -> Void){
         if auth.currentUser?.uid == nil{
             completion(.userTokenExpired)
@@ -856,6 +876,37 @@ class UserManagement : ObservableObject{
         }
         
         return adminCode
+    }
+    
+    func convertCollegeCodeAsShortString(collegeCode : CollegeCodeModel?) -> String{
+        var shortString = ""
+        
+        if collegeCode == nil{
+            return shortString
+        }
+        
+        switch collegeCode{
+        case .NUR: shortString = "간호대"
+        case .ENG: shortString = "공과대"
+        case .GFC : shortString = "글융대"
+        case .AGR : shortString = "농생대"
+        case .COE : shortString = "사범대"
+        case .SOC : shortString = "사회대"
+        case .COM : shortString = "상과대"
+        case .CHE : shortString = "생활대"
+        case .VET: shortString = "수의대"
+        case .PHA: shortString = "약학대"
+        case .ART: shortString = "예술대"
+        case .MED : shortString = "의과대"
+        case .COH: shortString = "인문대"
+        case .CON : shortString = "자연대"
+        case .COD: shortString = "치과대"
+        case .COB: shortString = "환생대"
+        case .COF: shortString = "스마트팜"
+        case .none: shortString = ""
+        }
+        
+        return shortString
     }
     
     func convertAdminCodeAsString(adminCode : AdminCodeModel?) -> String{

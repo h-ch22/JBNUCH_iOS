@@ -39,20 +39,20 @@ struct StudentAssociationView: View {
                         
                         Spacer().frame(height : 20)
                         
-                        NavigationLink(destination : EmptyView()){
-                            PlainButtonFramework(imageName: "ic_introduce_dept", txt: "국별 소개")
+                        NavigationLink(destination : InternalWebView(url: URL(string: "http://jbnuch.co.kr/file/")!)){
+                            PlainButtonFramework(imageName: "ic_introduce_dept", txt: "총학생회 사이트")
                         }
                         
                         Spacer().frame(height : 20)
                     }
                     
-                    NavigationLink(destination : SFSafariViewWrapper(url: URL(string: "https://www.youtube.com/channel/UC-k_69T0cKQriqjpB09fFkw")!)){
+                    NavigationLink(destination : InternalWebView(url: URL(string: "https://www.youtube.com/channel/UC-k_69T0cKQriqjpB09fFkw")!)){
                         PlainButtonFramework(imageName: "ic_youtube", txt: "총학생회 유튜브")
                     }
                     
                     Spacer().frame(height : 20)
                     
-                    NavigationLink(destination : SFSafariViewWrapper(url : URL(string: "https://linktr.ee/jbnu_ch")!)){
+                    NavigationLink(destination : InternalWebView(url : URL(string: "https://linktr.ee/jbnu_ch")!)){
                         PlainButtonFramework(imageName: "ic_link", txt: "총학생회 링크트리")
                     }
                     
@@ -67,6 +67,8 @@ struct StudentAssociationView: View {
             }
         }.background(Color.background.edgesIgnoringSafeArea(.all))
         .navigationBarTitle("총학생회 소개", displayMode: .inline)
+        .animation(.easeOut)
+
     }
 }
 

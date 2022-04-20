@@ -23,64 +23,94 @@ struct NoticeDetailView: View {
     @State private var showEditWindow = false
     @State private var selectedImg : URL? = nil
     @State private var redrawPreview = false
-    @State private var url = ""
+    @State private var downloadState = true
+    @State private var url : [String] = []
     
-    func imgView(_ page : Int) -> some View{
-        
-        AsyncImage(url : helper.urlList[page], content : {phase in
-            switch phase{
-            case .empty :
-                ProgressView().padding(5)
-
-            case .success(let image) :
-                image.resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width : 300, height : 300)
-                    .onTapGesture {
-                        self.selectedImg = helper.urlList[page]
-
-                        if selectedImg != nil{
-                            showSheet = true
-                        }
-                    }
-            case .failure :
-                Image(systemName: "exclamationmark.triangle.fill")
-                    .resizable()
-                    .frame(width : 300, height : 300)
-
-
-            @unknown default :
-                EmptyView()
-            }
-        })
-            .cornerRadius(15)
-            .overlay(RoundedRectangle(cornerRadius : 15).stroke(Color.accent, lineWidth : 2))
-            .shadow(radius: 5)
-        
-    }
+//    func imgView(_ page : Int) -> some View{
+//
+//
+//
+//
+//    }
     
     var body: some View {
         ScrollView{
             VStack{
-                if data.imageIndex! > 0 && !helper.urlList.isEmpty{
-                    Pager(page : self.page,
-                          data : helper.urlList.indices,
-                          id : \.self){
-                        self.imgView($0)
-                    }.interactive(scale : 0.8)
-                        .interactive(opacity: 0.5)
-                        .itemSpacing(10)
-                        .pagingPriority(.simultaneous)
-                        .itemAspectRatio(1.3, alignment: .start)
-                        .padding(20)
-                        .sensitivity(.high)
-                        .preferredItemSize(CGSize(width : 300, height : 300))
-                        .onPageWillChange({(newIndex) in
-                            let generator = UIImpactFeedbackGenerator(style: .soft)
-                            generator.impactOccurred()
-                        })
+                if data.imageIndex! > 0 {
+                    if downloadState{
+                        Pager(page : self.page,
+                              data : helper.urlList.indices,
+                              id : \.self,
+                              content : {index in
+//                            AsyncImage(url : helper.urlList[index].url!, content : {phase in
+//                                if let image = phase.image{
+//                                    image
+//                                        .resizable()
+//                                        .aspectRatio(contentMode: .fit)
+//                                        .frame(width : 300, height : 300)
+//                                        .onTapGesture {
+//                                            self.selectedImg = helper.urlList[index].url!
+//
+//                                            if selectedImg != nil{
+//                                                showSheet = true
+//                                            }
+//                                        }
+//                                        .onAppear{
+//                                            print("page : \(index)")
+//                                            print(helper.urlList)
+//                                        }
+//                                } else if phase.error != nil{
+//                                    Image(systemName: "exclamationmark.triangle.fill")
+//                                        .resizable()
+//                                        .frame(width : 200, height : 200)
+//                                        .foregroundColor(.red)
+//                                } else{
+//                                    ProcessView()
+//                                }
+//
+//                            })
+                            
+                            WebImage(url : helper.urlList[index].url!)
+                                .onSuccess{image, data, cacheType in }
+                                .placeholder{
+                                    ProcessView()
+                                }
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width : 300, height : 300)
+                                .onTapGesture {
+                                    self.selectedImg = helper.urlList[index].url!
+                                    
+                                    if selectedImg != nil{
+                                        showSheet = true
+                                    }
+                                }
+
+                            .cornerRadius(15)
+                            .overlay(RoundedRectangle(cornerRadius : 15).stroke(Color.accent, lineWidth : 2))
+                            .shadow(radius: 5)
+                        }).interactive(scale : 0.8)
+                            .interactive(opacity: 0.5)
+                            .itemSpacing(10)
+                            .pagingPriority(.simultaneous)
+                            .itemAspectRatio(1.3, alignment: .start)
+                            .padding(20)
+                            .sensitivity(.high)
+                            .preferredItemSize(CGSize(width : 300, height : 300))
+                            .onPageWillChange({(newIndex) in
+                                let generator = UIImpactFeedbackGenerator(style: .soft)
+                                generator.impactOccurred()
+                            })
+                        
+                            .frame(height : 300)
+                    }
                     
-                        .frame(height : 300)
+                    else{
+                        VStack{
+                            ProgressView()
+                        }
+                    }
+                    
                 }
                 
                 Spacer().frame(height : 20)
@@ -94,16 +124,18 @@ struct NoticeDetailView: View {
                     Spacer()
                 }
                 
-                if url != ""{
-                    Spacer().frame(height : 20)
-                    
-                    LinkRow(previewURL : url, redraw : self.$redrawPreview)
+                if !url.isEmpty{
+                    ForEach(url, id : \.self){item in
+                        Spacer().frame(height : 10)
+                        
+                        LinkRow(previewURL : item, redraw : self.$redrawPreview)
+                    }
                 }
-
+                
                 
             }.padding([.horizontal], 20)
             
-                        
+            
         }.background(Color.background.edgesIgnoringSafeArea(.all)).navigationTitle(data.title!)
             .sheet(isPresented : $showSheet){
                 FullScreenImageView(image: selectedImg?.absoluteString ?? "")
@@ -129,7 +161,7 @@ struct NoticeDetailView: View {
                     }.isHidden(userManagement.userInfo?.admin == nil)
                 }
             }
-            
+        
             .alert(isPresented : $showAlert){
                 switch alertModel{
                 case .confirm :
@@ -158,10 +190,10 @@ struct NoticeDetailView: View {
                     
                 case .fail:
                     return Alert(title : Text("오류"), message: Text("작업을 처리하는 중 오류가 발생했습니다.\n네트워크 상태를 확인하거나 나중에 다시 시도하십시오."), dismissButton: .default(Text("확인")))
-
+                    
                 case .none:
                     return Alert(title : Text(""), message: Text(""), dismissButton: .default(Text("확인")))
-
+                    
                 }
             }
         
@@ -171,7 +203,12 @@ struct NoticeDetailView: View {
                     helper.downloadImage(userInfo: userInfo, id: data.id!, type: data.type, imageIndex: data.imageIndex ?? 0){result in
                         guard let result = result else{return}
                         
+                        self.downloadState = result
                     }
+                }
+                
+                else{
+                    self.downloadState = true
                 }
                 
                 let detector = try! NSDataDetector(types : NSTextCheckingResult.CheckingType.link.rawValue)
@@ -181,7 +218,7 @@ struct NoticeDetailView: View {
                 for match in matches {
                     guard let range = Range(match.range, in: data.contents!) else { continue }
                     let url = data.contents![range]
-                    self.url = String(url)
+                    self.url.append(String(url))
                 }
                 
                 redrawPreview = true

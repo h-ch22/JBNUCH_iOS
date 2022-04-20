@@ -125,7 +125,8 @@ struct FeedbackHubDetailView: View {
                 }){
                     Image(systemName : "paperplane.fill")
                 }.isHidden(self.answer == "" || self.type != "Admin"))
-            
+                .animation(.easeOut)
+
                 .alert(isPresented : $showAlert, content : {
                     switch alertModel{
                     case .confirm:

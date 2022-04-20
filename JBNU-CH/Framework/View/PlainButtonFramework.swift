@@ -26,6 +26,13 @@ struct PlainButtonFramework: View {
                     .foregroundColor(.txtColor)
             }
             
+            else if imageName == "ic_gear"{
+                Image(systemName : "gear")
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .foregroundColor(.accent)
+            }
+            
             else if imageName == "ic_phone"{
                 Image(systemName : "phone.fill")
                     .resizable()

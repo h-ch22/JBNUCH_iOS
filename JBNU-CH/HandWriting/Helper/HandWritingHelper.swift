@@ -10,7 +10,7 @@ import Firebase
 
 class HandWritingHelper : ObservableObject{
     @Published var handWritingList : [HandWritingDataModel] = []
-    @Published var urlList : [URL?] = []
+    @Published var urlList : [URLListModel] = []
     private let db = Firestore.firestore()
     private let storage = Storage.storage()
     
@@ -153,6 +153,10 @@ class HandWritingHelper : ObservableObject{
     
     func downloadImage(data : HandWritingDataModel, completion : @escaping(_ result : Bool?) -> Void){
         self.urlList.removeAll()
+        var imgList : [URLListModel] = []
+        
+        let downloadGroup = DispatchGroup()
+        downloadGroup.enter()
         
         if data.imageIndex > 0{
             for i in 0..<data.imageIndex{
@@ -168,15 +172,22 @@ class HandWritingHelper : ObservableObject{
                     }
                     
                     else{
-                        self.urlList.append(url)
+                        imgList.append(URLListModel(index: i, url: url))
+                        
+                        if imgList.count == data.imageIndex{
+                            downloadGroup.leave()
+                        }
                     }
                 }
             }
             
-            
+            downloadGroup.notify(queue: .main){
+                self.urlList = imgList.sorted{$0.index < $1.index}
+                
+                completion(true)
+            }
         }
         
-        completion(true)
     }
     
     func recommend(data : HandWritingDataModel, userModel : UserInfoModel?, completion : @escaping(_ result : Bool?) -> Void){

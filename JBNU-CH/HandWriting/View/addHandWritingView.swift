@@ -109,7 +109,8 @@ struct addHandWritingView: View {
                             TextEditor(text : $meter)
                                 .background(Color.btnColor)
                                 .padding().lineSpacing(5).frame(height : 150)
-                            
+                                .shadow(radius : 5)
+
                             Spacer().frame(height : 20)
                             
                             Divider()
@@ -155,6 +156,7 @@ struct addHandWritingView: View {
                             TextEditor(text : $review)
                                 .background(Color.btnColor)
                                 .padding().lineSpacing(5).frame(height : 150)
+                                .shadow(radius : 5)
 
                             
                             Spacer().frame(height : 20)
@@ -173,6 +175,7 @@ struct addHandWritingView: View {
                             TextEditor(text : $howTO)
                                 .background(Color.btnColor)
                                 .padding().lineSpacing(5).frame(height : 150)
+                                .shadow(radius : 5)
 
                             Spacer().frame(height : 20)
                             

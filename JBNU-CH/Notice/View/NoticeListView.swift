@@ -21,41 +21,90 @@ struct NoticeListView: View {
     @EnvironmentObject var userManagement : UserManagement
     @State private var searchText = ""
     @State private var showModal = false
+    @State private var selectedTab = 0
     
     var body: some View {
         VStack{
-            List{
-                Section(header : Text("총학생회"), content : {
-                    ForEach(filtertedList, id : \.self){index in
-                        if index.type == .CH{
-                            NavigationLink(destination : NoticeDetailView(data : index, userInfo : userManagement.userInfo, userManagement: userManagement).environmentObject(helper)){
-                                NoticeListModel(data: index)
-                            }
-                        }
+//            List{
+//                Section(header : Text("총학생회"), content : {
+//                    ForEach(filtertedList, id : \.self){index in
+//                        if index.type == .CH{
+//                            NavigationLink(destination : NoticeDetailView(data : index, userInfo : userManagement.userInfo, userManagement: userManagement).environmentObject(helper)){
+//                                NoticeListModel(data: index)
+//                            }
+//                        }
+//                    }
+//                })
+//
+//                Section(header : Text("단과대학"), content : {
+//                    ForEach(filtertedList, id : \.self){index in
+//                        if index.type == .College{
+//                            NavigationLink(destination : NoticeDetailView(data : index, userInfo : userManagement.userInfo, userManagement: userManagement).environmentObject(helper)){
+//                                NoticeListModel(data: index)
+//                            }
+//                        }
+//                    }
+//                }).isHidden(userManagement.userInfo?.collegeCode != .SOC && userManagement.userInfo?.collegeCode != .COM && userManagement.userInfo?.collegeCode != .COH && userManagement.userInfo?.collegeCode != .CON && userManagement.userInfo?.collegeCode != .CHE)
+//            }
+            
+            Picker("공지사항 종류 선택", selection: $selectedTab){
+                ForEach(0..<2){index in
+                    if index == 0{
+                        Text("총학생회").tag(index)
                     }
-                })
-
-                Section(header : Text("단과대학"), content : {
-                    ForEach(filtertedList, id : \.self){index in
-                        if index.type == .College{
-                            NavigationLink(destination : NoticeDetailView(data : index, userInfo : userManagement.userInfo, userManagement: userManagement).environmentObject(helper)){
-                                NoticeListModel(data: index)
-                            }
-                        }
-                    }
-                }).isHidden(userManagement.userInfo?.collegeCode != .SOC && userManagement.userInfo?.collegeCode != .COM && userManagement.userInfo?.collegeCode != .COH && userManagement.userInfo?.collegeCode != .CON && userManagement.userInfo?.collegeCode != .CHE)
-            }.listStyle(SidebarListStyle())
-            .refreshable{
-                helper.getNotice(userInfo : userManagement.userInfo){result in
-                    guard let result = result else{return}
                     
-                    if result{
-                        helper.noticeList.sort(by: {$0.dateTime ?? "" > $1.dateTime ?? ""})
+                    else{
+                        Text("단과대학").tag(index)
                     }
                 }
+            }.pickerStyle(SegmentedPickerStyle())
+            .padding([.horizontal], 20)
+            .isHidden(userManagement.userInfo?.collegeCode != .SOC && userManagement.userInfo?.collegeCode != .COM && userManagement.userInfo?.collegeCode != .COH && userManagement.userInfo?.collegeCode != .CON && userManagement.userInfo?.collegeCode != .CHE)
+            
+            ScrollView{
+                LazyVStack{
+                    ForEach(helper.noticeList, id : \.self){index in
+                        switch selectedTab{
+                        case 0:
+                            if index.type == .CH{
+                                NavigationLink(destination : NoticeDetailView(data : index, userInfo : userManagement.userInfo, userManagement: userManagement).environmentObject(helper)){
+                                    NoticeListModel(data: index)
+                                }
+                            }
+                            
+                            
+                        case 1:
+                            if index.type == .College{
+                                NavigationLink(destination : NoticeDetailView(data : index, userInfo : userManagement.userInfo, userManagement: userManagement).environmentObject(helper)){
+                                    NoticeListModel(data: index)
+                                }
+                            }
+                            
+                        default:
+                            if index.type == .CH{
+                                NavigationLink(destination : NoticeDetailView(data : index, userInfo : userManagement.userInfo, userManagement: userManagement).environmentObject(helper)){
+                                    NoticeListModel(data: index)
+                                }
+                            }
+                        
+                        }
+                        
+                    }
+                }.padding([.horizontal], 20)
+                    .refreshable{
+                        helper.getNotice(userInfo : userManagement.userInfo){result in
+                            guard let result = result else{return}
+                            
+                            if result{
+                                helper.noticeList.sort(by: {$0.dateTime ?? "" > $1.dateTime ?? ""})
+                            }
+                        }
+                    }
             }
+
             .searchable(text : $searchText, prompt : "공지사항 검색")
-        }.onAppear{
+        }
+        .onAppear{
             helper.noticeList.removeAll()
             helper.urlList.removeAll()
             
@@ -79,6 +128,7 @@ struct NoticeListView: View {
         .sheet(isPresented: $showModal, content: {
             addNoticeView(helper : helper).environmentObject(helper)
         })
+        .animation(.easeOut)
         
     }
 }

@@ -100,14 +100,8 @@ struct InfoView: View {
                             
                             Spacer().frame(height : 20)
                             
-                            NavigationLink(destination : EmptyView()){
+                            NavigationLink(destination : OpenSourceLicenseinfoView()){
                                 PlainButtonFramework(imageName : "ic_opensource", txt : "오픈소스 라이센스 정보")
-                            }
-                            
-                            Spacer().frame(height : 20)
-
-                            NavigationLink(destination : EmptyView()){
-                                PlainButtonFramework(imageName : "ic_gpsLicense", txt : "위치기반서비스 이용약관")
                             }
                         }
                         

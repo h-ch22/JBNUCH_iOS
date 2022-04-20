@@ -30,6 +30,7 @@ struct SportsDetailView: View {
     @State private var alertModel : SportsDetailViewAlertModel?
     @State private var showAlert = false
     @State private var showOverlay = false
+    @State private var isAdmin = false
     
     var body: some View {
         ZStack{
@@ -58,7 +59,7 @@ struct SportsDetailView: View {
                             
                             else{
                                 ForEach(helper.participantsList, id : \.self){item in
-                                    SportsParticipantsListModel(data : item)
+                                    SportsParticipantsListModel(data : item, isAdmin : isManager)
                                 }
                             }
                         }

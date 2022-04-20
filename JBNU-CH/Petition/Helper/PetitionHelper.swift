@@ -11,14 +11,25 @@ import Firebase
 class PetitionHelper : ObservableObject{
     @Published var petitionList : [PetitionDataModel] = []
     @Published var recommenders : [PetitionParticipantsModel] = []
-    @Published var urlList : [URL?] = []
+    @Published var urlList : [URLListModel] = []
     
     private let db = Firestore.firestore()
     private let formatter = DateFormatter()
     private let storage = Storage.storage()
 
-    func uploadPetition(title : String, contents : String, images : [URL], completion : @escaping(_ result : Bool?) -> Void){
+    func uploadPetition(title : String, contents : String, images : [URL], category : Int, completion : @escaping(_ result : Bool?) -> Void){
         formatter.dateFormat = "yyyy. MM. dd. kk:mm:ss.SSSS"
+        
+        var categoryAsString = ""
+        
+        switch category{
+        case 1: categoryAsString = "학사"
+        case 2: categoryAsString = "시설"
+        case 3: categoryAsString = "복지"
+        case 4: categoryAsString = "문화 및 예술"
+        case 5: categoryAsString = "기타"
+        default: categoryAsString = "학사"
+        }
         
         let docRef = self.db.collection("Petition").document()
         docRef.setData([
@@ -26,7 +37,8 @@ class PetitionHelper : ObservableObject{
             "contents" : AES256Util.encrypt(string: contents),
             "author" : AES256Util.encrypt(string: Auth.auth().currentUser?.uid ?? ""),
             "timeStamp" : formatter.string(from: Date()),
-            "imageIndex" : images.count
+            "imageIndex" : images.count,
+            "category" : categoryAsString
         ]){error in
             if error != nil{
                 print(error)
@@ -76,6 +88,7 @@ class PetitionHelper : ObservableObject{
                 let imageIndex = diff.document.get("imageIndex") as? Int ?? 0
                 let read = diff.document.get("read") as? Int ?? 0
                 let recommend = diff.document.get("recommend") as? Int ?? 0
+                let category = diff.document.get("category") as? String ?? ""
                 let images : [String] = []
                 let statusAsString = diff.document.get("status") as? String ?? ""
                 var status : PetitionStatusDataModel = .InProcess
@@ -94,28 +107,28 @@ class PetitionHelper : ObservableObject{
                 switch diff.type{
                 case .added:
                     if !self.petitionList.contains(where: {$0.id == id}){
-                        self.petitionList.append(PetitionDataModel(id: id, author: author, title: AES256Util.decrypt(encoded: title), contents: AES256Util.decrypt(encoded: contents), images: images, imageIndex: imageIndex, recommend: recommend, read: read, timeStamp: timeStamp, status : status))
+                        self.petitionList.append(PetitionDataModel(id: id, author: author, title: AES256Util.decrypt(encoded: title), contents: AES256Util.decrypt(encoded: contents), images: images, imageIndex: imageIndex, recommend: recommend, read: read, timeStamp: timeStamp, status : status, category : category))
                     }
                     
                     else{
                         let index = self.petitionList.firstIndex(where: {$0.id == id})
                         
                         if index != nil{
-                            self.petitionList[index!] = PetitionDataModel(id: id, author: author, title: AES256Util.decrypt(encoded: title), contents: AES256Util.decrypt(encoded: contents), images: images, imageIndex: imageIndex, recommend: recommend, read: read, timeStamp: timeStamp, status : status)
+                            self.petitionList[index!] = PetitionDataModel(id: id, author: author, title: AES256Util.decrypt(encoded: title), contents: AES256Util.decrypt(encoded: contents), images: images, imageIndex: imageIndex, recommend: recommend, read: read, timeStamp: timeStamp, status : status, category : category)
                         }
 
                     }
                     
                 case .modified:
                     if !self.petitionList.contains(where: {$0.id == id}){
-                        self.petitionList.append(PetitionDataModel(id: id, author: author, title: AES256Util.decrypt(encoded: title), contents: AES256Util.decrypt(encoded: contents), images: images, imageIndex: imageIndex, recommend: recommend, read: read, timeStamp: timeStamp, status : status))
+                        self.petitionList.append(PetitionDataModel(id: id, author: author, title: AES256Util.decrypt(encoded: title), contents: AES256Util.decrypt(encoded: contents), images: images, imageIndex: imageIndex, recommend: recommend, read: read, timeStamp: timeStamp, status : status, category : category))
                     }
                     
                     else{
                         let index = self.petitionList.firstIndex(where: {$0.id == id})
                         
                         if index != nil{
-                            self.petitionList[index!] = PetitionDataModel(id: id, author: author, title: AES256Util.decrypt(encoded: title), contents: AES256Util.decrypt(encoded: contents), images: images, imageIndex: imageIndex, recommend: recommend, read: read, timeStamp: timeStamp, status : status)
+                            self.petitionList[index!] = PetitionDataModel(id: id, author: author, title: AES256Util.decrypt(encoded: title), contents: AES256Util.decrypt(encoded: contents), images: images, imageIndex: imageIndex, recommend: recommend, read: read, timeStamp: timeStamp, status : status, category : category)
                         }
 
                     }
@@ -172,6 +185,12 @@ class PetitionHelper : ObservableObject{
     }
     
     func downloadImage(id : String, imageIndex : Int){
+        self.urlList.removeAll()
+        
+        var imgList : [URLListModel] = []
+        let downloadGroup = DispatchGroup()
+        downloadGroup.enter()
+        
         if imageIndex >= 1{
             for i in 0..<imageIndex{
                 let storageRef = self.storage.reference(withPath: "/Petition/\(id)/\(i).png")
@@ -184,9 +203,17 @@ class PetitionHelper : ObservableObject{
                     }
                     
                     else{
-                        self.urlList.append(url)
+                        imgList.append(URLListModel(index : i, url : url))
+                        
+                        if imgList.count == imageIndex{
+                            downloadGroup.leave()
+                        }
                     }
                 }
+            }
+            
+            downloadGroup.notify(queue : .main){
+                self.urlList = imgList.sorted{$0.index < $1.index}
             }
         }
     }

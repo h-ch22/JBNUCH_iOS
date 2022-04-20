@@ -22,13 +22,15 @@ struct FullScreenImageView: View {
                     case .success(let image) :
                         image.resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width : 300, height : 300)
                         
                     case .failure :
-                        EmptyView()
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .resizable()
+                            .frame(width : 200, height : 200)
+                            .foregroundColor(.red)
                         
                     @unknown default :
-                        EmptyView()
+                        ProgressView().padding(5)
                     }
                 })
             }.background(Color.black)

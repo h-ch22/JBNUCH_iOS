@@ -23,7 +23,7 @@ struct HandWritingDetailView: View {
     @State private var showOverlay = false
     
     func imgView(_ page : Int) -> some View{
-        AsyncImage(url : helper.urlList[page], content : {phase in
+        AsyncImage(url : helper.urlList[page].url, content : {phase in
             switch phase{
             case .empty :
                 ProgressView().padding(5)
@@ -95,11 +95,11 @@ struct HandWritingDetailView: View {
                         
                         Spacer().frame(height : 20)
                         
-                        HandWritingContentsModel(title: "🙋🏻‍♀️ 시험을 본 후기", contents: data.term)
+                        HandWritingContentsModel(title: "🙋🏻‍♀️ 시험을 본 후기", contents: data.review)
                         
                         Spacer().frame(height : 20)
                         
-                        HandWritingContentsModel(title: "📚 자신만의 공부법", contents: data.term)
+                        HandWritingContentsModel(title: "📚 자신만의 공부법", contents: data.howTO)
                         
                         Spacer().frame(height : 20)
                     }

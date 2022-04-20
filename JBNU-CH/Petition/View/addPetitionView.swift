@@ -18,11 +18,42 @@ struct addPetitionView: View {
     @State private var showAlert = false
     @State private var showPicker = false
     @State private var alertModel : addPetitionAlertModel?
-    
+    @State private var selectedCategory = 1
     @ObservedObject var mediaItems = PickedMediaItems()
     
     var body: some View {
         VStack{
+            HStack{
+                Text("카테고리 선택")
+                    .foregroundColor(.txtColor)
+                
+                Spacer()
+                
+                Picker("카테고리 선택", selection: $selectedCategory){
+                    ForEach(1..<6){index in
+                        switch index{
+                        case 1:
+                            Text("학사").tag(index)
+                            
+                        case 2:
+                            Text("시설").tag(index)
+                            
+                        case 3:
+                            Text("복지").tag(index)
+                            
+                        case 4:
+                            Text("문화 및 예술").tag(index)
+                            
+                        case 5:
+                            Text("기타").tag(index)
+                            
+                        default:
+                            Text("학사").tag(index)
+                        }
+                    }
+                }
+            }.padding(20)
+            
             HStack{
                 TextField("청원 제목", text : $title)
                     .focused($activeField, equals : .field_title)
@@ -38,8 +69,8 @@ struct addPetitionView: View {
             TextEditor(text : $contents)
                 .foregroundColor(.txtColor)
                 .lineSpacing(5)
-                .border(Color.btnColor, width : 2)
-            
+                .shadow(radius : 5)
+
             Spacer().frame(height : 20)
 
             
@@ -102,7 +133,7 @@ struct addPetitionView: View {
                         }
                     }
                     
-                    helper.uploadPetition(title : title, contents : contents, images : urlList){result in
+                    helper.uploadPetition(title : title, contents : contents, images : urlList, category : selectedCategory){result in
                         guard let result = result else{return}
                         
                         showOverlay = false

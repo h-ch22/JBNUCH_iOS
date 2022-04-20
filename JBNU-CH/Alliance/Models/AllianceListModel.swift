@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AllianceListModel: View {
     let data : AllianceDataModel
+    let college : CollegeCodeModel?
+    let userManagment = UserManagement()
     
     var body: some View {
         HStack{
@@ -43,7 +45,7 @@ struct AllianceListModel: View {
 
                 HStack {
                     if data.allianceType == "단대"{
-                        Text(data.allianceType)
+                        Text(userManagment.convertCollegeCodeAsShortString(collegeCode: college))
                             .font(.caption)
                             .padding(5)
                             .foregroundColor(.white)

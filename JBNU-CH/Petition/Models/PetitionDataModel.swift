@@ -18,8 +18,9 @@ struct PetitionDataModel : Hashable{
     var read : Int?
     var timeStamp : String?
     var status : PetitionStatusDataModel
+    var category : String?
     
-    init(id : String?, author : String?, title : String?, contents : String?, images : [String], imageIndex : Int?, recommend : Int?, read : Int?, timeStamp : String?, status : PetitionStatusDataModel){
+    init(id : String?, author : String?, title : String?, contents : String?, images : [String], imageIndex : Int?, recommend : Int?, read : Int?, timeStamp : String?, status : PetitionStatusDataModel, category : String){
         self.id = id
         self.author = author
         self.title = title
@@ -30,5 +31,6 @@ struct PetitionDataModel : Hashable{
         self.read = read
         self.timeStamp = timeStamp
         self.status = status
+        self.category = category
     }
 }

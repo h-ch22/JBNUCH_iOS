@@ -184,7 +184,7 @@ struct addSportsView: View {
                                     Image(systemName: "chevron.right")
                                 }
                                 .foregroundColor(.white)
-                                .padding([.horizontal], 120)
+                                .padding([.horizontal], 60)
                                 .padding([.vertical], 20)
                                 .background(RoundedRectangle(cornerRadius: 30).shadow(radius : 5))
                             }

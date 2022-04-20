@@ -27,7 +27,7 @@ class AllianceHelper : ObservableObject{
         for i in 1...3{
             if userInfo?.collegeCode == .SOC || userInfo?.collegeCode == .COM || userInfo?.collegeCode == .COH || userInfo?.collegeCode == .CON || userInfo?.collegeCode == .CHE || userInfo?.collegeCode == .ENG{
                 let imgReference = storage.reference(withPath : "\(userManagement.convertCollegeCodeAsString(collegeCode: userInfo?.collegeCode))/ad/ad_\(i).png")
-
+                
                 imgReference.getData(maxSize : 1*1024*1024){data, error in
                     if let error = error{
                         print(error)
@@ -41,10 +41,10 @@ class AllianceHelper : ObservableObject{
                     }
                 }
             }
-
+            
             else{
                 let imgReference = storage.reference(withPath : "CH/ad/ad_\(i).png")
-
+                
                 imgReference.getData(maxSize : 1*1024*1024){data, error in
                     if let error = error{
                         print(error)
@@ -90,13 +90,50 @@ class AllianceHelper : ObservableObject{
                                     let storeData = storeListData[store] as! [String : String?]
                                     let id : String = storeData["id"] as? String ?? ""
                                     let storeLogoRef = self.storage.reference(withPath : "storeLogo/\(id).png")
-
+                                    
                                     storeLogoRef.downloadURL{url, error in
                                         if error != nil{
                                             print(error)
                                         }
                                         
-                                            if !self.allianceList.contains(where: {$0.id == storeData["id"] ?? ""}){
+                                        if !self.allianceList.contains(where: {$0.id == storeData["id"] ?? ""}){
+                                            self.allianceList.append(AllianceDataModel(storeName: store,
+                                                                                       benefits: storeData["benefits"] ?? "",
+                                                                                       breakTime: storeData["breakTime"] ?? "",
+                                                                                       closeTime: storeData["closeTime"] ?? "",
+                                                                                       closed: storeData["closed"] ?? "",
+                                                                                       id: storeData["id"] ?? "",
+                                                                                       location: storeData["location"] ?? "",
+                                                                                       menu: storeData["menu"] ?? "",
+                                                                                       openTime: storeData["openTime"] ?? "",
+                                                                                       price: storeData["price"] ?? "",
+                                                                                       tel: storeData["tel"] ?? "",
+                                                                                       storeLogo: url,
+                                                                                       allianceType : "단대"))
+                                        }
+                                        
+                                        else{
+                                            let index = self.allianceList.firstIndex(where: {$0.id == storeData["id"] ?? ""})
+                                            
+                                            if index != nil{
+                                                if self.allianceList[index!].allianceType != "단대"{
+                                                    self.allianceList.append(AllianceDataModel(storeName: store,
+                                                                                               benefits: storeData["benefits"] ?? "",
+                                                                                               breakTime: storeData["breakTime"] ?? "",
+                                                                                               closeTime: storeData["closeTime"] ?? "",
+                                                                                               closed: storeData["closed"] ?? "",
+                                                                                               id: storeData["id"] ?? "",
+                                                                                               location: storeData["location"] ?? "",
+                                                                                               menu: storeData["menu"] ?? "",
+                                                                                               openTime: storeData["openTime"] ?? "",
+                                                                                               price: storeData["price"] ?? "",
+                                                                                               tel: storeData["tel"] ?? "",
+                                                                                               storeLogo: url,
+                                                                                               allianceType : "단대"))
+                                                }
+                                            }
+                                            
+                                            else{
                                                 self.allianceList.append(AllianceDataModel(storeName: store,
                                                                                            benefits: storeData["benefits"] ?? "",
                                                                                            breakTime: storeData["breakTime"] ?? "",
@@ -111,25 +148,19 @@ class AllianceHelper : ObservableObject{
                                                                                            storeLogo: url,
                                                                                            allianceType : "단대"))
                                             }
+                                            
 
+                                        }
+                                        
                                     }
                                 }
-                                
- 
-                                
-
                             }
-                            
-                            
-                            
                         }
                     }
-                    
-
-                    
-                    
                 }
             }
+            
+            print(self.allianceList)
             
             self.db.collection("Affiliate").document("CH").getDocument(){(document, error) in
                 if error != nil{
@@ -151,13 +182,50 @@ class AllianceHelper : ObservableObject{
                                     let storeData = storeListData[store] as! [String : String?]
                                     let id : String = storeData["id"] as? String ?? ""
                                     let storeLogoRef = self.storage.reference(withPath : "storeLogo/\(id).png")
-
+                                    
                                     storeLogoRef.downloadURL{url, error in
                                         if error != nil{
                                             print(error)
                                         }
                                         
-                                            if !self.allianceList.contains(where : {$0.id == storeData["id"] ?? ""}){
+                                        if !self.allianceList.contains(where : {$0.id == storeData["id"] ?? ""}){
+                                            self.allianceList.append(AllianceDataModel(storeName: store,
+                                                                                       benefits: storeData["benefits"] ?? "",
+                                                                                       breakTime: storeData["breakTime"] ?? "",
+                                                                                       closeTime: storeData["closeTime"] ?? "",
+                                                                                       closed: storeData["closed"] ?? "",
+                                                                                       id: storeData["id"] ?? "",
+                                                                                       location: storeData["location"] ?? "",
+                                                                                       menu: storeData["menu"] ?? "",
+                                                                                       openTime: storeData["openTime"] ?? "",
+                                                                                       price: storeData["price"] ?? "",
+                                                                                       tel: storeData["tel"] ?? "",
+                                                                                       storeLogo: url,
+                                                                                       allianceType : "총학"))
+                                        }
+                                        
+                                        else{
+                                            let index = self.allianceList.firstIndex(where: {$0.id == storeData["id"] ?? ""})
+                                            
+                                            if index != nil{
+                                                if self.allianceList[index!].allianceType != "총학"{
+                                                    self.allianceList.append(AllianceDataModel(storeName: store,
+                                                                                               benefits: storeData["benefits"] ?? "",
+                                                                                               breakTime: storeData["breakTime"] ?? "",
+                                                                                               closeTime: storeData["closeTime"] ?? "",
+                                                                                               closed: storeData["closed"] ?? "",
+                                                                                               id: storeData["id"] ?? "",
+                                                                                               location: storeData["location"] ?? "",
+                                                                                               menu: storeData["menu"] ?? "",
+                                                                                               openTime: storeData["openTime"] ?? "",
+                                                                                               price: storeData["price"] ?? "",
+                                                                                               tel: storeData["tel"] ?? "",
+                                                                                               storeLogo: url,
+                                                                                               allianceType : "총학"))
+                                                }
+                                            }
+                                            
+                                            else{
                                                 self.allianceList.append(AllianceDataModel(storeName: store,
                                                                                            benefits: storeData["benefits"] ?? "",
                                                                                            breakTime: storeData["breakTime"] ?? "",
@@ -172,13 +240,13 @@ class AllianceHelper : ObservableObject{
                                                                                            storeLogo: url,
                                                                                            allianceType : "총학"))
                                             }
+                                            
 
+                                        }
+                                        
                                     }
                                 }
-                                
- 
-                                
-
+    
                             }
                             
                             completion(true)
@@ -186,7 +254,7 @@ class AllianceHelper : ObservableObject{
                         }
                     }
                     
-
+                    
                     
                     
                 }
@@ -211,12 +279,56 @@ class AllianceHelper : ObservableObject{
                                 let storeData = data[index] as! [String : String?]
                                 let id : String = storeData["id"] as? String ?? ""
                                 let storeLogoRef = self.storage.reference(withPath : "storeLogo/\(id).png")
-
+                                
                                 storeLogoRef.downloadURL{url, error in
                                     if error != nil{
                                         print(error)
                                     }
                                     
+                                    self.allianceList.append(AllianceDataModel(storeName: index,
+                                                                               benefits: storeData["benefits"] ?? "",
+                                                                               breakTime: storeData["breakTime"] ?? "",
+                                                                               closeTime: storeData["closeTime"] ?? "",
+                                                                               closed: storeData["closed"] ?? "",
+                                                                               id: storeData["id"] ?? "",
+                                                                               location: storeData["location"] ?? "",
+                                                                               menu: storeData["menu"] ?? "",
+                                                                               openTime: storeData["openTime"] ?? "",
+                                                                               price: storeData["price"] ?? "",
+                                                                               tel: storeData["tel"] ?? "",
+                                                                               storeLogo: url,
+                                                                               allianceType : "단대"))
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                print(self.allianceList)
+                
+                self.db.collection("Affiliate").document("CH").getDocument(){(document, error) in
+                    if error != nil{
+                        print(error)
+                        completion(false)
+                        
+                        return
+                    }
+                    
+                    else{
+                        if let document = document{
+                            if document.exists{
+                                let data = document.data()![categoryCode]! as! [String : Any]
+                                
+                                for index in data.keys{
+                                    let storeData = data[index] as! [String : String?]
+                                    let id : String = storeData["id"] as? String ?? ""
+                                    let storeLogoRef = self.storage.reference(withPath : "storeLogo/\(id).png")
+                                    
+                                    storeLogoRef.downloadURL{url, error in
+                                        if error != nil{
+                                            print(error)
+                                        }
+                                        
                                         self.allianceList.append(AllianceDataModel(storeName: index,
                                                                                    benefits: storeData["benefits"] ?? "",
                                                                                    breakTime: storeData["breakTime"] ?? "",
@@ -229,57 +341,10 @@ class AllianceHelper : ObservableObject{
                                                                                    price: storeData["price"] ?? "",
                                                                                    tel: storeData["tel"] ?? "",
                                                                                    storeLogo: url,
-                                                                                   allianceType : "단대"))
-                                }
-                                
-
-                            }
-                            
-                            
-                            
-                        }
-                    }
-                }
-                
-                self.db.collection("Affiliate").document("CH").getDocument(){(document, error) in
-                    if error != nil{
-                        print(error)
-                        completion(false)
-                        
-                        return
-                    }
-                    
-                    else{
-                        if let document = document{
-                            if document.exists{                                
-                                let data = document.data()![categoryCode]! as! [String : Any]
-                                
-                                for index in data.keys{
-                                    let storeData = data[index] as! [String : String?]
-                                    let id : String = storeData["id"] as? String ?? ""
-                                    let storeLogoRef = self.storage.reference(withPath : "storeLogo/\(id).png")
-
-                                    storeLogoRef.downloadURL{url, error in
-                                        if error != nil{
-                                            print(error)
-                                        }
-                                        
-                                            self.allianceList.append(AllianceDataModel(storeName: index,
-                                                                                       benefits: storeData["benefits"] ?? "",
-                                                                                       breakTime: storeData["breakTime"] ?? "",
-                                                                                       closeTime: storeData["closeTime"] ?? "",
-                                                                                       closed: storeData["closed"] ?? "",
-                                                                                       id: storeData["id"] ?? "",
-                                                                                       location: storeData["location"] ?? "",
-                                                                                       menu: storeData["menu"] ?? "",
-                                                                                       openTime: storeData["openTime"] ?? "",
-                                                                                       price: storeData["price"] ?? "",
-                                                                                       tel: storeData["tel"] ?? "",
-                                                                                       storeLogo: url,
-                                                                                       allianceType : "총학"))
+                                                                                   allianceType : "총학"))
                                     }
                                     
-
+                                    
                                 }
                                 
                                 completion(true)

@@ -30,14 +30,21 @@ struct PledgeMainView: View {
             switch selectedTab{
             case 0:
                 PledgeView(college : "CH")
+                    .animation(.easeOut)
 
             case 1:
                 PledgeView(college : userManagement.convertCollegeCodeAsString(collegeCode: userManagement.userInfo?.collegeCode))
+                    .animation(.easeOut)
 
             default:
                 PledgeView(college : "CH")
+                    .animation(.easeOut)
 
             }
+        }.onAppear{
+            let apparence = UITabBarAppearance()
+            apparence.configureWithOpaqueBackground()
+            if #available(iOS 15.0, *) {UITabBar.appearance().scrollEdgeAppearance = apparence}
         }
     }
 }

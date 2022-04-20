@@ -114,10 +114,11 @@ struct FeedbackHubView: View {
                         .padding([.horizontal], 20)
                         .foregroundColor(.txtColor)
                         .lineSpacing(5)
-                        .border(Color.btnColor, width : 2)
+                        .shadow(radius : 5)
                 }
             }.background(Color.background.edgesIgnoringSafeArea(.all))
-            
+                .animation(.easeOut)
+
             .navigationBarTitle("피드백 허브", displayMode : .inline)
                 .navigationBarItems(trailing: Button(action: {
                     alertModel = .confirm

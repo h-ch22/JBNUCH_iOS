@@ -20,7 +20,7 @@ struct PetitionDetailView: View {
     @State private var page : Page = .first()
 
     func imgView(_ page : Int) -> some View{
-        AsyncImage(url : helper.urlList[page], content : {phase in
+        AsyncImage(url : helper.urlList[page].url, content : {phase in
             switch phase{
             case .empty :
                 ProgressView().padding(5)
@@ -84,41 +84,61 @@ struct PetitionDetailView: View {
                         Spacer()
                     }
                     
+                    if(item.recommend ?? 0 >= 100){
+                        Spacer().frame(height : 20)
+
+                        HStack{
+                            Image(systemName : "crown.fill")
+                                .resizable()
+                                .frame(width : 20, height : 15)
+                                .foregroundColor(.orange)
+                            
+                            Text("이 청원이 채택되었습니다.")
+                                .font(.caption)
+                                .foregroundColor(.orange)
+                        }
+                    }
+                    
+                    
                     Spacer().frame(height : 20)
                     
-                    Button(role: .cancel, action: {
-                        alertModel = .recommend
-                        showAlert = true
-                    }, label: {
-                        HStack{
-                            Image(systemName: "hand.thumbsup.fill")
-                            
-                            Text("청원하기")
+                    Group{
+                        Button(role: .cancel, action: {
+                            alertModel = .recommend
+                            showAlert = true
+                        }, label: {
+                            HStack{
+                                Image(systemName: "hand.thumbsup.fill")
+                                
+                                Text("동의")
+                            }
+                        }).buttonStyle(.bordered)
+                        .controlSize(.large)
+                        .isHidden(self.userInfo.userInfo?.uid == AES256Util.decrypt(encoded: self.item.author ?? "") || helper.recommenders.contains(where: {$0.uid == self.userInfo.userInfo?.uid}))
+                        
+                        Spacer().frame(width : 20).isHidden(self.userInfo.userInfo?.uid == AES256Util.decrypt(encoded: self.item.author ?? "") || helper.recommenders.contains(where: {$0.uid == self.userInfo.userInfo?.uid}))
+                        
+                        Button(role: .destructive, action: {
+                            alertModel = .remove
+                            showAlert = true
+                        }, label: {
+                            HStack{
+                                Image(systemName: "xmark")
+                                
+                                Text("삭제하기")
+                            }
+                        }).buttonStyle(.bordered)
+                        .controlSize(.large)
+                        .isHidden(self.userInfo.userInfo?.uid != AES256Util.decrypt(encoded: self.item.author ?? ""))
+                        
+                        Spacer().frame(width : 20)
+                        
+                        ForEach(helper.recommenders, id : \.self){item in
+                            PetitionParticipantsListModel(data : item)
                         }
-                    }).buttonStyle(.bordered)
-                    .controlSize(.large)
-                    .isHidden(self.userInfo.userInfo?.uid == AES256Util.decrypt(encoded: self.item.author ?? "") || helper.recommenders.contains(where: {$0.uid == self.userInfo.userInfo?.uid}))
-                    
-                    Spacer().frame(width : 20).isHidden(self.userInfo.userInfo?.uid == AES256Util.decrypt(encoded: self.item.author ?? "") || helper.recommenders.contains(where: {$0.uid == self.userInfo.userInfo?.uid}))
-                    
-                    Button(role: .destructive, action: {
-                        alertModel = .remove
-                        showAlert = true
-                    }, label: {
-                        HStack{
-                            Image(systemName: "xmark")
-                            
-                            Text("삭제하기")
-                        }
-                    }).buttonStyle(.bordered)
-                    .controlSize(.large)
-                    .isHidden(self.userInfo.userInfo?.uid != AES256Util.decrypt(encoded: self.item.author ?? ""))
-                    
-                    Spacer().frame(width : 20)
-                    
-                    ForEach(helper.recommenders, id : \.self){item in
-                        PetitionParticipantsListModel(data : item)
                     }
+                    
+
                 }.padding([.horizontal], 20)
             }
 
@@ -127,7 +147,7 @@ struct PetitionDetailView: View {
         .alert(isPresented: $showAlert, content: {
             switch alertModel{
             case .recommend:
-                return Alert(title: Text("청원"), message: Text("이 청원에 청원하시겠습니까?"), primaryButton: .default(Text("예")){
+                return Alert(title: Text("청원"), message: Text("이 청원에 동의하시겠습니까?"), primaryButton: .default(Text("예")){
                     showOverlay = true
                     
                     helper.recommend(userInfo: userInfo.userInfo, id: item.id ?? ""){result in

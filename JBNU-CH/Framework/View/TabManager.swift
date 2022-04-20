@@ -24,11 +24,11 @@ struct TabManager: View {
                     Text("제휴업체")
                 }
             
-            TimeTableView()
-                .tabItem{
-                    Image(systemName: "calendar.badge.clock.rtl")
-                    Text("시간표")
-                }
+//            TimeTableView()
+//                .tabItem{
+//                    Image(systemName: "calendar.badge.clock.rtl")
+//                    Text("시간표")
+//                }
             
             NoticeView().environmentObject(helper)
                 .tabItem{

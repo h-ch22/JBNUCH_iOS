@@ -46,6 +46,7 @@ struct MyFeedbackView: View {
                 }
                 .searchable(text : $searchText, prompt : "피드백 검색")
             }.navigationBarTitle("보낸 피드백")
+
                 .onAppear{
                     helper.getMyFeedback(userInfo : userManagement.userInfo){result in
                         guard let result = result else{return}

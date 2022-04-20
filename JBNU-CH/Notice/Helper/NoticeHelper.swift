@@ -8,10 +8,11 @@
 import Foundation
 import Firebase
 import FirebaseFirestore
+import SwiftUI
 
 class NoticeHelper : ObservableObject{
     @Published var noticeList : [NoticeDataModel] = []
-    @Published var urlList : [URL?] = []
+    @Published var urlList : [URLListModel] = []
     private let db = Firestore.firestore()
     private let storage = Storage.storage()
     private let userManagement = UserManagement()
@@ -154,8 +155,15 @@ class NoticeHelper : ObservableObject{
     }
     
     func downloadImage(userInfo : UserInfoModel?, id : String, type : NoticeTypeModel, imageIndex : Int, completion : @escaping(_ result : Bool?) -> Void){
+        self.urlList.removeAll()
+        var imgList : [URLListModel] = []
+        
+        let downloadGroup = DispatchGroup()
+        downloadGroup.enter()
+
         if imageIndex > 0{
             for i in 0..<imageIndex{
+                
                 if type == .CH{
                     let imgRef = self.storage.reference(withPath : "notice/CH/\(id)/\(i).png")
                     
@@ -168,7 +176,11 @@ class NoticeHelper : ObservableObject{
                         }
                         
                         else{
-                            self.urlList.append(url)
+                            imgList.append(URLListModel(index: i, url: url))
+                            
+                            if imgList.count == imageIndex{
+                                downloadGroup.leave()
+                            }
                         }
                     }
                 }
@@ -185,14 +197,23 @@ class NoticeHelper : ObservableObject{
                         }
                         
                         else{
-                            self.urlList.append(url)
+                            imgList.append(URLListModel(index: i, url: url))
+
+                            if imgList.count == imageIndex{
+                                downloadGroup.leave()
+                            }
                         }
                     }
                 }
             }
             
-            completion(true)
-        }
+            downloadGroup.notify(queue: .main){
+                self.urlList = imgList.sorted{$0.index < $1.index}
+                
+                completion(true)
+            }
+            
+        } else{completion(true)}
 
     }
     

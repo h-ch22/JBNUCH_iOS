@@ -27,15 +27,23 @@ class AES256Util{
     }
     
     static func decrypt(encoded : String) -> String{
-        let datas = Data(base64Encoded: encoded)
+        var encoded_new = encoded
+        
+        if encoded.contains {$0.isNewline}{
+            let encodedAsDeletedLineSeperator = encoded.split(whereSeparator : \.isNewline)
+            encoded_new = String(encodedAsDeletedLineSeperator[0])
+        }
+        
+        let datas = Data(base64Encoded: encoded_new)
+
         
         guard datas != nil else {
-            print("data variable is null (original data : \(encoded))")
+            print("data variable is null (original data : \(encoded_new))")
             
             return ""
         }
                 
-        if encoded == ""{
+        if encoded_new == ""{
             print("encoded variable is empty string")
             
             return ""

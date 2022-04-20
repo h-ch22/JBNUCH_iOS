@@ -46,6 +46,7 @@ struct AllFeedbackView: View {
                 }
                 .searchable(text : $searchText, prompt : "피드백 검색")
             }.navigationBarTitle("전체 피드백")
+
                 .onAppear{
                     helper.getAllFeedback(userInfo : userManagement.userInfo){result in
                         guard let result = result else{return}

@@ -32,6 +32,6 @@ struct HomeListModel: View {
         }
         .padding([.horizontal], 20)
         .padding([.vertical], 10)
-        .background(RoundedRectangle(cornerRadius: 5).foregroundColor(.btnColor).shadow(radius : 3))
+        .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.btnColor).shadow(radius : 3))
     }
 }
