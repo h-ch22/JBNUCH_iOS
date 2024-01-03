@@ -1,4 +1,4 @@
-![ ](ReadMe/appstore.png)</br>
+![ ](ReadMe/render_final.png)</br>
 # JBNU-CH</br>
 ### An official mobile application of Jeonbuk National University Student Council. get notice and welfare for fastest<br>
 ⓒ 2022-2024. Changjin Ha. All Rights Reserved.<br><br>
