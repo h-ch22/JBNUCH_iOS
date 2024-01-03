@@ -32,14 +32,14 @@ struct LegacyUserView: View {
                         
                         Spacer().frame(height : 20)
                         
-                        Text("전북대 공대앱 이용자이셨나요?")
+                        Text("전북대 공대앱 이용자이셨나요?".localized())
                             .font(.title)
                             .fontWeight(.semibold)
                             .multilineTextAlignment(.center)
                         
                         Spacer().frame(height : 20)
 
-                        Text("전북대 공대앱은 이제 총학생회 앱과 통합되었습니다.\n아래 버튼을 눌러 학우님의 데이터를 이관하시면, 별도 가입 없이 계속 서비스를 이용하실 수 있습니다!")
+                        Text("전북대 공대앱은 이제 총학생회 앱과 통합되었습니다.\n아래 버튼을 눌러 학우님의 데이터를 이관하시면, 별도 가입 없이 계속 서비스를 이용하실 수 있습니다!".localized())
                             .foregroundColor(.gray)
                             .multilineTextAlignment(.center)
                             .fixedSize(horizontal: false, vertical: true)
@@ -50,7 +50,7 @@ struct LegacyUserView: View {
                     Group{
                         NavigationLink(destination : EULAView(entryPoint : .legacyUser, email : email)){
                             HStack {
-                                Text("데이터 이관")
+                                Text("데이터 이관".localized())
                                 
                                 Image(systemName: "chevron.right")
                             }
@@ -77,7 +77,7 @@ struct LegacyUserView: View {
                                 }
                             }
                         }){
-                            Text("데이터 제거")
+                            Text("데이터 제거".localized())
                                 .foregroundColor(.gray)
                         }
                     }
@@ -88,15 +88,15 @@ struct LegacyUserView: View {
                     .alert(isPresented : $showAlert, content: {
                         switch alertModel{
                         case .some(.SUCCESS):
-                            return Alert(title: Text("데이터 제거 완료"), message: Text("데이터가 제거되었습니다."), dismissButton: .default(Text("확인")){
+                            return Alert(title: Text("데이터 제거 완료"), message: Text("데이터가 제거되었습니다.".localized()), dismissButton: .default(Text("확인".localized())){
                                 self.presentationMode.wrappedValue.dismiss()
                             })
                             
                         case .some(.FAIL):
-                            return Alert(title : Text("오류"), message: Text("작업을 처리하는 중 오류가 발생했습니다.\n네트워크 상태, 정상 로그인 여부를 확인한 후 다시 시도하십시오."), dismissButton: .default(Text("확인")))
+                            return Alert(title : Text("오류".localized()), message: Text("작업을 처리하는 중 오류가 발생했습니다.\n네트워크 상태, 정상 로그인 여부를 확인한 후 다시 시도하십시오.".localized()), dismissButton: .default(Text("확인".localized())))
                             
                         case .none:
-                            return Alert(title: Text(""), message: Text(""), dismissButton: .default(Text("확인")))
+                            return Alert(title: Text(""), message: Text(""), dismissButton: .default(Text("확인".localized())))
                         }
                     })
                 

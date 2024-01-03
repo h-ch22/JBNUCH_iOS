@@ -33,7 +33,7 @@ struct TransferDataView: View {
                     }
                                         
                     HStack {
-                        Text("데이터 변환 시작")
+                        Text("데이터 변환 시작".localized())
                             .font(.title)
                             .fontWeight(.semibold)
                         
@@ -41,7 +41,7 @@ struct TransferDataView: View {
                     }
                     
                     HStack {
-                        Text("먼저 학우님의 정보가 맞는지 확인해주세요.")
+                        Text("먼저 학우님의 정보가 맞는지 확인해주세요.".localized())
                         
                         Spacer()
                     }
@@ -103,7 +103,7 @@ struct TransferDataView: View {
                         }
                     }){
                         HStack {
-                            Text("다음 단계로")
+                            Text("다음 단계로".localized())
                             
                             Image(systemName: "chevron.right")
                         }

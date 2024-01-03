@@ -16,8 +16,9 @@ struct NoticeDataModel : Hashable{
     var imageIndex : Int?
     var url : String?
     var type : NoticeTypeModel
+    var translatedText : String?
     
-    init(id : String?, title : String?, contents : String?, dateTime : String?, imageIndex : Int?, url : String?, type : NoticeTypeModel){
+    init(id : String?, title : String?, contents : String?, dateTime : String?, imageIndex : Int?, url : String?, type : NoticeTypeModel, translatedText : String?){
         self.id = id
         self.title = title
         self.contents = contents
@@ -25,5 +26,6 @@ struct NoticeDataModel : Hashable{
         self.imageIndex = imageIndex
         self.url = url
         self.type = type
+        self.translatedText = translatedText
     }
 }

@@ -9,28 +9,54 @@ import PDFKit
 import SwiftUI
 
 struct PDFViewer : View{
-    var url : URL
+    @State var url : URL
+    @State var page : Int?
+    @State var isPageAvailable = false
+    
     var body : some View{
-        PDFKitRepresentedView(url)
+        PDFKitRepresentedView(document : PDFDocument(url : url)!, url : $url, page : $page, isPageAvailable: $isPageAvailable).onAppear{
+            if self.page != nil{
+                isPageAvailable = true
+            }
+        }
     }
 }
 
 struct PDFKitRepresentedView : UIViewRepresentable{
-    let url : URL
+    let pdfView = PDFView()
+    let document : PDFDocument
     
-    init(_ url : URL){
-        self.url = url
+    @Binding var url : URL
+    @Binding var page : Int?
+    @Binding var isPageAvailable : Bool
+    
+    func goToSpecificPage(){
+        if page != nil{
+            print(page!)
+            if let pageToGo = document.page(at: page!){
+                pdfView.go(to: pageToGo)
+            }
+        }
     }
     
     func makeUIView(context: UIViewRepresentableContext<PDFKitRepresentedView>) -> PDFKitRepresentedView.UIViewType {
-            let pdfView = PDFView()
-            pdfView.document = PDFDocument(url: self.url)
-            pdfView.autoScales = true
-            return pdfView
+        pdfView.autoScales = true
+        
+        pdfView.document = document
+        pdfView.usePageViewController(true, withViewOptions: nil)
+        
+        if isPageAvailable{
+            goToSpecificPage()
         }
 
-        func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<PDFKitRepresentedView>) {
-            // Update the view.
+        return pdfView
+    }
+    
+    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<PDFKitRepresentedView>) {
+        if isPageAvailable{
+            goToSpecificPage()
         }
+        
+    }
     
 }

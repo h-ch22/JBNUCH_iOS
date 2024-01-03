@@ -63,6 +63,5 @@ struct MarketListView: View {
                     guard let result = result else{return}
                 }
             }
-            .animation(.easeOut)
     }
 }

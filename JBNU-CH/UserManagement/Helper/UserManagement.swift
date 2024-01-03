@@ -20,6 +20,33 @@ class UserManagement : ObservableObject{
     @Published var legacyUserInfo : UserInfoModel? = nil
     @Published var userInfo : UserInfoModel?
     
+    func secession(completion : @escaping(_ result : Bool?) -> Void){
+        let uid = auth.currentUser?.uid
+        
+        db.collection("Users").document(uid ?? "").delete(){error in
+            if let error = error{
+                print(error)
+                
+                completion(false)
+                
+                return
+            }
+            
+            else{
+                self.auth.currentUser?.delete{error in
+                    if let error = error{
+                        print(error)
+                        
+                        completion(false)
+                        return
+                    }
+                    
+                    completion(true)
+                }
+            }
+        }
+    }
+    
     func signIn(email : String, password : String, completion: @escaping(_ result : UserManagementResultModel?) -> Void){
         auth.signIn(withEmail: email.lowercased(), password: password){(authResult, error) in
             if error != nil{
@@ -190,7 +217,8 @@ class UserManagement : ObservableObject{
                                                               uid : self.auth.currentUser?.uid ?? "",
                                                               admin : adminAsModel,
                                                               spot : spotAsString,
-                                                              profile : nil)
+                                                              profile : nil,
+                                                              countryCode : nil)
                             }
                             
                             else{
@@ -202,7 +230,8 @@ class UserManagement : ObservableObject{
                                                               uid : self.auth.currentUser?.uid ?? "",
                                                               admin : adminAsModel,
                                                               spot : spotAsString,
-                                                              profile : url)
+                                                              profile : url,
+                                                              countryCode : nil)
                             }
                             
                             Messaging.messaging().subscribe(toTopic: "Notice_CH"){error in
@@ -326,7 +355,7 @@ class UserManagement : ObservableObject{
         do{
             try auth.signOut()
             
-            self.userInfo = UserInfoModel(name: "", phone: "", studentNo: "", college: "", collegeCode: nil, uid: "", admin: nil, spot : "", profile : nil)
+            self.userInfo = UserInfoModel(name: "", phone: "", studentNo: "", college: "", collegeCode: nil, uid: "", admin: nil, spot : "", profile : nil, countryCode : nil)
             UserDefaults.standard.removeObject(forKey: "SignIn_email")
             UserDefaults.standard.removeObject(forKey: "SignIn_password")
 
@@ -356,7 +385,7 @@ class UserManagement : ObservableObject{
                     let name = document.get("name") as? String ?? ""
                     let phone = document.get("phone") as? String ?? ""
                     
-                    self.legacyUserInfo = UserInfoModel(name: name, phone: phone, studentNo: studentNo, college: "공과대학 (" + dept + ")", collegeCode: self.convertCollegeCode(college: "공과대학"), uid : Auth.auth().currentUser?.uid ?? "", admin : nil, spot : "", profile : nil)
+                    self.legacyUserInfo = UserInfoModel(name: name, phone: phone, studentNo: studentNo, college: "공과대학 (" + dept + ")", collegeCode: self.convertCollegeCode(college: "공과대학"), uid : Auth.auth().currentUser?.uid ?? "", admin : nil, spot : "", profile : nil, countryCode : nil)
                     
                     completion(.success)
                 }
@@ -385,7 +414,7 @@ class UserManagement : ObservableObject{
                     let name = document.get("name") as? String ?? ""
                     let phone = document.get("phone") as? String ?? ""
                     
-                    self.signUp(email: email, password: self.str.createRandomStr(length: 128), userModel: UserInfoModel(name: name, phone: phone, studentNo: studentNo, college: dept, collegeCode: self.convertCollegeCode(college: dept), uid : "", admin : nil, spot : "", profile : nil)){result in
+                    self.signUp(email: email, password: self.str.createRandomStr(length: 128), userModel: UserInfoModel(name: name, phone: phone, studentNo: studentNo, college: dept, collegeCode: self.convertCollegeCode(college: dept), uid : "", admin : nil, spot : "", profile : nil, countryCode : nil)){result in
                         guard let result = result else{return}
                         
                         if result != .success{
@@ -1194,5 +1223,121 @@ class UserManagement : ObservableObject{
         }
         
         return collegeCodeAsString
+    }
+    
+    func updateCountry(country : String, completion : @escaping(_ result : Bool?) -> Void){
+        var countryCodeAsString = ""
+        
+        switch country{
+        case "대한민국 (Republic of Korea)":
+            countryCodeAsString = "kr"
+            
+        case "United States":
+            countryCodeAsString = "us"
+
+        case "中国 (China)":
+            countryCodeAsString = "cn"
+
+        case "日本 (Japan)":
+            countryCodeAsString = "jp"
+
+        case "Việt Nam (Vietnam)":
+            countryCodeAsString = "vn"
+
+        default:
+            completion(false)
+            return
+        }
+        
+        if countryCodeAsString == "kr"{
+            UserDefaults.standard.set(["ko"], forKey : "AppleLanguages")
+            UserDefaults.standard.synchronize()
+            
+            setLanguage()
+        }
+        
+        else{
+            UserDefaults.standard.set(["en"], forKey : "AppleLanguages")
+            UserDefaults.standard.synchronize()
+            
+            setLanguage()
+        }
+        
+        self.db.collection("Users").document(auth.currentUser?.uid ?? "").updateData(["country" : countryCodeAsString]){err in
+            if err != nil{
+                print(err)
+                completion(false)
+                
+                return
+            }
+            
+            else{
+                completion(true)
+            }
+        }
+    }
+    
+    func setLanguage(){
+        let language = UserDefaults.standard.array(forKey : "AppleLanguages")?.first as! String
+        let index = language.index(language.startIndex, offsetBy: 2)
+        let langCode = String(language[..<index])
+        
+        let path = Bundle.main.path(forResource: langCode, ofType: "lproj")
+        let bundle = Bundle(path : path!)
+    }
+    
+    func detectCountry(completion : @escaping(_ result : UserCountryCode?) -> Void){
+        var countryCode : UserCountryCode?
+        
+        self.db.collection("Users").document(auth.currentUser?.uid ?? "").getDocument(){(document, error) in
+            if error != nil{
+                print(error)
+                
+                completion(.unknown)
+                
+                return
+            }
+            
+            else{
+                if document != nil{
+                    let document = document
+                    
+                    let countryCodeAsString = document?.get("country") as? String ?? ""
+                    
+                    if countryCodeAsString == nil || countryCodeAsString == ""{
+                        completion(.unknown)
+                        
+                        return
+                    }
+                    
+                    else{
+                        switch countryCodeAsString{
+                        case "kr":
+                            countryCode = .kr
+                        
+                        case "us":
+                            countryCode = .us
+                            
+                        case "cn":
+                            countryCode = .cn
+                            
+                        case "vn":
+                            countryCode = .vn
+                            
+                        case "jp":
+                            countryCode = .jp
+                            
+                        default:
+                            countryCode = .unknown
+                        }
+                        
+                        completion(countryCode)
+                    }
+                }
+            }
+            
+            completion(countryCode)
+
+        }
     }
 }

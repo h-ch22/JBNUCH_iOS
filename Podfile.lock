@@ -212,14 +212,14 @@ PODS:
     - abseil/base/base_internal
     - abseil/base/config
     - abseil/meta/type_traits
-  - Alamofire (5.4.4)
+  - Alamofire (5.6.2)
   - BoringSSL-GRPC (0.0.7):
     - BoringSSL-GRPC/Implementation (= 0.0.7)
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Implementation (0.0.7):
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
-  - CryptoSwift (1.4.2)
+  - CryptoSwift (1.6.0)
   - Firebase/Analytics (6.34.0):
     - Firebase/Core
   - Firebase/Auth (6.34.0):
@@ -321,11 +321,14 @@ PODS:
   - FirebaseStorage (3.9.1):
     - FirebaseCore (~> 6.10)
     - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleAPIClientForREST/Core (1.6.0):
-    - GTMSessionFetcher (>= 1.6.1)
-  - GoogleAPIClientForREST/Vision (1.6.0):
+  - FirebaseUI/Storage (10.0.2):
+    - Firebase/Storage
+    - SDWebImage (~> 5.6)
+  - GoogleAPIClientForREST/Core (1.7.0):
+    - GTMSessionFetcher (< 2.0, >= 1.6.1)
+  - GoogleAPIClientForREST/Vision (1.7.0):
     - GoogleAPIClientForREST/Core
-    - GTMSessionFetcher (>= 1.6.1)
+    - GTMSessionFetcher (< 2.0, >= 1.6.1)
   - GoogleAppMeasurement (6.9.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
     - GoogleUtilities/MethodSwizzler (~> 6.7)
@@ -389,25 +392,27 @@ PODS:
     - BoringSSL-GRPC (= 0.0.7)
     - gRPC-Core/Interface (= 1.28.2)
   - gRPC-Core/Interface (1.28.2)
-  - GTMSessionFetcher (1.7.0):
-    - GTMSessionFetcher/Full (= 1.7.0)
-  - GTMSessionFetcher/Core (1.7.0)
-  - GTMSessionFetcher/Full (1.7.0):
-    - GTMSessionFetcher/Core (= 1.7.0)
+  - GTMSessionFetcher (1.7.2):
+    - GTMSessionFetcher/Full (= 1.7.2)
+  - GTMSessionFetcher/Core (1.7.2)
+  - GTMSessionFetcher/Full (1.7.2):
+    - GTMSessionFetcher/Core (= 1.7.2)
   - leveldb-library (1.22.1)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
-  - NMapsMap (3.14.0)
+  - NMapsMap (3.16.0)
   - PromisesObjC (1.2.12)
-  - Protobuf (3.19.1)
-  - SDWebImage (5.12.1):
-    - SDWebImage/Core (= 5.12.1)
-  - SDWebImage/Core (5.12.1)
-  - SDWebImageSwiftUI (2.0.2):
+  - Protobuf (3.21.6)
+  - SDWebImage (5.13.3):
+    - SDWebImage/Core (= 5.13.3)
+  - SDWebImage/Core (5.13.3)
+  - SDWebImageSwiftUI (2.1.0):
     - SDWebImage (~> 5.10)
+  - SwiftSoup (2.4.3)
+  - SwiftUIPager (2.5.0)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
@@ -420,8 +425,11 @@ DEPENDENCIES:
   - Firebase/MLVision
   - Firebase/Storage
   - FirebaseFirestoreSwift
+  - FirebaseUI/Storage
   - NMapsMap
   - SDWebImageSwiftUI
+  - SwiftSoup
+  - SwiftUIPager
   - SwiftyJSON
 
 SPEC REPOS:
@@ -444,6 +452,7 @@ SPEC REPOS:
     - FirebaseMLCommon
     - FirebaseMLVision
     - FirebaseStorage
+    - FirebaseUI
     - GoogleAPIClientForREST
     - GoogleAppMeasurement
     - GoogleDataTransport
@@ -459,13 +468,15 @@ SPEC REPOS:
     - Protobuf
     - SDWebImage
     - SDWebImageSwiftUI
+    - SwiftSoup
+    - SwiftUIPager
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
-  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
-  CryptoSwift: a532e74ed010f8c95f611d00b8bbae42e9fe7c17
+  CryptoSwift: 562f8eceb40e80796fffc668b0cad9313284cfa6
   Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
   FirebaseAnalytics: 3bb096873ee0d7fa4b6c70f5e9166b6da413cc7f
   FirebaseAuth: c92d49ada7948d1a23466e3db17bc4c2039dddc3
@@ -480,23 +491,26 @@ SPEC CHECKSUMS:
   FirebaseMLCommon: f42d067ca7fed962e09f02ba94a24e06ee50d933
   FirebaseMLVision: fd7cdd33d067c976c16fd521e7e92c26c980c947
   FirebaseStorage: 15e0f15ef3c7fec3d1899d68623e47d4447066b4
-  GoogleAPIClientForREST: 5183df28e7bcb7b7b41ebd558e16083cfed60d99
+  FirebaseUI: 59db3d833773f985550897d54ceb811ba37fb9a5
+  GoogleAPIClientForREST: 2d4140915e2ec6d1bcb39c9df4a534c75706c595
   GoogleAppMeasurement: a6a3a066369828db64eda428cb2856dc1cdc7c4e
   GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833
   GoogleToolboxForMac: 8bef7c7c5cf7291c687cf5354f39f9db6399ad34
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
-  GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
+  GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
-  NMapsMap: 61c2abfc409bbcdc91583ccc455a5b6f64c7414e
+  NMapsMap: a2593320fca2bb09e521c05b4dffee4da42e96ed
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
-  Protobuf: 3724efa50cb2846d7ccebc8691c574e85fd74471
-  SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
-  SDWebImageSwiftUI: 8a3923c95108312b03a599ec1498754af55a6819
+  Protobuf: e7846f61e8542750cf311385fc633c1d00928f9f
+  SDWebImage: af5bbffef2cde09f148d826f9733dcde1a9414cd
+  SDWebImageSwiftUI: 76c824afd24d896710e47f240755a31b80e056a0
+  SwiftSoup: 3384f2e618cfc1b3cbc7852c16692fe8de13fb8f
+  SwiftUIPager: b314d8923bef0bde743c904bb74fcc7a05fd3422
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: fd3de9c7da5c7227ff2a641d2875c2bbc48089c2
+PODFILE CHECKSUM: 7ba8bffa4a58dc03ce8cf6a58cc050450700befa
 
-COCOAPODS: 1.11.0
+COCOAPODS: 1.11.3

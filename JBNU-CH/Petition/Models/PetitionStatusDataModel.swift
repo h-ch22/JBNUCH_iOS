@@ -8,5 +8,5 @@
 import Foundation
 
 enum PetitionStatusDataModel{
-    case InProcess, Finish, Answered
+    case InProcess, Finish, Answered, Cancled
 }

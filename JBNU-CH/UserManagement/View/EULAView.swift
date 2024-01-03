@@ -31,7 +31,7 @@ struct EULAView: View {
                     }
                                         
                     HStack {
-                        Text("안녕하세요 학우님!")
+                        Text("안녕하세요 학우님!".localized())
                             .font(.title)
                             .fontWeight(.semibold)
                         
@@ -39,7 +39,7 @@ struct EULAView: View {
                     }
                     
                     HStack {
-                        Text("계속 하려면 이용약관을 읽고 동의해주세요.")
+                        Text("계속 하려면 이용약관을 읽고 동의해주세요.".localized())
                         
                         Spacer()
                     }
@@ -48,12 +48,12 @@ struct EULAView: View {
                 Spacer().frame(height : 60)
                 
                 HStack{
-                    Text("전북대 총학생회 애플리케이션 최종 사용자 계약서")
+                    Text("전북대 총학생회 애플리케이션 최종 사용자 계약서".localized())
                     
                     Spacer()
                     
-                    NavigationLink(destination : PDFViewer(url : Bundle.main.url(forResource: "EULA", withExtension: "pdf")!).navigationBarTitle("이용 약관", displayMode: .inline)){
-                        Text("읽기")
+                    NavigationLink(destination : PDFViewer(url : Bundle.main.url(forResource: "EULA", withExtension: "pdf")!, page: nil).navigationBarTitle("이용 약관".localized(), displayMode: .inline)){
+                        Text("읽기".localized())
                     }
                     
                     CheckBox(checked: $acceptEULA)
@@ -62,12 +62,12 @@ struct EULAView: View {
                 Spacer().frame(height : 20)
                 
                 HStack{
-                    Text("전북대 총학생회 애플리케이션 개인정보 처리 방침")
+                    Text("전북대 총학생회 애플리케이션 개인정보 처리 방침".localized())
                     
                     Spacer()
                     
-                    NavigationLink(destination : PDFViewer(url : Bundle.main.url(forResource: "PrivacyLicense", withExtension: "pdf")!).navigationBarTitle("개인정보 처리 방침", displayMode: .inline)){
-                        Text("읽기")
+                    NavigationLink(destination : PDFViewer(url : Bundle.main.url(forResource: "PrivacyLicense", withExtension: "pdf")!, page: nil).navigationBarTitle("개인정보 처리 방침".localized(), displayMode: .inline)){
+                        Text("읽기".localized())
                     }
                     
                     CheckBox(checked: $acceptPrivacyLicense)
@@ -85,7 +85,7 @@ struct EULAView: View {
                     }
                 }){
                     HStack {
-                        Text("다음 단계로")
+                        Text("다음 단계로".localized())
                         
                         Image(systemName: "chevron.right")
                     }
@@ -97,7 +97,7 @@ struct EULAView: View {
                 
             }.padding([.horizontal], 20)
                 .alert(isPresented : $showAlert, content : {
-                    return Alert(title: Text("약관 동의 필요"), message: Text("이용약관에 동의해주세요."), dismissButton: .default(Text("확인")))
+                    return Alert(title: Text("약관 동의 필요".localized()), message: Text("이용약관에 동의해주세요.".localized()), dismissButton: .default(Text("확인".localized())))
                 })
             
                 .fullScreenCover(isPresented : $changeView, content : {

@@ -46,22 +46,22 @@ struct SignUpView: View {
     
     private func actionSheet() -> ActionSheet{
         let buttons = [
-            ActionSheet.Button.default(Text("모바일학생증 이미지 불러오기")){
+            ActionSheet.Button.default(Text("모바일 학생증 이미지 불러오기".localized())){
                 self.showActionSheet = false
                 self.pickerType = .photoLibrary
                 self.showPicker = true
             },
             
-            ActionSheet.Button.default(Text("모바일 학생증앱 열기")){
+            ActionSheet.Button.default(Text("모바일 학생증앱 열기".localized())){
                 self.showActionSheet = false
                 openIDCard()
             },
             
-            ActionSheet.Button.cancel(Text("취소"))
+            ActionSheet.Button.cancel(Text("취소".localized()))
         ]
         
-        let actionSheet = ActionSheet(title : Text("학생증 로드 방식 선택"),
-                                      message: Text("원하시는 옵션을 선택하세요."),
+        let actionSheet = ActionSheet(title : Text("학생증 로드 방식 선택".localized()),
+                                      message: Text("원하시는 옵션을 선택하세요.".localized()),
                                       buttons: buttons)
         
         return actionSheet
@@ -83,7 +83,7 @@ struct SignUpView: View {
                         }
                                             
                         HStack {
-                            Text("회원가입")
+                            Text("회원가입".localized())
                                 .font(.title)
                                 .fontWeight(.semibold)
                             
@@ -91,7 +91,7 @@ struct SignUpView: View {
                         }
                         
                         HStack {
-                            Text("학우님의 정보를 입력해주세요.")
+                            Text("학우님의 정보를 입력해주세요.".localized())
                             
                             Spacer()
                         }
@@ -118,7 +118,7 @@ struct SignUpView: View {
                         HStack{
                             Image(systemName : "key.fill")
                             
-                            SecureField("비밀번호", text : $password)
+                            SecureField("비밀번호".localized(), text : $password)
                                 .focused($activeField, equals : .field_password)
                                 .submitLabel(.done)
                         }.foregroundColor(activeField == .field_password ? .accent : .txtColor)
@@ -132,7 +132,7 @@ struct SignUpView: View {
                         HStack{
                             Image(systemName : "key.fill")
                             
-                            SecureField("비밀번호 확인", text : $checkPassword)
+                            SecureField("비밀번호 확인".localized(), text : $checkPassword)
                                 .focused($activeField, equals : .field_checkPassword)
                                 .submitLabel(.done)
                         }.foregroundColor(activeField == .field_checkPassword ? .accent : .txtColor)
@@ -146,7 +146,7 @@ struct SignUpView: View {
                         HStack{
                             Image(systemName : "person.fill.viewfinder")
                             
-                            TextField("이름", text : $name)
+                            TextField("이름".localized(), text : $name)
                                 .focused($activeField, equals : .field_name)
                                 .submitLabel(.continue)
                         }.foregroundColor(activeField == .field_name ? .accent : .txtColor)
@@ -160,7 +160,7 @@ struct SignUpView: View {
                         HStack{
                             Image(systemName : "phone.fill")
                             
-                            TextField("휴대폰 번호", text : $phone)
+                            TextField("휴대폰 번호".localized(), text : $phone)
                                 .keyboardType(.numberPad)
                                 .focused($activeField, equals : .field_phone)
                                 .submitLabel(.continue)
@@ -178,7 +178,7 @@ struct SignUpView: View {
                         HStack{
                             Image(systemName : "person.crop.square.fill.and.at.rectangle")
                             
-                            TextField("학번", text : $studentNo)
+                            TextField("학번".localized(), text : $studentNo)
                                 .keyboardType(.numberPad)
                                 .focused($activeField, equals : .field_studentNo)
                                 .submitLabel(.done)
@@ -191,14 +191,14 @@ struct SignUpView: View {
                         Spacer().frame(height : 20)
 
                         HStack {
-                            Text("소속 단과대학을 선택해주세요.")
+                            Text("소속 단과대학을 선택해주세요.".localized())
                                 .fontWeight(.semibold)
                             
                             Spacer()
                         }
                         
                         HStack {
-                            Picker(selection : $selectedCollege, label : Text("소속 단과대학 선택")){
+                            Picker(selection : $selectedCollege, label : Text("소속 단과대학 선택".localized())){
                                 ForEach(0..<collegeList.count){
                                     Text(collegeList[$0])
                                 }
@@ -210,7 +210,7 @@ struct SignUpView: View {
                         Spacer().frame(height : 20)
 
                         HStack {
-                            Text("모바일 학생증 캡처 이미지를 불러와주세요.")
+                            Text("모바일 학생증 캡처 이미지를 불러와주세요.".localized())
                                 .fontWeight(.semibold)
                             
                             Spacer()
@@ -225,7 +225,7 @@ struct SignUpView: View {
                                 HStack{
                                     Image(systemName : "person.crop.square.fill.and.at.rectangle")
 
-                                    Text("모바일 학생증 불러오기")
+                                    Text("모바일 학생증 불러오기".localized())
                                 }.padding(20)
                                 .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.btnColor).shadow(radius: 5))
                             }
@@ -269,7 +269,7 @@ struct SignUpView: View {
                                 }
                                 
                                 else{
-                                    helper.signUp(email : email, password : password, userModel: UserInfoModel(name: name ?? "", phone: phone ?? "", studentNo: studentNo ?? "", college: collegeList[selectedCollege] ?? "", collegeCode : nil, uid : "", admin : nil, spot : "", profile : nil)){result in
+                                    helper.signUp(email : email, password : password, userModel: UserInfoModel(name: name ?? "", phone: phone ?? "", studentNo: studentNo ?? "", college: collegeList[selectedCollege] ?? "", collegeCode : nil, uid : "", admin : nil, spot : "", profile : nil, countryCode : nil)){result in
                                         guard let result = result else{return}
                                         
                                         showOverlay = false
@@ -289,7 +289,7 @@ struct SignUpView: View {
                         }
                     }){
                         HStack {
-                            Text("다음 단계로")
+                            Text("다음 단계로".localized())
                             
                             Image(systemName: "chevron.right")
                         }

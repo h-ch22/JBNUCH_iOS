@@ -67,7 +67,7 @@ struct NoticeListView: View {
                         switch selectedTab{
                         case 0:
                             if index.type == .CH{
-                                NavigationLink(destination : NoticeDetailView(data : index, userInfo : userManagement.userInfo, userManagement: userManagement).environmentObject(helper)){
+                                NavigationLink(destination : NoticeDetailView(data : index, userInfo : userManagement.userInfo, helper : helper, userManagement: userManagement)){
                                     NoticeListModel(data: index)
                                 }
                             }
@@ -75,14 +75,14 @@ struct NoticeListView: View {
                             
                         case 1:
                             if index.type == .College{
-                                NavigationLink(destination : NoticeDetailView(data : index, userInfo : userManagement.userInfo, userManagement: userManagement).environmentObject(helper)){
+                                NavigationLink(destination : NoticeDetailView(data : index, userInfo : userManagement.userInfo, helper : helper, userManagement: userManagement)){
                                     NoticeListModel(data: index)
                                 }
                             }
                             
                         default:
                             if index.type == .CH{
-                                NavigationLink(destination : NoticeDetailView(data : index, userInfo : userManagement.userInfo, userManagement: userManagement).environmentObject(helper)){
+                                NavigationLink(destination : NoticeDetailView(data : index, userInfo : userManagement.userInfo, helper : helper, userManagement: userManagement)){
                                     NoticeListModel(data: index)
                                 }
                             }
@@ -102,7 +102,7 @@ struct NoticeListView: View {
                     }
             }
 
-            .searchable(text : $searchText, prompt : "공지사항 검색")
+            .searchable(text : $searchText, prompt : "공지사항 검색".localized())
         }
         .onAppear{
             helper.noticeList.removeAll()
@@ -128,7 +128,6 @@ struct NoticeListView: View {
         .sheet(isPresented: $showModal, content: {
             addNoticeView(helper : helper).environmentObject(helper)
         })
-        .animation(.easeOut)
         
     }
 }

@@ -26,7 +26,7 @@ struct PetitionListModel: View {
                     .fontWeight(.semibold)
                     .foregroundColor(.txtColor)
                 
-                if data.recommend ?? 0 >= 100{
+                if data.status == .Finish{
                     Spacer().frame(width : 15)
                     
                     Image(systemName : "crown.fill")
@@ -37,6 +37,19 @@ struct PetitionListModel: View {
                     Text("채택")
                         .font(.caption)
                         .foregroundColor(.orange)
+                }
+                
+                else if data.status == .Cancled{
+                    Spacer().frame(width : 15)
+                    
+                    Image(systemName : "xmark")
+                        .resizable()
+                        .frame(width : 15, height : 15)
+                        .foregroundColor(.red)
+                    
+                    Text("만료됨")
+                        .font(.caption)
+                        .foregroundColor(.red)
                 }
                 
                 Spacer()

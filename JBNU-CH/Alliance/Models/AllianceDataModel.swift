@@ -22,8 +22,12 @@ struct AllianceDataModel : Hashable{
     var tel : String?
     var storeLogo : URL?
     var allianceType : String
+    var URL_Naver : String?
+    var URL_Baemin : String?
+    var pos : String?
+    var isFavorite : Bool?
     
-    init(storeName : String?, benefits : String?, breakTime : String?, closeTime : String?, closed : String?, id : String?, location : String?, menu : String?, openTime : String?, price : String?, tel : String?, storeLogo : URL?, allianceType : String){
+    init(storeName : String?, benefits : String?, breakTime : String?, closeTime : String?, closed : String?, id : String?, location : String?, menu : String?, openTime : String?, price : String?, tel : String?, storeLogo : URL?, allianceType : String, URL_Naver : String?, URL_Baemin : String?, pos : String?, isFavorite : Bool?){
         self.storeName = storeName
         self.benefits = benefits
         self.breakTime = breakTime
@@ -37,5 +41,9 @@ struct AllianceDataModel : Hashable{
         self.tel = tel
         self.storeLogo = storeLogo
         self.allianceType = allianceType
+        self.URL_Naver = URL_Naver
+        self.URL_Baemin = URL_Baemin
+        self.pos = pos
+        self.isFavorite = isFavorite
     }
 }

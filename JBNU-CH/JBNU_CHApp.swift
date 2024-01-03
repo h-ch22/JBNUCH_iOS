@@ -39,6 +39,22 @@ extension Color{
     static let btnColor = Color("btnColor")
 }
 
+extension String {
+    func localized(comment: String = "") -> String {
+        return NSLocalizedString(self, comment: comment)
+    }
+    
+}
+
+
+extension Date {
+
+    static func - (lhs: Date, rhs: Date) -> TimeInterval {
+        return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
+    }
+
+}
+
 extension UIColor {
    convenience init(red: Int, green: Int, blue: Int) {
        assert(red >= 0 && red <= 255, "Invalid red component")

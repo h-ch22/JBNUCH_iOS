@@ -77,29 +77,29 @@ struct HandWritingDetailView: View {
                     Spacer().frame(height : 20)
                     
                     Group{
-                        HandWritingContentsModel(title: "✏️ 시험 이름", contents: data.examName)
+                        HandWritingContentsModel(title: "✏️ 시험 이름".localized(), contents: data.examName)
                         
                         Spacer().frame(height : 20)
                         
-                        HandWritingContentsModel(title: "🗓 시험 날짜", contents: data.examDate)
+                        HandWritingContentsModel(title: "🗓 시험 날짜".localized(), contents: data.examDate)
                         
                         Spacer().frame(height : 20)
                         
-                        HandWritingContentsModel(title: "💭 시험을 준비하게 된 계기", contents: data.meter)
+                        HandWritingContentsModel(title: "💭 시험을 준비하게 된 계기".localized(), contents: data.meter)
                         
                         Spacer().frame(height : 20)
                     }
                     
                     Group{
-                        HandWritingContentsModel(title: "⏰ 시험 준비 기간", contents: data.term)
+                        HandWritingContentsModel(title: "⏰ 시험 준비 기간".localized(), contents: data.term)
                         
                         Spacer().frame(height : 20)
                         
-                        HandWritingContentsModel(title: "🙋🏻‍♀️ 시험을 본 후기", contents: data.review)
+                        HandWritingContentsModel(title: "🙋🏻‍♀️ 시험을 본 후기".localized(), contents: data.review)
                         
                         Spacer().frame(height : 20)
                         
-                        HandWritingContentsModel(title: "📚 자신만의 공부법", contents: data.howTO)
+                        HandWritingContentsModel(title: "📚 자신만의 공부법".localized(), contents: data.howTO)
                         
                         Spacer().frame(height : 20)
                     }
@@ -207,12 +207,12 @@ struct HandWritingDetailView: View {
                                             }
                                         }
                                         
-                                        alertModel = .successRemove
+                                        alertModel = .successRecommend
                                         showAlert = true
                                     }
                                     
                                     else{
-                                        alertModel = .failRemove
+                                        alertModel = .failRecommend
                                         showAlert = true
                                     }
                                 }

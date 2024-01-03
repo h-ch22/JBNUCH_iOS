@@ -25,7 +25,7 @@ struct InfoView: View {
                                 .resizable().frame(width : 100, height : 100).cornerRadius(15)
                             
                             Spacer().frame(width : 10)
-
+                            
                             VStack(alignment : .leading) {
                                 HStack {
                                     Text("전북대 총학생회")
@@ -42,7 +42,7 @@ struct InfoView: View {
                                 }
                                 
                                 Spacer().frame(height : 5)
-
+                                
                                 HStack{
                                     Text("빌드 번호 : \(build)")
                                         .font(.caption)
@@ -88,32 +88,32 @@ struct InfoView: View {
                         Spacer().frame(height : 20)
                         
                         Group{
-                            NavigationLink(destination : PDFViewer(url: Bundle.main.url(forResource: "EULA", withExtension: "pdf")!).navigationBarTitle("서비스 이용 약관", displayMode: .inline)){
-                                PlainButtonFramework(imageName : "ic_eula", txt : "서비스 이용 약관 읽기")
+                            NavigationLink(destination : PDFViewer(url: Bundle.main.url(forResource: "EULA", withExtension: "pdf")!, page : nil).navigationBarTitle("서비스 이용 약관", displayMode: .inline)){
+                                PlainButtonFramework(imageName : "ic_eula", txt : "이용 약관".localized())
                             }
                             
                             Spacer().frame(height : 20)
-
-                            NavigationLink(destination : PDFViewer(url: Bundle.main.url(forResource: "PrivacyLicense", withExtension: "pdf")!).navigationBarTitle("개인정보 처리 방침", displayMode: .inline)){
-                                PlainButtonFramework(imageName : "ic_privacy", txt : "개인정보 처리 방침 읽기")
+                            
+                            NavigationLink(destination : PDFViewer(url: Bundle.main.url(forResource: "PrivacyLicense", withExtension: "pdf")!, page : nil).navigationBarTitle("개인정보 처리 방침", displayMode: .inline)){
+                                PlainButtonFramework(imageName : "ic_privacy", txt : "개인정보 처리 방침".localized())
                             }
                             
                             Spacer().frame(height : 20)
                             
                             NavigationLink(destination : OpenSourceLicenseinfoView()){
-                                PlainButtonFramework(imageName : "ic_opensource", txt : "오픈소스 라이센스 정보")
+                                PlainButtonFramework(imageName : "ic_opensource", txt : "오픈소스 라이센스 정보".localized())
                             }
                         }
                         
                         Spacer().frame(height : 20)
-
+                        
                         Text("© 2022 Public Relations Department of Jeonbuk National University Student Association.")
                             .font(.caption)
                             .foregroundColor(.gray)
                             .fixedSize(horizontal: false, vertical: true)
                             .multilineTextAlignment(.center)
                     }
-   
+                    
                 }.padding([.horizontal], 20)
             }.background(Color.background.edgesIgnoringSafeArea(.all))
         }.navigationBarTitle("정보", displayMode: .inline)
@@ -121,9 +121,9 @@ struct InfoView: View {
                 guard let dictionary = Bundle.main.infoDictionary,
                       let version = dictionary["CFBundleShortVersionString"] as? String,
                       let build = dictionary["CFBundleVersion"] as? String                 else{
-                          return
-                      }
-
+                    return
+                }
+                
                 
                 self.version = version
                 self.build = build

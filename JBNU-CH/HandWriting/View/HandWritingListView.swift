@@ -34,7 +34,7 @@ struct HandWritingListView: View {
                             HandWritingListModel(data : index)
                         }
                     }
-                }.searchable(text : $searchText, prompt : "제목, 시험명으로 수기를 검색해보세요!")
+                }.searchable(text : $searchText, prompt : "제목, 시험명으로 수기를 검색해보세요!".localized())
                     .refreshable {
                         helper.getHandWritingList(){result in
                             guard let result = result else{return}

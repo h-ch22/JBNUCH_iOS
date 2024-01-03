@@ -13,10 +13,14 @@ import CoreLocation
 class StoreListMapView : UIViewController, CLLocationManagerDelegate{
     var locationManager = CLLocationManager()
     var naverMapView : NMFNaverMapView!
+    let userManagement : UserManagement
     let models : [AllianceDataModel]
+    let helper : AllianceHelper
     
-    init(models : [AllianceDataModel]){
+    init(models : [AllianceDataModel], userManagement : UserManagement, helper : AllianceHelper){
         self.models = models
+        self.userManagement = userManagement
+        self.helper = helper
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -87,7 +91,7 @@ class StoreListMapView : UIViewController, CLLocationManagerDelegate{
             }
             
             marker.touchHandler = {(overlay : NMFOverlay) -> Bool in
-                let hostingView = UIHostingController(rootView : AllianceDetailView(data: self.models[index]))
+                let hostingView = UIHostingController(rootView : AllianceDetailView(data: self.models[index], college : self.userManagement.userInfo?.collegeCode, helper : self.helper))
                 self.present(hostingView, animated: true, completion: nil)
                 
                 return true

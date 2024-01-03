@@ -36,11 +36,11 @@ struct SignInView: View {
                             .resizable()
                             .frame(width : 200, height : 200)
                         
-                        Text("반가워요!")
+                        Text("반가워요!".localized())
                             .font(.title)
                             .fontWeight(.semibold)
                         
-                        Text("계속 진행하려면 로그인이 필요합니다.")
+                        Text("계속 진행하려면 로그인이 필요합니다.".localized())
                             .foregroundColor(.gray)
                     }
 
@@ -65,7 +65,7 @@ struct SignInView: View {
                         HStack{
                             Image(systemName : "key.fill")
                             
-                            SecureField("비밀번호", text : $password)
+                            SecureField("비밀번호".localized(), text : $password)
                                 .focused($activeField, equals : .field_password)
                                 .submitLabel(.done)
                         }.foregroundColor(activeField == .field_password ? .accent : .txtColor)
@@ -112,7 +112,7 @@ struct SignInView: View {
                             }
                         }){
                             HStack {
-                                Text("로그인")
+                                Text("로그인".localized())
                                 
                                 Image(systemName: "chevron.right")
                             }
@@ -126,14 +126,14 @@ struct SignInView: View {
 
                         HStack{
                             NavigationLink(destination : SendResetPasswordEmailView()){
-                                Text("비밀번호 재설정")
+                                Text("비밀번호 재설정".localized())
                                     .foregroundColor(.gray)
                             }
                             
                             Spacer()
                             
                             NavigationLink(destination : EULAView(entryPoint : .newUser, email : nil)){
-                                Text("회원가입")
+                                Text("회원가입".localized())
                             }
                         }
                         

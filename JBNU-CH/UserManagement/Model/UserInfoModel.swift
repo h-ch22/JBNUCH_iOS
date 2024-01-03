@@ -17,8 +17,9 @@ struct UserInfoModel : Hashable{
     var admin : AdminCodeModel?
     var spot : String?
     var profile : URL?
+    var countryCode : UserCountryCode?
     
-    init(name : String?, phone : String?, studentNo : String?, college : String?, collegeCode : CollegeCodeModel?, uid : String?, admin : AdminCodeModel?, spot : String?, profile : URL?){
+    init(name : String?, phone : String?, studentNo : String?, college : String?, collegeCode : CollegeCodeModel?, uid : String?, admin : AdminCodeModel?, spot : String?, profile : URL?, countryCode : UserCountryCode?){
         self.name = name
         self.phone = phone
         self.studentNo = studentNo
@@ -28,5 +29,6 @@ struct UserInfoModel : Hashable{
         self.admin = admin
         self.spot = spot
         self.profile = profile
+        self.countryCode = countryCode
     }
 }

@@ -58,7 +58,7 @@ class SportsLocationSelectViewController : UIViewController, CLLocationManagerDe
         
         marker.iconImage = NMF_MARKER_IMAGE_BLACK
         marker.iconTintColor = UIColor(Color.accent)
-        marker.captionText = "소집 장소"
+        marker.captionText = "만날 장소"
         marker.captionColor = UIColor(Color.accent)
         
         marker.subCaptionText = ""

@@ -8,5 +8,5 @@
 import Foundation
 
 enum NoticeTypeModel{
-    case CH, College
+    case CH, College, Petition
 }

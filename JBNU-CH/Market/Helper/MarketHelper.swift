@@ -260,7 +260,7 @@ class MarketHelper : ObservableObject{
     
     func convertSellerInfo(sellerInfo : String) -> String{
         var seller = ""
-        var seller_splited = AES256Util.decrypt(encoded: sellerInfo).components(separatedBy: ", ")
+        let seller_splited = AES256Util.decrypt(encoded: sellerInfo).components(separatedBy: ", ")
         
         if seller_splited != nil && seller_splited.count == 3{
             var nameAsArray = seller_splited[2].map{$0}

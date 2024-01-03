@@ -15,10 +15,9 @@ struct StudyRoomListModel: View {
             HStack{
                 Image("ic_studyRoom")
                     .resizable()
-                    .frame(width : 70, height : 70)
+                    .frame(width : 50, height : 50)
                 
                 Text(data.roomName)
-                    .font(.title)
                     .foregroundColor(.txtColor)
                     .fontWeight(.semibold)
                 
@@ -63,9 +62,15 @@ struct StudyRoomListModel: View {
                 }
                 
                 Spacer()
+                
+                NavigationLink(destination : EmptyView()){
+                    HStack {
+                        Image(systemName: "calendar.badge.clock")
+                        Text("예약하기")
+                    }
+                }
             }
-            
-            
-        }
+        }.padding(20)
+            .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.btnColor).shadow(radius: 5))
     }
 }

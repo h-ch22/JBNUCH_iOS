@@ -12,11 +12,12 @@ struct PledgeView: View {
     @State private var PrepareCount = 0.0
     @State private var InProgressCount = 0.0
     @State private var CompleteCount = 0.0
-    @State private var pledgeCount = 80.0
+    @State private var pledgeCount = 89.0
     @State private var selectedTab = 0
 
     @State private var selectedIndex = 0
-    @State private var indexes = ["전체", "취·창업 및 학사", "문화 및 예술", "복지", "생활관", "시설 및 안전", "앱 (App.)", "인권"]
+    @State private var indexes = ["전체", "취·창업 및 학사", "소통 및 학생자치", "문화 및 예술", "복지", "생활관", "시설 및 안전", "앱 (App.)", "인권"]
+    @State private var pages = [0, 7, 13, 25, 17, 32, 21, 35, 30]
     @State private var searchText = ""
     
     let college : String
@@ -50,7 +51,7 @@ struct PledgeView: View {
                 }
             }
             
-            pledgeCount = 80
+            pledgeCount = 89
         }
         
         else{
@@ -88,7 +89,7 @@ struct PledgeView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination : PDFViewer(url : Bundle.main.url(forResource : "PledgeBook", withExtension : "pdf")!).navigationBarTitle("정책 자료집", displayMode : .inline)){
+                NavigationLink(destination : PDFViewer(url : Bundle.main.url(forResource : "PledgeBook", withExtension : "pdf")!, page: pages[selectedIndex]).navigationBarTitle("정책 자료집", displayMode : .inline)){
                     HStack{
                         Image(systemName: "book.circle.fill")
                             .foregroundColor(.accent)
@@ -199,8 +200,8 @@ struct PledgeView: View {
                 
                 switch self.college{
                 case "CH":
-                    self.pledgeCount = 80.0
-                    self.indexes = ["전체", "취·창업 및 학사", "문화 및 예술", "복지", "생활관", "시설 및 안전", "앱 (App.)", "인권"]
+                    self.pledgeCount = 89.0
+                    self.indexes = ["전체", "취·창업 및 학사", "소통 및 학생자치", "문화 및 예술", "복지", "생활관", "시설 및 안전", "앱 (App.)", "인권"]
 
                 case "CON":
                     self.pledgeCount = 30.0
@@ -211,7 +212,7 @@ struct PledgeView: View {
                     self.indexes = ["전체", "취업 및 학습", "문화 및 예술", "복지", "소통", "시설"]
 
                 default:
-                    self.pledgeCount = 80.0
+                    self.pledgeCount = 89.0
                     self.indexes = ["전체", "취·창업 및 학사", "문화 및 예술", "복지", "생활관", "시설 및 안전", "앱 (App.)", "인권"]
                 }
                 

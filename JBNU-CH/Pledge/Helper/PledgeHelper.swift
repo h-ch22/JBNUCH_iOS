@@ -35,6 +35,9 @@ class PledgeHelper : ObservableObject{
                     case "Bachelor" :
                         category = "취·창업 및 학사"
                         
+                    case "Communication":
+                        category = "소통 및 학생자치"
+                        
                     case "Culture" :
                         category = "문화 및 예술"
                         

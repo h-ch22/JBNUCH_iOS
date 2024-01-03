@@ -7,9 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18BB37561D0D63E575E90F30 /* Pods_JBNU_CH_JBNU_CHUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3566EB0A44FAA8435A119F3F /* Pods_JBNU_CH_JBNU_CHUITests.framework */; };
-		4C24A83B38DA543699C45450 /* Pods_JBNU_CH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9F2B01DC39984AB5DA43B4 /* Pods_JBNU_CH.framework */; };
-		E3124FD5800C70CBE30CEB27 /* Pods_JBNU_CHTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D1DA130713289CDA4E686B7 /* Pods_JBNU_CHTests.framework */; };
+		118BCF8257059068791062D9 /* Pods_JBNU_CH_JBNU_CHUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6738559D3F923897E3CA2D /* Pods_JBNU_CH_JBNU_CHUITests.framework */; };
+		7B27D56228DC32F400E87545 /* DisplayCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B27D55F28DC32F400E87545 /* DisplayCalendar.swift */; };
+		7BCFB8EF28DD7D4A00B0862E /* KVKCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 7BCFB8EE28DD7D4A00B0862E /* KVKCalendar */; };
+		7BCFB8F228DD86AA00B0862E /* CalendarSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCFB8F128DD86AA00B0862E /* CalendarSettings.swift */; };
+		7BCFB8F528DD8A0C00B0862E /* CalendarMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCFB8F428DD8A0C00B0862E /* CalendarMainView.swift */; };
+		7BCFB8F728DD8ABE00B0862E /* EventViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCFB8F628DD8ABE00B0862E /* EventViewer.swift */; };
+		7BCFB8F928DD8B5900B0862E /* CustomDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCFB8F828DD8B5900B0862E /* CustomDayCell.swift */; };
+		7BCFB8FC28DD929500B0862E /* HomeCalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCFB8FB28DD929500B0862E /* HomeCalendarHelper.swift */; };
+		7BCFB8FE28DD92B400B0862E /* HomeCalendarDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCFB8FD28DD92B400B0862E /* HomeCalendarDataModel.swift */; };
+		C097B1E1557172E019B73BEE /* Pods_JBNU_CHTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DD144C09C6D75EAA49E4F4E /* Pods_JBNU_CHTests.framework */; };
+		F60D7EB82822CB0000AAFC28 /* StudyRoomReserveMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D7EB72822CB0000AAFC28 /* StudyRoomReserveMainView.swift */; };
+		F60D7EBA2822CF7800AAFC28 /* EnterStudyRoomReservationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D7EB92822CF7800AAFC28 /* EnterStudyRoomReservationCodeView.swift */; };
+		F60D7EBC2822D1CC00AAFC28 /* StudyRoomReservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D7EBB2822D1CC00AAFC28 /* StudyRoomReservationView.swift */; };
 		F60FCD13274CBC900072C996 /* JBNU_CHApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60FCD12274CBC900072C996 /* JBNU_CHApp.swift */; };
 		F60FCD17274CBC920072C996 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F60FCD16274CBC920072C996 /* Assets.xcassets */; };
 		F60FCD1A274CBC920072C996 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F60FCD19274CBC920072C996 /* Preview Assets.xcassets */; };
@@ -54,7 +64,6 @@
 		F62F02F827A3C20C0019CDEA /* editNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F02F727A3C20C0019CDEA /* editNoticeView.swift */; };
 		F64087A7274CBFF100822650 /* ProcessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64087A6274CBFF100822650 /* ProcessView.swift */; };
 		F64087AA274CC17200822650 /* UserManagementFocusField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64087A9274CC17200822650 /* UserManagementFocusField.swift */; };
-		F64087AE274CC50400822650 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F64087B0274CC50400822650 /* InfoPlist.strings */; };
 		F64087B3274CC6B200822650 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F64087B2274CC6B200822650 /* GoogleService-Info.plist */; };
 		F64087B6274CC9AC00822650 /* UserManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64087B5274CC9AC00822650 /* UserManagement.swift */; };
 		F642F2D9276C3A66002330E1 /* InternalNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642F2D8276C3A66002330E1 /* InternalNoticeView.swift */; };
@@ -69,6 +78,8 @@
 		F642F2F5276C5F3E002330E1 /* PetitionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642F2F4276C5F3E002330E1 /* PetitionDetailView.swift */; };
 		F642F2F9276C681D002330E1 /* CampusMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642F2F8276C681D002330E1 /* CampusMapView.swift */; };
 		F642F2FB276C6826002330E1 /* CampusMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642F2FA276C6826002330E1 /* CampusMapViewController.swift */; };
+		F64337062856469300F4A22C /* TranslationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64337052856469300F4A22C /* TranslationModel.swift */; };
+		F6433708285646F600F4A22C /* TranslationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6433707285646F600F4A22C /* TranslationManager.swift */; };
 		F646D4FB277BF36B009E2797 /* SportsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F646D4FA277BF36B009E2797 /* SportsListModel.swift */; };
 		F646D4FD277BF843009E2797 /* SportsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F646D4FC277BF843009E2797 /* SportsDetailView.swift */; };
 		F646D4FF277BFEEC009E2797 /* SportsParticipantsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F646D4FE277BFEEC009E2797 /* SportsParticipantsListModel.swift */; };
@@ -90,7 +101,6 @@
 		F646D52D277C3C21009E2797 /* FeedbackHubAlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F646D52C277C3C21009E2797 /* FeedbackHubAlertModel.swift */; };
 		F646D52F277C545D009E2797 /* PetitionParticipantsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F646D52E277C545D009E2797 /* PetitionParticipantsModel.swift */; };
 		F646D531277C5763009E2797 /* PetitionParticipantsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F646D530277C5763009E2797 /* PetitionParticipantsListModel.swift */; };
-		F646D53C277C6278009E2797 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = F646D53B277C6278009E2797 /* SwiftSoup */; };
 		F646D540277C6366009E2797 /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F646D53F277C6366009E2797 /* MealView.swift */; };
 		F6541028274F593100043987 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6541027274F593100043987 /* CheckBox.swift */; };
 		F65AFA8C27B603DF0092DBFE /* MarketDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65AFA8B27B603DF0092DBFE /* MarketDataModel.swift */; };
@@ -239,7 +249,8 @@
 		F694B75A280EE0CC008B8344 /* OpenSourceListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F694B759280EE0CC008B8344 /* OpenSourceListModel.swift */; };
 		F694B75C280EE1AD008B8344 /* OpenSourceDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F694B75B280EE1AD008B8344 /* OpenSourceDataModel.swift */; };
 		F696388327C5CC1B004EFB71 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F696388227C5CC1B004EFB71 /* ImageCache.swift */; };
-		F696389527C5CE39004EFB71 /* Widgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F696389027C5CE38004EFB71 /* Widgets.intentdefinition */; };
+		F697789B28618E97001BA7C9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F697789D28618E97001BA7C9 /* Localizable.strings */; };
+		F69778A1286191F6001BA7C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F697789F286191F6001BA7C9 /* InfoPlist.strings */; };
 		F697D470275A2180005DC906 /* CollegeCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F697D46F275A2180005DC906 /* CollegeCodeModel.swift */; };
 		F697D472275A250F005DC906 /* PlainButtonFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = F697D471275A250F005DC906 /* PlainButtonFramework.swift */; };
 		F69A16002782A0D20046C974 /* addHandWritingAlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69A15FF2782A0D20046C974 /* addHandWritingAlertModel.swift */; };
@@ -257,6 +268,11 @@
 		F6B6F79D2786889600A6A985 /* LinkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B6F79C2786889600A6A985 /* LinkRow.swift */; };
 		F6B6F79F27868CC600A6A985 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B6F79E27868CC600A6A985 /* AppDelegate.swift */; };
 		F6B6F7A12786EEAF00A6A985 /* SignUpTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B6F7A02786EEAF00A6A985 /* SignUpTutorialView.swift */; };
+		F6B7C8AB2812923A0049A1AD /* QRCodeCallbackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B7C8AA2812923A0049A1AD /* QRCodeCallbackModel.swift */; };
+		F6B7C8AD281295C90049A1AD /* ic_coupon.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B7C8AC281295C90049A1AD /* ic_coupon.png */; };
+		F6B7C8AF2812962E0049A1AD /* CouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B7C8AE2812962E0049A1AD /* CouponView.swift */; };
+		F6B7C8B1281297740049A1AD /* CouponListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B7C8B0281297740049A1AD /* CouponListModel.swift */; };
+		F6B7C8B328129A8D0049A1AD /* CouponStateCallbackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B7C8B228129A8D0049A1AD /* CouponStateCallbackModel.swift */; };
 		F6BF4C24277AA6140099B5AF /* addNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BF4C23277AA6140099B5AF /* addNoticeView.swift */; };
 		F6BF4C27277AA9660099B5AF /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BF4C26277AA9660099B5AF /* PhotoPicker.swift */; };
 		F6BF4C29277AAE730099B5AF /* PhotoPickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BF4C28277AAE730099B5AF /* PhotoPickerModel.swift */; };
@@ -278,7 +294,6 @@
 		F6BFD0A12775B0D300AFB01C /* PetitionStatusDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BFD0A02775B0D300AFB01C /* PetitionStatusDataModel.swift */; };
 		F6C053EF27634D40004178A6 /* AllianceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C053EE27634D40004178A6 /* AllianceHelper.swift */; };
 		F6C0540027634F7F004178A6 /* AllianceCategoryButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C053FF27634F7F004178A6 /* AllianceCategoryButtonModel.swift */; };
-		F6C054032763511D004178A6 /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = F6C054022763511D004178A6 /* SwiftUIPager */; };
 		F6C054052763516B004178A6 /* AllianceAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C054042763516B004178A6 /* AllianceAdView.swift */; };
 		F6C0540727635790004178A6 /* AllianceDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C0540627635790004178A6 /* AllianceDataModel.swift */; };
 		F6C0540927635946004178A6 /* AllianceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C0540827635946004178A6 /* AllianceListView.swift */; };
@@ -320,10 +335,26 @@
 		F6D54D7E277D77F30002A7E9 /* updatePhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D54D7D277D77F30002A7E9 /* updatePhoneView.swift */; };
 		F6D54D80277D78EF0002A7E9 /* updatePhoneAlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D54D7F277D78EF0002A7E9 /* updatePhoneAlertModel.swift */; };
 		F6D54D84277D842C0002A7E9 /* StudentAssociationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D54D83277D842C0002A7E9 /* StudentAssociationView.swift */; };
+		F6DD8D11286ECB01002315A5 /* PetitionDetailView_Beta.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DD8D10286ECB00002315A5 /* PetitionDetailView_Beta.swift */; };
+		F6DD8D13286ECDF6002315A5 /* PetitionNoticeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DD8D12286ECDF6002315A5 /* PetitionNoticeListView.swift */; };
+		F6DD8D15286ECE95002315A5 /* PetitionNoticeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DD8D14286ECE95002315A5 /* PetitionNoticeDetailView.swift */; };
+		F6DD8D17286ECEE9002315A5 /* addPetitionNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DD8D16286ECEE9002315A5 /* addPetitionNoticeView.swift */; };
+		F6DD8D19286ECFC5002315A5 /* PetitionTranslateLanguageSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DD8D18286ECFC5002315A5 /* PetitionTranslateLanguageSelectionView.swift */; };
+		F6DD8D1B286ED1CE002315A5 /* editPetitionNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DD8D1A286ED1CE002315A5 /* editPetitionNoticeView.swift */; };
+		F6E05E5B2854AD3400068BB0 /* UserCountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E05E5A2854AD3400068BB0 /* UserCountryCode.swift */; };
+		F6E05E5D2854AE7900068BB0 /* CountrySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E05E5C2854AE7900068BB0 /* CountrySelectionView.swift */; };
+		F6E921372857013600172223 /* TranslationLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E921362857013500172223 /* TranslationLanguage.swift */; };
+		F6E921392857027600172223 /* SelectLanguageToTranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E921382857027600172223 /* SelectLanguageToTranslateView.swift */; };
+		F6E9213B2857042200172223 /* SupportedLanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E9213A2857042200172223 /* SupportedLanguageModel.swift */; };
 		F6F06374278C1F4700C3AAD5 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F06373278C1F4700C3AAD5 /* InfoView.swift */; };
 		F6F06379278C244900C3AAD5 /* InfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F06378278C244900C3AAD5 /* InfoHelper.swift */; };
 		F6F06383278C2A4700C3AAD5 /* EULA.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F6F06382278C2A4600C3AAD5 /* EULA.pdf */; };
 		F6F06385278C323100C3AAD5 /* PrivacyLicense.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F6F06384278C323100C3AAD5 /* PrivacyLicense.pdf */; };
+		F6F8F35B286EB1300036E835 /* PetitionHelper_Beta.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8F35A286EB1300036E835 /* PetitionHelper_Beta.swift */; };
+		F6F8F35E286EB3870036E835 /* PetitionListView_Beta.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8F35D286EB3870036E835 /* PetitionListView_Beta.swift */; };
+		F6F8F361286EBCAB0036E835 /* addPetitionView_Beta.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8F360286EBCAB0036E835 /* addPetitionView_Beta.swift */; };
+		F6F8F363286EBD020036E835 /* addPetitionMainView_Beta.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8F362286EBD020036E835 /* addPetitionMainView_Beta.swift */; };
+		F6F8F365286EBE080036E835 /* PetitionNoticeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8F364286EBE080036E835 /* PetitionNoticeListModel.swift */; };
 		F6FB5A3C27C60C2E00953E4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FB5A3B27C60C2E00953E4C /* SceneDelegate.swift */; };
 		F6FB5A4127C60EA800953E4C /* ic_quickaction_affiliates.png in Resources */ = {isa = PBXBuildFile; fileRef = F6FB5A3D27C60EA800953E4C /* ic_quickaction_affiliates.png */; };
 		F6FB5A4227C60EA800953E4C /* ic_quickaction_products.png in Resources */ = {isa = PBXBuildFile; fileRef = F6FB5A3E27C60EA800953E4C /* ic_quickaction_products.png */; };
@@ -331,6 +362,15 @@
 		F6FB5A4427C60EA800953E4C /* ic_quickaction_notice.png in Resources */ = {isa = PBXBuildFile; fileRef = F6FB5A4027C60EA800953E4C /* ic_quickaction_notice.png */; };
 		F6FB5A4827C6180800953E4C /* NoticeURLDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FB5A4727C6180800953E4C /* NoticeURLDataModel.swift */; };
 		F6FB5A4C27C6258200953E4C /* MealHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FB5A4B27C6258200953E4C /* MealHelper.swift */; };
+		F6FDCA2E28127AAC00085B34 /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FDCA2D28127AAC00085B34 /* QRView.swift */; };
+		F6FDCA3028127B7100085B34 /* QRCameraDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FDCA2F28127B7100085B34 /* QRCameraDelegate.swift */; };
+		F6FDCA3228127BA900085B34 /* QRScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FDCA3128127BA900085B34 /* QRScannerViewModel.swift */; };
+		F6FDCA3428127BC600085B34 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FDCA3328127BC600085B34 /* CameraView.swift */; };
+		F6FDCA3628127BEA00085B34 /* QRCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FDCA3528127BEA00085B34 /* QRCameraView.swift */; };
+		F6FDCA3828127C0F00085B34 /* QRHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FDCA3728127C0F00085B34 /* QRHelper.swift */; };
+		F6FDCA3A28127C8600085B34 /* QRCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FDCA3928127C8600085B34 /* QRCodeModel.swift */; };
+		F6FDCA3C28127E4400085B34 /* QRResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FDCA3B28127E4400085B34 /* QRResultView.swift */; };
+		F7E04747FAE402380A2A2645 /* Pods_JBNU_CH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0063B5B2FDC79C12B0C202AF /* Pods_JBNU_CH.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -364,18 +404,25 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0A4686DA045AA7871E928E05 /* Pods-JBNU-CHTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBNU-CHTests.debug.xcconfig"; path = "Target Support Files/Pods-JBNU-CHTests/Pods-JBNU-CHTests.debug.xcconfig"; sourceTree = "<group>"; };
-		0D1DA130713289CDA4E686B7 /* Pods_JBNU_CHTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JBNU_CHTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3486E0A007E9D9CD6A7D57B0 /* Pods-JBNU-CH-JBNU-CHUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBNU-CH-JBNU-CHUITests.release.xcconfig"; path = "Target Support Files/Pods-JBNU-CH-JBNU-CHUITests/Pods-JBNU-CH-JBNU-CHUITests.release.xcconfig"; sourceTree = "<group>"; };
-		3561F50E4C134C3076299DE2 /* Pods-JBNU-CHTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBNU-CHTests.release.xcconfig"; path = "Target Support Files/Pods-JBNU-CHTests/Pods-JBNU-CHTests.release.xcconfig"; sourceTree = "<group>"; };
-		3566EB0A44FAA8435A119F3F /* Pods_JBNU_CH_JBNU_CHUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JBNU_CH_JBNU_CHUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7496E6BBBC71976F3FDC7CA2 /* Pods-JBNU-CH.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBNU-CH.release.xcconfig"; path = "Target Support Files/Pods-JBNU-CH/Pods-JBNU-CH.release.xcconfig"; sourceTree = "<group>"; };
-		7A6A95F6A0794133837CD624 /* Pods_WidgetsExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WidgetsExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8650BDEBFC863DD56601A202 /* Pods-JBNU-CH.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBNU-CH.debug.xcconfig"; path = "Target Support Files/Pods-JBNU-CH/Pods-JBNU-CH.debug.xcconfig"; sourceTree = "<group>"; };
-		946DE6039744469E50AA6427 /* Pods-JBNU-CH-JBNU-CHUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBNU-CH-JBNU-CHUITests.debug.xcconfig"; path = "Target Support Files/Pods-JBNU-CH-JBNU-CHUITests/Pods-JBNU-CH-JBNU-CHUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		AAF9FD96F2A4FCC836D8D782 /* Pods-WidgetsExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetsExtension.debug.xcconfig"; path = "Target Support Files/Pods-WidgetsExtension/Pods-WidgetsExtension.debug.xcconfig"; sourceTree = "<group>"; };
-		AFA4E4454B74296823BD7C88 /* Pods-WidgetsExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetsExtension.release.xcconfig"; path = "Target Support Files/Pods-WidgetsExtension/Pods-WidgetsExtension.release.xcconfig"; sourceTree = "<group>"; };
-		DE9F2B01DC39984AB5DA43B4 /* Pods_JBNU_CH.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JBNU_CH.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0063B5B2FDC79C12B0C202AF /* Pods_JBNU_CH.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JBNU_CH.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CF95E7E98B3BEAB40853A73 /* Pods-JBNU-CH-JBNU-CHUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBNU-CH-JBNU-CHUITests.debug.xcconfig"; path = "Target Support Files/Pods-JBNU-CH-JBNU-CHUITests/Pods-JBNU-CH-JBNU-CHUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2F6738559D3F923897E3CA2D /* Pods_JBNU_CH_JBNU_CHUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JBNU_CH_JBNU_CHUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DD144C09C6D75EAA49E4F4E /* Pods_JBNU_CHTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JBNU_CHTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E48B52189F90C6308964725 /* Pods-JBNU-CHTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBNU-CHTests.release.xcconfig"; path = "Target Support Files/Pods-JBNU-CHTests/Pods-JBNU-CHTests.release.xcconfig"; sourceTree = "<group>"; };
+		7B27D55F28DC32F400E87545 /* DisplayCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayCalendar.swift; sourceTree = "<group>"; };
+		7BCFB8F128DD86AA00B0862E /* CalendarSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSettings.swift; sourceTree = "<group>"; };
+		7BCFB8F428DD8A0C00B0862E /* CalendarMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMainView.swift; sourceTree = "<group>"; };
+		7BCFB8F628DD8ABE00B0862E /* EventViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewer.swift; sourceTree = "<group>"; };
+		7BCFB8F828DD8B5900B0862E /* CustomDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDayCell.swift; sourceTree = "<group>"; };
+		7BCFB8FB28DD929500B0862E /* HomeCalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCalendarHelper.swift; sourceTree = "<group>"; };
+		7BCFB8FD28DD92B400B0862E /* HomeCalendarDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCalendarDataModel.swift; sourceTree = "<group>"; };
+		CFF10CD57F1144B8C65F56DA /* Pods-JBNU-CH.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBNU-CH.release.xcconfig"; path = "Target Support Files/Pods-JBNU-CH/Pods-JBNU-CH.release.xcconfig"; sourceTree = "<group>"; };
+		D1A8F75399FCA4AEF73C1AEB /* Pods-JBNU-CH.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBNU-CH.debug.xcconfig"; path = "Target Support Files/Pods-JBNU-CH/Pods-JBNU-CH.debug.xcconfig"; sourceTree = "<group>"; };
+		D23E1130ECA94477C6AD0A5D /* Pods-JBNU-CH-JBNU-CHUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBNU-CH-JBNU-CHUITests.release.xcconfig"; path = "Target Support Files/Pods-JBNU-CH-JBNU-CHUITests/Pods-JBNU-CH-JBNU-CHUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F20F54207257051BF79DE329 /* Pods-JBNU-CHTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBNU-CHTests.debug.xcconfig"; path = "Target Support Files/Pods-JBNU-CHTests/Pods-JBNU-CHTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F60D7EB72822CB0000AAFC28 /* StudyRoomReserveMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyRoomReserveMainView.swift; sourceTree = "<group>"; };
+		F60D7EB92822CF7800AAFC28 /* EnterStudyRoomReservationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterStudyRoomReservationCodeView.swift; sourceTree = "<group>"; };
+		F60D7EBB2822D1CC00AAFC28 /* StudyRoomReservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyRoomReservationView.swift; sourceTree = "<group>"; };
 		F60FCD0F274CBC900072C996 /* JBNU CH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JBNU CH.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F60FCD12274CBC900072C996 /* JBNU_CHApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBNU_CHApp.swift; sourceTree = "<group>"; };
 		F60FCD16274CBC920072C996 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -423,7 +470,6 @@
 		F62F02F727A3C20C0019CDEA /* editNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editNoticeView.swift; sourceTree = "<group>"; };
 		F64087A6274CBFF100822650 /* ProcessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessView.swift; sourceTree = "<group>"; };
 		F64087A9274CC17200822650 /* UserManagementFocusField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagementFocusField.swift; sourceTree = "<group>"; };
-		F64087AF274CC50400822650 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F64087B2274CC6B200822650 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "include/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F64087B5274CC9AC00822650 /* UserManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagement.swift; sourceTree = "<group>"; };
 		F642F2D8276C3A66002330E1 /* InternalNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalNoticeView.swift; sourceTree = "<group>"; };
@@ -438,6 +484,8 @@
 		F642F2F4276C5F3E002330E1 /* PetitionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionDetailView.swift; sourceTree = "<group>"; };
 		F642F2F8276C681D002330E1 /* CampusMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusMapView.swift; sourceTree = "<group>"; };
 		F642F2FA276C6826002330E1 /* CampusMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusMapViewController.swift; sourceTree = "<group>"; };
+		F64337052856469300F4A22C /* TranslationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationModel.swift; sourceTree = "<group>"; };
+		F6433707285646F600F4A22C /* TranslationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationManager.swift; sourceTree = "<group>"; };
 		F646D4FA277BF36B009E2797 /* SportsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsListModel.swift; sourceTree = "<group>"; };
 		F646D4FC277BF843009E2797 /* SportsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsDetailView.swift; sourceTree = "<group>"; };
 		F646D4FE277BFEEC009E2797 /* SportsParticipantsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsParticipantsListModel.swift; sourceTree = "<group>"; };
@@ -597,7 +645,6 @@
 		F678C67F27FC3DE000635189 /* ProductLogView_Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductLogView_Tabs.swift; sourceTree = "<group>"; };
 		F678F311274DE00700BEF510 /* AES256Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AES256Util.swift; sourceTree = "<group>"; };
 		F678F313274DE19400BEF510 /* LegacyUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyUserView.swift; sourceTree = "<group>"; };
-		F6856C8227C5D2C000F4CDD4 /* NoticeWidgetPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeWidgetPlaceholderView.swift; sourceTree = "<group>"; };
 		F6856C9027C5DC6600F4CDD4 /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
 		F68C43B32810372500C3E5BB /* ChangeCollegeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCollegeView.swift; sourceTree = "<group>"; };
 		F6945BFB27B64D16001E6B69 /* ic_introduce_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_introduce_map.png; sourceTree = "<group>"; };
@@ -610,14 +657,6 @@
 		F696388227C5CC1B004EFB71 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		F696388927C5CE38004EFB71 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		F696388B27C5CE38004EFB71 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		F696388E27C5CE38004EFB71 /* WidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsBundle.swift; sourceTree = "<group>"; };
-		F696389027C5CE38004EFB71 /* Widgets.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Widgets.intentdefinition; sourceTree = "<group>"; };
-		F696389127C5CE39004EFB71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F696389327C5CE39004EFB71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F69638A027C5CEEF004EFB71 /* NoticeWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeWidgetView.swift; sourceTree = "<group>"; };
-		F69638A227C5CF6C004EFB71 /* NoticeWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeWidgetEntryView.swift; sourceTree = "<group>"; };
-		F69638A427C5CF93004EFB71 /* NoticeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEntry.swift; sourceTree = "<group>"; };
-		F69638A627C5CFA1004EFB71 /* NoticeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeProvider.swift; sourceTree = "<group>"; };
 		F69638A927C5D03F004EFB71 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69638AD27C5D04E004EFB71 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69638AE27C5D04E004EFB71 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -629,6 +668,11 @@
 		F69638B427C5D04E004EFB71 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69638B527C5D04E004EFB71 /* FirebaseMessaging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseMessaging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69638B627C5D04E004EFB71 /* FirebaseStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F697789C28618E97001BA7C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F697789E28618EBE001BA7C9 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F69778A0286191F6001BA7C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = "JBNU-CH/Base.lproj/InfoPlist.strings"; sourceTree = SOURCE_ROOT; };
+		F69778A228619245001BA7C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../../en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F69778A32861924A001BA7C9 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ../../ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F697D46F275A2180005DC906 /* CollegeCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeCodeModel.swift; sourceTree = "<group>"; };
 		F697D471275A250F005DC906 /* PlainButtonFramework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainButtonFramework.swift; sourceTree = "<group>"; };
 		F69A15FF2782A0D20046C974 /* addHandWritingAlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addHandWritingAlertModel.swift; sourceTree = "<group>"; };
@@ -646,6 +690,11 @@
 		F6B6F79C2786889600A6A985 /* LinkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkRow.swift; sourceTree = "<group>"; };
 		F6B6F79E27868CC600A6A985 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6B6F7A02786EEAF00A6A985 /* SignUpTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTutorialView.swift; sourceTree = "<group>"; };
+		F6B7C8AA2812923A0049A1AD /* QRCodeCallbackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeCallbackModel.swift; sourceTree = "<group>"; };
+		F6B7C8AC281295C90049A1AD /* ic_coupon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_coupon.png; sourceTree = "<group>"; };
+		F6B7C8AE2812962E0049A1AD /* CouponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponView.swift; sourceTree = "<group>"; };
+		F6B7C8B0281297740049A1AD /* CouponListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListModel.swift; sourceTree = "<group>"; };
+		F6B7C8B228129A8D0049A1AD /* CouponStateCallbackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponStateCallbackModel.swift; sourceTree = "<group>"; };
 		F6BF4C23277AA6140099B5AF /* addNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addNoticeView.swift; sourceTree = "<group>"; };
 		F6BF4C26277AA9660099B5AF /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		F6BF4C28277AAE730099B5AF /* PhotoPickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerModel.swift; sourceTree = "<group>"; };
@@ -709,15 +758,27 @@
 		F6D54D7D277D77F30002A7E9 /* updatePhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updatePhoneView.swift; sourceTree = "<group>"; };
 		F6D54D7F277D78EF0002A7E9 /* updatePhoneAlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updatePhoneAlertModel.swift; sourceTree = "<group>"; };
 		F6D54D83277D842C0002A7E9 /* StudentAssociationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAssociationView.swift; sourceTree = "<group>"; };
+		F6DD8D10286ECB00002315A5 /* PetitionDetailView_Beta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionDetailView_Beta.swift; sourceTree = "<group>"; };
+		F6DD8D12286ECDF6002315A5 /* PetitionNoticeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionNoticeListView.swift; sourceTree = "<group>"; };
+		F6DD8D14286ECE95002315A5 /* PetitionNoticeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionNoticeDetailView.swift; sourceTree = "<group>"; };
+		F6DD8D16286ECEE9002315A5 /* addPetitionNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPetitionNoticeView.swift; sourceTree = "<group>"; };
+		F6DD8D18286ECFC5002315A5 /* PetitionTranslateLanguageSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionTranslateLanguageSelectionView.swift; sourceTree = "<group>"; };
+		F6DD8D1A286ED1CE002315A5 /* editPetitionNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editPetitionNoticeView.swift; sourceTree = "<group>"; };
+		F6E05E5A2854AD3400068BB0 /* UserCountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCountryCode.swift; sourceTree = "<group>"; };
+		F6E05E5C2854AE7900068BB0 /* CountrySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionView.swift; sourceTree = "<group>"; };
+		F6E921362857013500172223 /* TranslationLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationLanguage.swift; sourceTree = "<group>"; };
+		F6E921382857027600172223 /* SelectLanguageToTranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLanguageToTranslateView.swift; sourceTree = "<group>"; };
+		F6E9213A2857042200172223 /* SupportedLanguageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedLanguageModel.swift; sourceTree = "<group>"; };
 		F6F06370278C1DB800C3AAD5 /* JBNU-CH.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "JBNU-CH.entitlements"; sourceTree = "<group>"; };
 		F6F06373278C1F4700C3AAD5 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		F6F06378278C244900C3AAD5 /* InfoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoHelper.swift; sourceTree = "<group>"; };
 		F6F06382278C2A4600C3AAD5 /* EULA.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = EULA.pdf; sourceTree = "<group>"; };
 		F6F06384278C323100C3AAD5 /* PrivacyLicense.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PrivacyLicense.pdf; sourceTree = "<group>"; };
-		F6FB5A3327C6019F00953E4C /* InternalNoticeWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalNoticeWidget.swift; sourceTree = "<group>"; };
-		F6FB5A3527C601AD00953E4C /* InternalNoticeWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalNoticeWidgetEntryView.swift; sourceTree = "<group>"; };
-		F6FB5A3727C602E000953E4C /* InternalNoticeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalNoticeProvider.swift; sourceTree = "<group>"; };
-		F6FB5A3927C604EA00953E4C /* InternalNoticeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalNoticeEntry.swift; sourceTree = "<group>"; };
+		F6F8F35A286EB1300036E835 /* PetitionHelper_Beta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionHelper_Beta.swift; sourceTree = "<group>"; };
+		F6F8F35D286EB3870036E835 /* PetitionListView_Beta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionListView_Beta.swift; sourceTree = "<group>"; };
+		F6F8F360286EBCAB0036E835 /* addPetitionView_Beta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPetitionView_Beta.swift; sourceTree = "<group>"; };
+		F6F8F362286EBD020036E835 /* addPetitionMainView_Beta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPetitionMainView_Beta.swift; sourceTree = "<group>"; };
+		F6F8F364286EBE080036E835 /* PetitionNoticeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionNoticeListModel.swift; sourceTree = "<group>"; };
 		F6FB5A3B27C60C2E00953E4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F6FB5A3D27C60EA800953E4C /* ic_quickaction_affiliates.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_quickaction_affiliates.png; sourceTree = "<group>"; };
 		F6FB5A3E27C60EA800953E4C /* ic_quickaction_products.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_quickaction_products.png; sourceTree = "<group>"; };
@@ -725,6 +786,14 @@
 		F6FB5A4027C60EA800953E4C /* ic_quickaction_notice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_quickaction_notice.png; sourceTree = "<group>"; };
 		F6FB5A4727C6180800953E4C /* NoticeURLDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeURLDataModel.swift; sourceTree = "<group>"; };
 		F6FB5A4B27C6258200953E4C /* MealHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealHelper.swift; sourceTree = "<group>"; };
+		F6FDCA2D28127AAC00085B34 /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
+		F6FDCA2F28127B7100085B34 /* QRCameraDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCameraDelegate.swift; sourceTree = "<group>"; };
+		F6FDCA3128127BA900085B34 /* QRScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewModel.swift; sourceTree = "<group>"; };
+		F6FDCA3328127BC600085B34 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		F6FDCA3528127BEA00085B34 /* QRCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCameraView.swift; sourceTree = "<group>"; };
+		F6FDCA3728127C0F00085B34 /* QRHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRHelper.swift; sourceTree = "<group>"; };
+		F6FDCA3928127C8600085B34 /* QRCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeModel.swift; sourceTree = "<group>"; };
+		F6FDCA3B28127E4400085B34 /* QRResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -732,9 +801,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6C054032763511D004178A6 /* SwiftUIPager in Frameworks */,
-				F646D53C277C6278009E2797 /* SwiftSoup in Frameworks */,
-				4C24A83B38DA543699C45450 /* Pods_JBNU_CH.framework in Frameworks */,
+				F7E04747FAE402380A2A2645 /* Pods_JBNU_CH.framework in Frameworks */,
+				7BCFB8EF28DD7D4A00B0862E /* KVKCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,7 +810,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3124FD5800C70CBE30CEB27 /* Pods_JBNU_CHTests.framework in Frameworks */,
+				C097B1E1557172E019B73BEE /* Pods_JBNU_CHTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,7 +818,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18BB37561D0D63E575E90F30 /* Pods_JBNU_CH_JBNU_CHUITests.framework in Frameworks */,
+				118BCF8257059068791062D9 /* Pods_JBNU_CH_JBNU_CHUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,12 +839,11 @@
 				F69638B527C5D04E004EFB71 /* FirebaseMessaging.framework */,
 				F69638B627C5D04E004EFB71 /* FirebaseStorage.framework */,
 				F69638A927C5D03F004EFB71 /* FirebaseFirestore.framework */,
-				DE9F2B01DC39984AB5DA43B4 /* Pods_JBNU_CH.framework */,
-				3566EB0A44FAA8435A119F3F /* Pods_JBNU_CH_JBNU_CHUITests.framework */,
-				0D1DA130713289CDA4E686B7 /* Pods_JBNU_CHTests.framework */,
 				F696388927C5CE38004EFB71 /* WidgetKit.framework */,
 				F696388B27C5CE38004EFB71 /* SwiftUI.framework */,
-				7A6A95F6A0794133837CD624 /* Pods_WidgetsExtension.framework */,
+				0063B5B2FDC79C12B0C202AF /* Pods_JBNU_CH.framework */,
+				2F6738559D3F923897E3CA2D /* Pods_JBNU_CH_JBNU_CHUITests.framework */,
+				6DD144C09C6D75EAA49E4F4E /* Pods_JBNU_CHTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -784,16 +851,50 @@
 		35A869AC25D8B060F98D3AEB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8650BDEBFC863DD56601A202 /* Pods-JBNU-CH.debug.xcconfig */,
-				7496E6BBBC71976F3FDC7CA2 /* Pods-JBNU-CH.release.xcconfig */,
-				946DE6039744469E50AA6427 /* Pods-JBNU-CH-JBNU-CHUITests.debug.xcconfig */,
-				3486E0A007E9D9CD6A7D57B0 /* Pods-JBNU-CH-JBNU-CHUITests.release.xcconfig */,
-				0A4686DA045AA7871E928E05 /* Pods-JBNU-CHTests.debug.xcconfig */,
-				3561F50E4C134C3076299DE2 /* Pods-JBNU-CHTests.release.xcconfig */,
-				AAF9FD96F2A4FCC836D8D782 /* Pods-WidgetsExtension.debug.xcconfig */,
-				AFA4E4454B74296823BD7C88 /* Pods-WidgetsExtension.release.xcconfig */,
+				D1A8F75399FCA4AEF73C1AEB /* Pods-JBNU-CH.debug.xcconfig */,
+				CFF10CD57F1144B8C65F56DA /* Pods-JBNU-CH.release.xcconfig */,
+				0CF95E7E98B3BEAB40853A73 /* Pods-JBNU-CH-JBNU-CHUITests.debug.xcconfig */,
+				D23E1130ECA94477C6AD0A5D /* Pods-JBNU-CH-JBNU-CHUITests.release.xcconfig */,
+				F20F54207257051BF79DE329 /* Pods-JBNU-CHTests.debug.xcconfig */,
+				6E48B52189F90C6308964725 /* Pods-JBNU-CHTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7B27D55E28DC32F400E87545 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				7BCFB8F328DD8A0200B0862E /* View */,
+				7BCFB8F028DD86A000B0862E /* Models */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		7BCFB8F028DD86A000B0862E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7BCFB8F628DD8ABE00B0862E /* EventViewer.swift */,
+				7BCFB8F128DD86AA00B0862E /* CalendarSettings.swift */,
+				7BCFB8F828DD8B5900B0862E /* CustomDayCell.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7BCFB8F328DD8A0200B0862E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7B27D55F28DC32F400E87545 /* DisplayCalendar.swift */,
+				7BCFB8F428DD8A0C00B0862E /* CalendarMainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7BCFB8FA28DD928B00B0862E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				7BCFB8FB28DD929500B0862E /* HomeCalendarHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		F60FCD06274CBC900072C996 = {
@@ -802,7 +903,6 @@
 				F60FCD11274CBC900072C996 /* JBNU-CH */,
 				F60FCD22274CBC920072C996 /* JBNU-CHTests */,
 				F60FCD2C274CBC920072C996 /* JBNU-CHUITests */,
-				F696388D27C5CE38004EFB71 /* Widgets */,
 				F60FCD10274CBC900072C996 /* Products */,
 				35A869AC25D8B060F98D3AEB /* Pods */,
 				045F2506815C2393F6DCEF2F /* Frameworks */,
@@ -822,6 +922,9 @@
 		F60FCD11274CBC900072C996 /* JBNU-CH */ = {
 			isa = PBXGroup;
 			children = (
+				7B27D55E28DC32F400E87545 /* Calendar */,
+				F6F8F358286EB0FD0036E835 /* Petition(Beta) */,
+				F697789228606DFA001BA7C9 /* Localizable */,
 				F623F28627ED6DDF0075A421 /* Products */,
 				F65AFA8727B603C70092DBFE /* Market */,
 				F6F06371278C1F3B00C3AAD5 /* Info */,
@@ -905,6 +1008,7 @@
 				F6B6F7A02786EEAF00A6A985 /* SignUpTutorialView.swift */,
 				F623F2BE27ED9F9A0075A421 /* TutorialView.swift */,
 				F68C43B32810372500C3E5BB /* ChangeCollegeView.swift */,
+				F6E05E5C2854AE7900068BB0 /* CountrySelectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -917,6 +1021,7 @@
 				F6FB5A3B27C60C2E00953E4C /* SceneDelegate.swift */,
 				F6B6F79E27868CC600A6A985 /* AppDelegate.swift */,
 				F696388227C5CC1B004EFB71 /* ImageCache.swift */,
+				F6433707285646F600F4A22C /* TranslationManager.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -925,6 +1030,7 @@
 			isa = PBXGroup;
 			children = (
 				F623F28427EAC5430075A421 /* HomeListModel.swift */,
+				7BCFB8FD28DD92B400B0862E /* HomeCalendarDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -999,6 +1105,7 @@
 				F697D471275A250F005DC906 /* PlainButtonFramework.swift */,
 				F6BF4C32277AF3110099B5AF /* FullScreenImageView.swift */,
 				F646D517277C2C3B009E2797 /* PDFViewer.swift */,
+				F6E921382857027600172223 /* SelectLanguageToTranslateView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1018,6 +1125,7 @@
 				F6D54D7F277D78EF0002A7E9 /* updatePhoneAlertModel.swift */,
 				F6C484AF278564B20004B98A /* AdminCodeModel.swift */,
 				F671FF1627EF2E4300214B83 /* LegacyDataRemoveAlertModel.swift */,
+				F6E05E5A2854AD3400068BB0 /* UserCountryCode.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1029,7 +1137,6 @@
 				F623F2B327ED98520075A421 /* greet.txt */,
 				F6F06382278C2A4600C3AAD5 /* EULA.pdf */,
 				F646D515277C2C2A009E2797 /* PledgeBook.pdf */,
-				F64087B0274CC50400822650 /* InfoPlist.strings */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -1038,6 +1145,7 @@
 			isa = PBXGroup;
 			children = (
 				F64087B5274CC9AC00822650 /* UserManagement.swift */,
+				F697789F286191F6001BA7C9 /* InfoPlist.strings */,
 				F6856C9027C5DC6600F4CDD4 /* ProfileManager.swift */,
 			);
 			path = Helper;
@@ -1246,6 +1354,7 @@
 			children = (
 				F623F2B027ED96830075A421 /* background_greet.png */,
 				F6945BFC27B64D16001E6B69 /* ic_greet.png */,
+				F6B7C8AC281295C90049A1AD /* ic_coupon.png */,
 				F6945BFD27B64D16001E6B69 /* ic_introduce_dept.png */,
 				F6945BFB27B64D16001E6B69 /* ic_introduce_map.png */,
 				F65AFB0527B611F90092DBFE /* ic_map.png */,
@@ -1406,48 +1515,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		F696388D27C5CE38004EFB71 /* Widgets */ = {
+		F697789228606DFA001BA7C9 /* Localizable */ = {
 			isa = PBXGroup;
 			children = (
-				F696389F27C5CEDF004EFB71 /* Provider */,
-				F696389E27C5CEDB004EFB71 /* Entry */,
-				F696389D27C5CED5004EFB71 /* View */,
-				F696388E27C5CE38004EFB71 /* WidgetsBundle.swift */,
-				F696389027C5CE38004EFB71 /* Widgets.intentdefinition */,
-				F696389127C5CE39004EFB71 /* Assets.xcassets */,
-				F696389327C5CE39004EFB71 /* Info.plist */,
+				F697789D28618E97001BA7C9 /* Localizable.strings */,
 			);
-			path = Widgets;
-			sourceTree = "<group>";
-		};
-		F696389D27C5CED5004EFB71 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F69638A027C5CEEF004EFB71 /* NoticeWidgetView.swift */,
-				F69638A227C5CF6C004EFB71 /* NoticeWidgetEntryView.swift */,
-				F6856C8227C5D2C000F4CDD4 /* NoticeWidgetPlaceholderView.swift */,
-				F6FB5A3327C6019F00953E4C /* InternalNoticeWidget.swift */,
-				F6FB5A3527C601AD00953E4C /* InternalNoticeWidgetEntryView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		F696389E27C5CEDB004EFB71 /* Entry */ = {
-			isa = PBXGroup;
-			children = (
-				F69638A427C5CF93004EFB71 /* NoticeEntry.swift */,
-				F6FB5A3927C604EA00953E4C /* InternalNoticeEntry.swift */,
-			);
-			path = Entry;
-			sourceTree = "<group>";
-		};
-		F696389F27C5CEDF004EFB71 /* Provider */ = {
-			isa = PBXGroup;
-			children = (
-				F69638A627C5CFA1004EFB71 /* NoticeProvider.swift */,
-				F6FB5A3727C602E000953E4C /* InternalNoticeProvider.swift */,
-			);
-			path = Provider;
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 		F69A16092782C6FF0046C974 /* StudyRoom */ = {
@@ -1464,6 +1537,9 @@
 			isa = PBXGroup;
 			children = (
 				F69A160B2782C7150046C974 /* StudyRoomStatusView.swift */,
+				F60D7EB72822CB0000AAFC28 /* StudyRoomReserveMainView.swift */,
+				F60D7EB92822CF7800AAFC28 /* EnterStudyRoomReservationCodeView.swift */,
+				F60D7EBB2822D1CC00AAFC28 /* StudyRoomReservationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1481,10 +1557,13 @@
 		F6BF4C25277AA95E0099B5AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F64337052856469300F4A22C /* TranslationModel.swift */,
 				F6BF4C26277AA9660099B5AF /* PhotoPicker.swift */,
 				F6BF4C28277AAE730099B5AF /* PhotoPickerModel.swift */,
 				F6B6F79C2786889600A6A985 /* LinkRow.swift */,
 				F6A8DF9E280940B700F5BDDB /* URLListModel.swift */,
+				F6E921362857013500172223 /* TranslationLanguage.swift */,
+				F6E9213A2857042200172223 /* SupportedLanguageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1538,6 +1617,7 @@
 			isa = PBXGroup;
 			children = (
 				F6C053EE27634D40004178A6 /* AllianceHelper.swift */,
+				F6FDCA3728127C0F00085B34 /* QRHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1548,6 +1628,12 @@
 				F6C053FF27634F7F004178A6 /* AllianceCategoryButtonModel.swift */,
 				F6C0540627635790004178A6 /* AllianceDataModel.swift */,
 				F6C0540C27635EEB004178A6 /* AllianceListModel.swift */,
+				F6FDCA2F28127B7100085B34 /* QRCameraDelegate.swift */,
+				F6FDCA3128127BA900085B34 /* QRScannerViewModel.swift */,
+				F6FDCA3928127C8600085B34 /* QRCodeModel.swift */,
+				F6B7C8AA2812923A0049A1AD /* QRCodeCallbackModel.swift */,
+				F6B7C8B0281297740049A1AD /* CouponListModel.swift */,
+				F6B7C8B228129A8D0049A1AD /* CouponStateCallbackModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1576,6 +1662,7 @@
 		F6D29A7F274F78D7003F7FEC /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				7BCFB8FA28DD928B00B0862E /* Helper */,
 				F623F28327EAC5370075A421 /* Models */,
 				F6D29A84274F78F5003F7FEC /* View */,
 			);
@@ -1635,6 +1722,11 @@
 				F6C0540E27636A88004178A6 /* AllianceDetailView.swift */,
 				F6C0541027636A93004178A6 /* ViewInsideMap.swift */,
 				F6C0541327638F5C004178A6 /* StoreListMapView.swift */,
+				F6FDCA2D28127AAC00085B34 /* QRView.swift */,
+				F6FDCA3328127BC600085B34 /* CameraView.swift */,
+				F6FDCA3528127BEA00085B34 /* QRCameraView.swift */,
+				F6FDCA3B28127E4400085B34 /* QRResultView.swift */,
+				F6B7C8AE2812962E0049A1AD /* CouponView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1756,6 +1848,48 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		F6F8F358286EB0FD0036E835 /* Petition(Beta) */ = {
+			isa = PBXGroup;
+			children = (
+				F6F8F35F286EBB4E0036E835 /* Models */,
+				F6F8F35C286EB37E0036E835 /* View */,
+				F6F8F359286EB10E0036E835 /* Helper */,
+			);
+			path = "Petition(Beta)";
+			sourceTree = "<group>";
+		};
+		F6F8F359286EB10E0036E835 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F6F8F35A286EB1300036E835 /* PetitionHelper_Beta.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		F6F8F35C286EB37E0036E835 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F6F8F35D286EB3870036E835 /* PetitionListView_Beta.swift */,
+				F6F8F360286EBCAB0036E835 /* addPetitionView_Beta.swift */,
+				F6F8F362286EBD020036E835 /* addPetitionMainView_Beta.swift */,
+				F6DD8D10286ECB00002315A5 /* PetitionDetailView_Beta.swift */,
+				F6DD8D12286ECDF6002315A5 /* PetitionNoticeListView.swift */,
+				F6DD8D14286ECE95002315A5 /* PetitionNoticeDetailView.swift */,
+				F6DD8D16286ECEE9002315A5 /* addPetitionNoticeView.swift */,
+				F6DD8D18286ECFC5002315A5 /* PetitionTranslateLanguageSelectionView.swift */,
+				F6DD8D1A286ED1CE002315A5 /* editPetitionNoticeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F6F8F35F286EBB4E0036E835 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F6F8F364286EBE080036E835 /* PetitionNoticeListModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F6FB5A4A27C6257600953E4C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -1771,12 +1905,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F60FCD33274CBC920072C996 /* Build configuration list for PBXNativeTarget "JBNU-CH" */;
 			buildPhases = (
-				25F251E00FA047BB74183396 /* [CP] Check Pods Manifest.lock */,
+				C55D98D171C86F4B703476A1 /* [CP] Check Pods Manifest.lock */,
 				F60FCD0B274CBC900072C996 /* Sources */,
 				F60FCD0C274CBC900072C996 /* Frameworks */,
 				F60FCD0D274CBC900072C996 /* Resources */,
-				5C4FEBF05404CA3DC6DEF613 /* [CP] Embed Pods Frameworks */,
 				F696389C27C5CE39004EFB71 /* Embed App Extensions */,
+				1C09FFAFB2DDA0E6EB1A3E4D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1784,8 +1918,7 @@
 			);
 			name = "JBNU-CH";
 			packageProductDependencies = (
-				F6C054022763511D004178A6 /* SwiftUIPager */,
-				F646D53B277C6278009E2797 /* SwiftSoup */,
+				7BCFB8EE28DD7D4A00B0862E /* KVKCalendar */,
 			);
 			productName = "JBNU-CH";
 			productReference = F60FCD0F274CBC900072C996 /* JBNU CH.app */;
@@ -1795,7 +1928,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F60FCD36274CBC920072C996 /* Build configuration list for PBXNativeTarget "JBNU-CHTests" */;
 			buildPhases = (
-				2A30A263FC80671E4D318BC7 /* [CP] Check Pods Manifest.lock */,
+				1DB1D6B604654C0F4793E7B3 /* [CP] Check Pods Manifest.lock */,
 				F60FCD1B274CBC920072C996 /* Sources */,
 				F60FCD1C274CBC920072C996 /* Frameworks */,
 				F60FCD1D274CBC920072C996 /* Resources */,
@@ -1814,11 +1947,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F60FCD39274CBC920072C996 /* Build configuration list for PBXNativeTarget "JBNU-CHUITests" */;
 			buildPhases = (
-				72F5181DCC8C7BE9D11693CA /* [CP] Check Pods Manifest.lock */,
+				79CB2105ADDF23BFEB87D344 /* [CP] Check Pods Manifest.lock */,
 				F60FCD25274CBC920072C996 /* Sources */,
 				F60FCD26274CBC920072C996 /* Frameworks */,
 				F60FCD27274CBC920072C996 /* Resources */,
-				BAF222A6D4D52EA249F0B541 /* [CP] Embed Pods Frameworks */,
+				E8E4D0BB6016531B1A6C0587 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1837,7 +1970,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1320;
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
 					F60FCD0E274CBC900072C996 = {
@@ -1864,8 +1997,7 @@
 			);
 			mainGroup = F60FCD06274CBC900072C996;
 			packageReferences = (
-				F6C054012763511D004178A6 /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
-				F646D53A277C6278009E2797 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				7BCFB8ED28DD7D4A00B0862E /* XCRemoteSwiftPackageReference "KVKCalendar" */,
 			);
 			productRefGroup = F60FCD10274CBC900072C996 /* Products */;
 			projectDirPath = "";
@@ -1901,6 +2033,7 @@
 				F65AFB5A27B611F90092DBFE /* ic_jbnu.png in Resources */,
 				F678C65927FC3B6F00635189 /* ic_cafe.png in Resources */,
 				F678C67D27FC3B7000635189 /* ic_tweezer.png in Resources */,
+				F697789B28618E97001BA7C9 /* Localizable.strings in Resources */,
 				F65AFB4327B611F90092DBFE /* ic_password.png in Resources */,
 				F678C64E27FC3B6F00635189 /* ic_toolbox.png in Resources */,
 				F65AFB5827B611F90092DBFE /* ic_alliance_sports.png in Resources */,
@@ -1939,7 +2072,6 @@
 				F65AFB5727B611F90092DBFE /* ic_feedback.png in Resources */,
 				F65AFB6527B611F90092DBFE /* ic_box.png in Resources */,
 				F65AFB6627B611F90092DBFE /* ic_sports.png in Resources */,
-				F64087AE274CC50400822650 /* InfoPlist.strings in Resources */,
 				F65AFB4E27B611F90092DBFE /* ic_products.png in Resources */,
 				F623F29B27ED6EC70075A421 /* ic_football.png in Resources */,
 				F623F29A27ED6EC70075A421 /* ic_mat.png in Resources */,
@@ -1960,6 +2092,7 @@
 				F65AFB5427B611F90092DBFE /* ic_cafe.png in Resources */,
 				F678C65827FC3B6F00635189 /* ic_a4.png in Resources */,
 				F678C66E27FC3B7000635189 /* ic_spray.png in Resources */,
+				F6B7C8AD281295C90049A1AD /* ic_coupon.png in Resources */,
 				F65AFB5927B611F90092DBFE /* appstore.png in Resources */,
 				F65AFB6227B611F90092DBFE /* ic_goods.png in Resources */,
 				F65AFB4927B611F90092DBFE /* ic_abuse.png in Resources */,
@@ -1987,6 +2120,7 @@
 				F678C64D27FC3B6F00635189 /* ic_glue.png in Resources */,
 				F678C67027FC3B7000635189 /* ic_blanket.png in Resources */,
 				F678C65627FC3B6F00635189 /* ic_bandage.png in Resources */,
+				F69778A1286191F6001BA7C9 /* InfoPlist.strings in Resources */,
 				F678C64727FC3B6F00635189 /* ic_all.png in Resources */,
 				F623F2C927ED9FD90075A421 /* tutorialimg_1.png in Resources */,
 				F623F29327ED6EC60075A421 /* ic_unifrom_p.png in Resources */,
@@ -2053,29 +2187,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		25F251E00FA047BB74183396 /* [CP] Check Pods Manifest.lock */ = {
+		1C09FFAFB2DDA0E6EB1A3E4D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JBNU-CH/Pods-JBNU-CH-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-JBNU-CH-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-JBNU-CH/Pods-JBNU-CH-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JBNU-CH/Pods-JBNU-CH-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2A30A263FC80671E4D318BC7 /* [CP] Check Pods Manifest.lock */ = {
+		1DB1D6B604654C0F4793E7B3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2097,24 +2226,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5C4FEBF05404CA3DC6DEF613 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JBNU-CH/Pods-JBNU-CH-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JBNU-CH/Pods-JBNU-CH-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JBNU-CH/Pods-JBNU-CH-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		72F5181DCC8C7BE9D11693CA /* [CP] Check Pods Manifest.lock */ = {
+		79CB2105ADDF23BFEB87D344 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2136,7 +2248,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BAF222A6D4D52EA249F0B541 /* [CP] Embed Pods Frameworks */ = {
+		C55D98D171C86F4B703476A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JBNU-CH-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8E4D0BB6016531B1A6C0587 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2168,7 +2302,9 @@
 				F6BF4C49277AFBB50099B5AF /* SportsLocationSelectViewController.swift in Sources */,
 				F6BF4C37277AF6270099B5AF /* SportsListView.swift in Sources */,
 				F6FB5A4C27C6258200953E4C /* MealHelper.swift in Sources */,
+				F6FDCA3C28127E4400085B34 /* QRResultView.swift in Sources */,
 				F697D470275A2180005DC906 /* CollegeCodeModel.swift in Sources */,
+				7BCFB8FC28DD929500B0862E /* HomeCalendarHelper.swift in Sources */,
 				F6D29A8F274F792C003F7FEC /* NoticeView.swift in Sources */,
 				F6C054172763943D004178A6 /* NoticeHelper.swift in Sources */,
 				F6C0540027634F7F004178A6 /* AllianceCategoryButtonModel.swift in Sources */,
@@ -2178,22 +2314,29 @@
 				F65AFA8F27B6043D0092DBFE /* ProductStatusModel.swift in Sources */,
 				F623F2AB27ED89B10075A421 /* ProductLogListModel.swift in Sources */,
 				F6D54D6E277D475B0002A7E9 /* HandWritingListView.swift in Sources */,
+				F6DD8D11286ECB01002315A5 /* PetitionDetailView_Beta.swift in Sources */,
 				F642F2F3276C59B7002330E1 /* addPetitionAlertModel.swift in Sources */,
 				F6BF4C41277AFA8D0099B5AF /* addSportsAlertModel.swift in Sources */,
 				F6BF4C2B277AAF160099B5AF /* PickedMdeiaItems.swift in Sources */,
+				7BCFB8F528DD8A0C00B0862E /* CalendarMainView.swift in Sources */,
 				F6D29A89274F790C003F7FEC /* AllianceView.swift in Sources */,
 				F623F2A527ED739C0075A421 /* ProductListModel.swift in Sources */,
 				F646D50E277C1CB8009E2797 /* PledgeStatusModel.swift in Sources */,
+				F64337062856469300F4A22C /* TranslationModel.swift in Sources */,
+				F6FDCA3028127B7100085B34 /* QRCameraDelegate.swift in Sources */,
 				F69A16002782A0D20046C974 /* addHandWritingAlertModel.swift in Sources */,
 				F6615833274D1F5D0095F6C6 /* UserManagementResultModel.swift in Sources */,
 				F69A16112782D2390046C974 /* CollegePledgeView.swift in Sources */,
 				F6BF4C3A277AF63B0099B5AF /* SportsHelper.swift in Sources */,
+				F6F8F35B286EB1300036E835 /* PetitionHelper_Beta.swift in Sources */,
 				F623F2BF27ED9F9A0075A421 /* TutorialView.swift in Sources */,
+				F6FDCA3628127BEA00085B34 /* QRCameraView.swift in Sources */,
 				F623F2B927ED9AA60075A421 /* SFSafariViewWrapper.swift in Sources */,
 				F64087A7274CBFF100822650 /* ProcessView.swift in Sources */,
 				F623F2BB27ED9D020075A421 /* StudentAssociationLinker.swift in Sources */,
 				F6650BAB27842F07004716FE /* StudyRoomHelper.swift in Sources */,
 				F646D52B277C36E6009E2797 /* FeedbackHubTypeModel.swift in Sources */,
+				F60D7EB82822CB0000AAFC28 /* StudyRoomReserveMainView.swift in Sources */,
 				F642F2E3276C47B3002330E1 /* PetitionDataModel.swift in Sources */,
 				F642F2D9276C3A66002330E1 /* InternalNoticeView.swift in Sources */,
 				F60FCD3F274CBCDF0072C996 /* SignInView.swift in Sources */,
@@ -2211,20 +2354,26 @@
 				F694B75C280EE1AD008B8344 /* OpenSourceDataModel.swift in Sources */,
 				F646D52D277C3C21009E2797 /* FeedbackHubAlertModel.swift in Sources */,
 				F6D54D80277D78EF0002A7E9 /* updatePhoneAlertModel.swift in Sources */,
+				7BCFB8F928DD8B5900B0862E /* CustomDayCell.swift in Sources */,
 				F6BF4C3D277AF6970099B5AF /* addSportsView.swift in Sources */,
 				F69A16172782DC3F0046C974 /* StudyRoomStatusModel.swift in Sources */,
 				F623F29D27ED6EFF0075A421 /* ProductView.swift in Sources */,
 				F646D51F277C3197009E2797 /* FeedbackHubDataModel.swift in Sources */,
 				F6A8DF9F280940B700F5BDDB /* URLListModel.swift in Sources */,
 				F64087B6274CC9AC00822650 /* UserManagement.swift in Sources */,
+				F6DD8D1B286ED1CE002315A5 /* editPetitionNoticeView.swift in Sources */,
 				F697D472275A250F005DC906 /* PlainButtonFramework.swift in Sources */,
 				F6C0542D2763AF55004178A6 /* InternalWebView.swift in Sources */,
+				F6FDCA3A28127C8600085B34 /* QRCodeModel.swift in Sources */,
 				F6C0540D27635EEB004178A6 /* AllianceListModel.swift in Sources */,
 				F646D518277C2C3B009E2797 /* PDFViewer.swift in Sources */,
 				F6D54D71277D47690002A7E9 /* HandWritingHelper.swift in Sources */,
+				F6FDCA3428127BC600085B34 /* CameraView.swift in Sources */,
 				F6D29A7A274F70F9003F7FEC /* ImagePickerView.swift in Sources */,
+				7B27D56228DC32F400E87545 /* DisplayCalendar.swift in Sources */,
 				F6D29A6E274F5ACA003F7FEC /* UserInfoModel.swift in Sources */,
 				F6C0541C276396D1004178A6 /* NoticeListModel.swift in Sources */,
+				F6F8F363286EBD020036E835 /* addPetitionMainView_Beta.swift in Sources */,
 				F646D4FD277BF843009E2797 /* SportsDetailView.swift in Sources */,
 				F68C43B42810372500C3E5BB /* ChangeCollegeView.swift in Sources */,
 				F6BF4C45277AFB4D0099B5AF /* SportsMapDragListener.swift in Sources */,
@@ -2233,10 +2382,13 @@
 				F6D54D7A277D70F00002A7E9 /* changePasswordView.swift in Sources */,
 				F62F02F627A3BF520019CDEA /* NoticeRemoveAlertModel.swift in Sources */,
 				F6B6F7A12786EEAF00A6A985 /* SignUpTutorialView.swift in Sources */,
+				7BCFB8F228DD86AA00B0862E /* CalendarSettings.swift in Sources */,
 				F6BF4C27277AA9660099B5AF /* PhotoPicker.swift in Sources */,
+				F6F8F361286EBCAB0036E835 /* addPetitionView_Beta.swift in Sources */,
 				F6650BB3278439E1004716FE /* MyFeedbackView.swift in Sources */,
 				F6C484B227856DFD0004B98A /* FeedbackHubAnswerAlertModel.swift in Sources */,
 				F694B757280EE0B3008B8344 /* OpenSourceLicenseinfoView.swift in Sources */,
+				F6DD8D19286ECFC5002315A5 /* PetitionTranslateLanguageSelectionView.swift in Sources */,
 				F642F2E5276C48BD002330E1 /* PetitionListModel.swift in Sources */,
 				F6D54D74277D47800002A7E9 /* HandWritingDataModel.swift in Sources */,
 				F646D510277C1D1E009E2797 /* PledgeDataModel.swift in Sources */,
@@ -2244,23 +2396,30 @@
 				F6856C9127C5DC6600F4CDD4 /* ProfileManager.swift in Sources */,
 				F623F2A027ED6F5B0075A421 /* ProductHelper.swift in Sources */,
 				F6D54D76277D4A9B0002A7E9 /* addHandWritingView.swift in Sources */,
-				F696389527C5CE39004EFB71 /* Widgets.intentdefinition in Sources */,
 				F6D29A78274F6B0B003F7FEC /* SignUpView.swift in Sources */,
 				F64087AA274CC17200822650 /* UserManagementFocusField.swift in Sources */,
+				F6F8F35E286EB3870036E835 /* PetitionListView_Beta.swift in Sources */,
+				7BCFB8FE28DD92B400B0862E /* HomeCalendarDataModel.swift in Sources */,
 				F678F314274DE19400BEF510 /* LegacyUserView.swift in Sources */,
+				F6E05E5D2854AE7900068BB0 /* CountrySelectionView.swift in Sources */,
+				F6DD8D17286ECEE9002315A5 /* addPetitionNoticeView.swift in Sources */,
 				F6FB5A3C27C60C2E00953E4C /* SceneDelegate.swift in Sources */,
+				F6433708285646F600F4A22C /* TranslationManager.swift in Sources */,
+				F6FDCA3828127C0F00085B34 /* QRHelper.swift in Sources */,
 				F6D29A74274F6410003F7FEC /* changePassword.swift in Sources */,
 				F6B6F79F27868CC600A6A985 /* AppDelegate.swift in Sources */,
 				F65AFA9527B60D510092DBFE /* MarketListView.swift in Sources */,
 				F6BF4C33277AF3110099B5AF /* FullScreenImageView.swift in Sources */,
 				F6C0540727635790004178A6 /* AllianceDataModel.swift in Sources */,
 				F6C0541A2763945D004178A6 /* NoticeDataModel.swift in Sources */,
+				F60D7EBA2822CF7800AAFC28 /* EnterStudyRoomReservationCodeView.swift in Sources */,
 				F65AFB7627B624630092DBFE /* MarketDetailView.swift in Sources */,
 				F60FCD13274CBC900072C996 /* JBNU_CHApp.swift in Sources */,
 				F66D1485274E3EBB00F05B6D /* EULAView.swift in Sources */,
 				F614F674274DDA3200EFB02D /* UserManagementAlertModel.swift in Sources */,
 				F6BF4C2D277ADF7E0099B5AF /* NoticeTypeModel.swift in Sources */,
 				F678F312274DE00700BEF510 /* AES256Util.swift in Sources */,
+				F6F8F365286EBE080036E835 /* PetitionNoticeListModel.swift in Sources */,
 				F646D51C277C3137009E2797 /* FeedbackHubHelper.swift in Sources */,
 				F6C053EF27634D40004178A6 /* AllianceHelper.swift in Sources */,
 				F642F2E7276C49BC002330E1 /* addPetitionMainView.swift in Sources */,
@@ -2269,14 +2428,18 @@
 				F6D29A72274F5D0C003F7FEC /* TransferDataView.swift in Sources */,
 				F6C0540F27636A88004178A6 /* AllianceDetailView.swift in Sources */,
 				F6BFD09F2775AE8900AFB01C /* PetitionStatusModel.swift in Sources */,
+				F6FDCA2E28127AAC00085B34 /* QRView.swift in Sources */,
 				F642F2FB276C6826002330E1 /* CampusMapViewController.swift in Sources */,
 				F646D540277C6366009E2797 /* MealView.swift in Sources */,
 				F642F2EF276C5174002330E1 /* addPetitionView.swift in Sources */,
 				F6D29A92274F7937003F7FEC /* MoreView.swift in Sources */,
 				F623F28527EAC5430075A421 /* HomeListModel.swift in Sources */,
 				F65AFB7427B612340092DBFE /* addProductView.swift in Sources */,
+				F6FDCA3228127BA900085B34 /* QRScannerViewModel.swift in Sources */,
 				F69A16042782B46E0046C974 /* HandWritingContentsModel.swift in Sources */,
 				F6C484B0278564B20004B98A /* AdminCodeModel.swift in Sources */,
+				F6E9213B2857042200172223 /* SupportedLanguageModel.swift in Sources */,
+				F6DD8D15286ECE95002315A5 /* PetitionNoticeDetailView.swift in Sources */,
 				F65AFA8C27B603DF0092DBFE /* MarketDataModel.swift in Sources */,
 				F642F2DD276C3DCD002330E1 /* PetitionListView.swift in Sources */,
 				F6650BB1278433A2004716FE /* FeedbackHubListModel.swift in Sources */,
@@ -2292,10 +2455,12 @@
 				F6C0541427638F5C004178A6 /* StoreListMapView.swift in Sources */,
 				F6C0542B2763AEB4004178A6 /* NoticeListView.swift in Sources */,
 				F69A160F2782C7A40046C974 /* StudyRoomListModel.swift in Sources */,
+				F6B7C8B328129A8D0049A1AD /* CouponStateCallbackModel.swift in Sources */,
 				F696388327C5CC1B004EFB71 /* ImageCache.swift in Sources */,
 				F69A160C2782C7150046C974 /* StudyRoomStatusView.swift in Sources */,
 				F6C0541127636A93004178A6 /* ViewInsideMap.swift in Sources */,
 				F6945C0227B64D90001E6B69 /* GreetingView.swift in Sources */,
+				F6E921392857027600172223 /* SelectLanguageToTranslateView.swift in Sources */,
 				F6BF4C29277AAE730099B5AF /* PhotoPickerModel.swift in Sources */,
 				F6D29A7C274F770E003F7FEC /* SendResetPasswordEmailView.swift in Sources */,
 				F646D4FB277BF36B009E2797 /* SportsListModel.swift in Sources */,
@@ -2303,9 +2468,14 @@
 				F646D531277C5763009E2797 /* PetitionParticipantsListModel.swift in Sources */,
 				F6D29A76274F6545003F7FEC /* WebView.swift in Sources */,
 				F642F2E0276C3DDE002330E1 /* PetitionHelper.swift in Sources */,
+				F6E921372857013600172223 /* TranslationLanguage.swift in Sources */,
 				F6D29A70274F5CAE003F7FEC /* RegisterEntryPointModel.swift in Sources */,
 				F6F06374278C1F4700C3AAD5 /* InfoView.swift in Sources */,
+				7BCFB8F728DD8ABE00B0862E /* EventViewer.swift in Sources */,
+				F6E05E5B2854AD3400068BB0 /* UserCountryCode.swift in Sources */,
 				F6D54D7C277D74090002A7E9 /* changePasswordResultModel.swift in Sources */,
+				F6B7C8B1281297740049A1AD /* CouponListModel.swift in Sources */,
+				F6B7C8AF2812962E0049A1AD /* CouponView.swift in Sources */,
 				F6650BAD27843379004716FE /* AllFeedbackView.swift in Sources */,
 				F6D54D78277D51300002A7E9 /* ProfileAlertModel.swift in Sources */,
 				F6D29A86274F78FB003F7FEC /* HomeView.swift in Sources */,
@@ -2315,10 +2485,13 @@
 				F646D512277C1EB8009E2797 /* PledgeView.swift in Sources */,
 				F646D501277BFF06009E2797 /* SportsParticipantsDataModel.swift in Sources */,
 				F623F2B727ED98670075A421 /* GreetingLoader.swift in Sources */,
+				F6B7C8AB2812923A0049A1AD /* QRCodeCallbackModel.swift in Sources */,
 				F646D52F277C545D009E2797 /* PetitionParticipantsModel.swift in Sources */,
+				F6DD8D13286ECDF6002315A5 /* PetitionNoticeListView.swift in Sources */,
 				F646D50B277C1CAA009E2797 /* PledgeHelper.swift in Sources */,
 				F65AFA9327B6068C0092DBFE /* MarketHelper.swift in Sources */,
 				F646D514277C279F009E2797 /* PledgeListModel.swift in Sources */,
+				F60D7EBC2822D1CC00AAFC28 /* StudyRoomReservationView.swift in Sources */,
 				F623F2A327ED6F9E0075A421 /* ProductDataModel.swift in Sources */,
 				F6C0541E27639CE1004178A6 /* ProfileView.swift in Sources */,
 				F66D1483274E3D8800F05B6D /* EntryPointModel.swift in Sources */,
@@ -2362,10 +2535,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F64087B0274CC50400822650 /* InfoPlist.strings */ = {
+		F697789D28618E97001BA7C9 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F64087AF274CC50400822650 /* ko */,
+				F697789C28618E97001BA7C9 /* en */,
+				F697789E28618EBE001BA7C9 /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		F697789F286191F6001BA7C9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F69778A0286191F6001BA7C9 /* Base */,
+				F69778A228619245001BA7C9 /* en */,
+				F69778A32861924A001BA7C9 /* ko */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -2377,6 +2561,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -2438,6 +2623,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -2491,20 +2677,25 @@
 		};
 		F60FCD34274CBC920072C996 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8650BDEBFC863DD56601A202 /* Pods-JBNU-CH.debug.xcconfig */;
+			baseConfigurationReference = D1A8F75399FCA4AEF73C1AEB /* Pods-JBNU-CH.debug.xcconfig */;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "JBNU-CH/JBNU-CH.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2557;
+				CURRENT_PROJECT_VERSION = 2605;
 				DEVELOPMENT_ASSET_PATHS = "\"JBNU-CH/Preview Content\"";
-				DEVELOPMENT_TEAM = JLQKH6P6PL;
+				DEVELOPMENT_TEAM = H7245MHSUG;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JBNU-CH/Info.plist";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "취업/대외활동/학사일정 캘린더에 사용자 일정 추가를 위해 캘린더 액세스 권한이 필요합니다.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "QR코드 스캔을 위해 카메라 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "지도에 현재 위치를 표시하기 위해 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "지도에 현재 위치를 표시하기 위해 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "";
@@ -2513,15 +2704,15 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "kr.ac.jbnu.JBNU-CH";
+				MARKETING_VERSION = 1.3.1;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cj.JBNU-CH";
 				PRODUCT_NAME = "JBNU CH";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2532,20 +2723,25 @@
 		};
 		F60FCD35274CBC920072C996 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7496E6BBBC71976F3FDC7CA2 /* Pods-JBNU-CH.release.xcconfig */;
+			baseConfigurationReference = CFF10CD57F1144B8C65F56DA /* Pods-JBNU-CH.release.xcconfig */;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "JBNU-CH/JBNU-CH.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2557;
+				CURRENT_PROJECT_VERSION = 2605;
 				DEVELOPMENT_ASSET_PATHS = "\"JBNU-CH/Preview Content\"";
 				DEVELOPMENT_TEAM = JLQKH6P6PL;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JBNU-CH/Info.plist";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "취업/대외활동/학사일정 캘린더에 사용자 일정 추가를 위해 캘린더 액세스 권한이 필요합니다.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "QR코드 스캔을 위해 카메라 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "지도에 현재 위치를 표시하기 위해 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "지도에 현재 위치를 표시하기 위해 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "";
@@ -2554,15 +2750,15 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "kr.ac.jbnu.JBNU-CH";
+				MARKETING_VERSION = 1.3.1;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cj.JBNU-CH";
 				PRODUCT_NAME = "JBNU CH";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2573,7 +2769,7 @@
 		};
 		F60FCD37274CBC920072C996 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A4686DA045AA7871E928E05 /* Pods-JBNU-CHTests.debug.xcconfig */;
+			baseConfigurationReference = F20F54207257051BF79DE329 /* Pods-JBNU-CHTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2594,12 +2790,13 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JBNU CH.app/JBNU CH";
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Debug;
 		};
 		F60FCD38274CBC920072C996 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3561F50E4C134C3076299DE2 /* Pods-JBNU-CHTests.release.xcconfig */;
+			baseConfigurationReference = 6E48B52189F90C6308964725 /* Pods-JBNU-CHTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2625,7 +2822,7 @@
 		};
 		F60FCD3A274CBC920072C996 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 946DE6039744469E50AA6427 /* Pods-JBNU-CH-JBNU-CHUITests.debug.xcconfig */;
+			baseConfigurationReference = 0CF95E7E98B3BEAB40853A73 /* Pods-JBNU-CH-JBNU-CHUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2649,7 +2846,7 @@
 		};
 		F60FCD3B274CBC920072C996 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3486E0A007E9D9CD6A7D57B0 /* Pods-JBNU-CH-JBNU-CHUITests.release.xcconfig */;
+			baseConfigurationReference = D23E1130ECA94477C6AD0A5D /* Pods-JBNU-CH-JBNU-CHUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2713,34 +2910,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F646D53A277C6278009E2797 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+		7BCFB8ED28DD7D4A00B0862E /* XCRemoteSwiftPackageReference "KVKCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			repositoryURL = "https://github.com/kvyatkovskys/KVKCalendar";
 			requirement = {
 				branch = master;
-				kind = branch;
-			};
-		};
-		F6C054012763511D004178A6 /* XCRemoteSwiftPackageReference "SwiftUIPager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/fermoya/SwiftUIPager.git";
-			requirement = {
-				branch = develop;
 				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F646D53B277C6278009E2797 /* SwiftSoup */ = {
+		7BCFB8EE28DD7D4A00B0862E /* KVKCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F646D53A277C6278009E2797 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
-			productName = SwiftSoup;
-		};
-		F6C054022763511D004178A6 /* SwiftUIPager */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F6C054012763511D004178A6 /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
-			productName = SwiftUIPager;
+			package = 7BCFB8ED28DD7D4A00B0862E /* XCRemoteSwiftPackageReference "KVKCalendar" */;
+			productName = KVKCalendar;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

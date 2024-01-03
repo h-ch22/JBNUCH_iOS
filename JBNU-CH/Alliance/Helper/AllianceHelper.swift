@@ -20,6 +20,58 @@ class AllianceHelper : ObservableObject{
         self.userInfo = userInfo
     }
     
+    func getFavorite(id : String?, completion : @escaping(_ result : Bool?) -> Void){
+        let docRef = self.db.collection("Users").document(userInfo?.uid ?? "").collection("Favorites").document(id ?? "")
+        
+        docRef.getDocument(){document, error in
+            if let document = document{
+                if document.exists{
+                    completion(true)
+                }
+                
+                else{
+                    completion(false)
+                }
+            }
+        }
+    }
+    
+    func addFavorite(data : AllianceDataModel, completion : @escaping(_ result : Bool?) -> Void){
+        let docRef = self.db.collection("Users").document(userInfo?.uid ?? "").collection("Favorites").document(data.id ?? "")
+        
+        docRef.getDocument(){document, error in
+            if let document = document{
+                if document.exists{
+                    docRef.delete(){error in
+                        if error != nil{
+                            print(error)
+                            completion(false)
+                            
+                            return
+                        }
+                        
+                        completion(false)
+                    }
+                }
+                
+                else{
+                    let isFavorite : Bool = true
+                    
+                    docRef.setData(["isFavorite" : true]){error in
+                        if error != nil{
+                            print(error)
+                            completion(false)
+                            
+                            return
+                        }
+                        
+                        completion(true)
+                    }
+                }
+            }
+        }
+    }
+    
     func getAdList(completion : @escaping(_ result : Bool?) -> Void){
         let userManagement = UserManagement()
         
@@ -97,43 +149,11 @@ class AllianceHelper : ObservableObject{
                                         }
                                         
                                         if !self.allianceList.contains(where: {$0.id == storeData["id"] ?? ""}){
-                                            self.allianceList.append(AllianceDataModel(storeName: store,
-                                                                                       benefits: storeData["benefits"] ?? "",
-                                                                                       breakTime: storeData["breakTime"] ?? "",
-                                                                                       closeTime: storeData["closeTime"] ?? "",
-                                                                                       closed: storeData["closed"] ?? "",
-                                                                                       id: storeData["id"] ?? "",
-                                                                                       location: storeData["location"] ?? "",
-                                                                                       menu: storeData["menu"] ?? "",
-                                                                                       openTime: storeData["openTime"] ?? "",
-                                                                                       price: storeData["price"] ?? "",
-                                                                                       tel: storeData["tel"] ?? "",
-                                                                                       storeLogo: url,
-                                                                                       allianceType : "단대"))
-                                        }
-                                        
-                                        else{
-                                            let index = self.allianceList.firstIndex(where: {$0.id == storeData["id"] ?? ""})
+                                            var favorite = false
                                             
-                                            if index != nil{
-                                                if self.allianceList[index!].allianceType != "단대"{
-                                                    self.allianceList.append(AllianceDataModel(storeName: store,
-                                                                                               benefits: storeData["benefits"] ?? "",
-                                                                                               breakTime: storeData["breakTime"] ?? "",
-                                                                                               closeTime: storeData["closeTime"] ?? "",
-                                                                                               closed: storeData["closed"] ?? "",
-                                                                                               id: storeData["id"] ?? "",
-                                                                                               location: storeData["location"] ?? "",
-                                                                                               menu: storeData["menu"] ?? "",
-                                                                                               openTime: storeData["openTime"] ?? "",
-                                                                                               price: storeData["price"] ?? "",
-                                                                                               tel: storeData["tel"] ?? "",
-                                                                                               storeLogo: url,
-                                                                                               allianceType : "단대"))
-                                                }
-                                            }
-                                            
-                                            else{
+                                            self.getFavorite(id : storeData["id"] ?? ""){result in
+                                                guard let result = result else{return}
+                                                
                                                 self.allianceList.append(AllianceDataModel(storeName: store,
                                                                                            benefits: storeData["benefits"] ?? "",
                                                                                            breakTime: storeData["breakTime"] ?? "",
@@ -146,7 +166,78 @@ class AllianceHelper : ObservableObject{
                                                                                            price: storeData["price"] ?? "",
                                                                                            tel: storeData["tel"] ?? "",
                                                                                            storeLogo: url,
-                                                                                           allianceType : "단대"))
+                                                                                           allianceType : "단대",
+                                                                                           URL_Naver : storeData["URL_Naver"] ?? "",
+                                                                                           URL_Baemin : storeData["URL_Baemin"] ?? "",
+                                                                                           pos : storeData["pos"] ?? "",
+                                                                                           isFavorite: result))
+                                            }
+                                            
+                                            
+                                        }
+                                        
+                                        else{
+                                            let index = self.allianceList.firstIndex(where: {$0.id == storeData["id"] ?? ""})
+                                            
+                                            if index != nil{
+                                                if self.allianceList[index!].allianceType != "단대"{
+                                                    var favorite = false
+                                                    
+                                                    self.getFavorite(id : storeData["id"] ?? ""){result in
+                                                        guard let result = result else{return}
+                                                        
+                                                        self.allianceList.append(AllianceDataModel(storeName: store,
+                                                                                                   benefits: storeData["benefits"] ?? "",
+                                                                                                   breakTime: storeData["breakTime"] ?? "",
+                                                                                                   closeTime: storeData["closeTime"] ?? "",
+                                                                                                   closed: storeData["closed"] ?? "",
+                                                                                                   id: storeData["id"] ?? "",
+                                                                                                   location: storeData["location"] ?? "",
+                                                                                                   menu: storeData["menu"] ?? "",
+                                                                                                   openTime: storeData["openTime"] ?? "",
+                                                                                                   price: storeData["price"] ?? "",
+                                                                                                   tel: storeData["tel"] ?? "",
+                                                                                                   storeLogo: url,
+                                                                                                   allianceType : "단대",
+                                                                                                   URL_Naver : storeData["URL_Naver"] ?? "",
+                                                                                                   URL_Baemin : storeData["URL_Baemin"] ?? "",
+                                                                                                   pos : storeData["pos"] ?? "",
+                                                                                                  isFavorite: result))
+                                                    }
+                                                    
+                                                    
+                                                }
+                                            }
+                                            
+                                            else{
+                                                
+                                                var favorite = false
+                                                
+                                                self.getFavorite(id : storeData["id"] ?? ""){result in
+                                                    guard let result = result else{return}
+                                                    
+                                                    favorite = result
+                                                    
+                                                    self.allianceList.append(AllianceDataModel(storeName: store,
+                                                                                               benefits: storeData["benefits"] ?? "",
+                                                                                               breakTime: storeData["breakTime"] ?? "",
+                                                                                               closeTime: storeData["closeTime"] ?? "",
+                                                                                               closed: storeData["closed"] ?? "",
+                                                                                               id: storeData["id"] ?? "",
+                                                                                               location: storeData["location"] ?? "",
+                                                                                               menu: storeData["menu"] ?? "",
+                                                                                               openTime: storeData["openTime"] ?? "",
+                                                                                               price: storeData["price"] ?? "",
+                                                                                               tel: storeData["tel"] ?? "",
+                                                                                               storeLogo: url,
+                                                                                               allianceType : "단대",
+                                                                                               URL_Naver : storeData["URL_Naver"] ?? "",
+                                                                                               URL_Baemin : storeData["URL_Baemin"] ?? "",
+                                                                                               pos : storeData["pos"] ?? "",
+                                                                                              isFavorite: result))
+                                                }
+                                                
+                                                
                                             }
                                             
 
@@ -159,9 +250,7 @@ class AllianceHelper : ObservableObject{
                     }
                 }
             }
-            
-            print(self.allianceList)
-            
+                        
             self.db.collection("Affiliate").document("CH").getDocument(){(document, error) in
                 if error != nil{
                     print(error)
@@ -189,43 +278,13 @@ class AllianceHelper : ObservableObject{
                                         }
                                         
                                         if !self.allianceList.contains(where : {$0.id == storeData["id"] ?? ""}){
-                                            self.allianceList.append(AllianceDataModel(storeName: store,
-                                                                                       benefits: storeData["benefits"] ?? "",
-                                                                                       breakTime: storeData["breakTime"] ?? "",
-                                                                                       closeTime: storeData["closeTime"] ?? "",
-                                                                                       closed: storeData["closed"] ?? "",
-                                                                                       id: storeData["id"] ?? "",
-                                                                                       location: storeData["location"] ?? "",
-                                                                                       menu: storeData["menu"] ?? "",
-                                                                                       openTime: storeData["openTime"] ?? "",
-                                                                                       price: storeData["price"] ?? "",
-                                                                                       tel: storeData["tel"] ?? "",
-                                                                                       storeLogo: url,
-                                                                                       allianceType : "총학"))
-                                        }
-                                        
-                                        else{
-                                            let index = self.allianceList.firstIndex(where: {$0.id == storeData["id"] ?? ""})
+                                            var favorite = false
                                             
-                                            if index != nil{
-                                                if self.allianceList[index!].allianceType != "총학"{
-                                                    self.allianceList.append(AllianceDataModel(storeName: store,
-                                                                                               benefits: storeData["benefits"] ?? "",
-                                                                                               breakTime: storeData["breakTime"] ?? "",
-                                                                                               closeTime: storeData["closeTime"] ?? "",
-                                                                                               closed: storeData["closed"] ?? "",
-                                                                                               id: storeData["id"] ?? "",
-                                                                                               location: storeData["location"] ?? "",
-                                                                                               menu: storeData["menu"] ?? "",
-                                                                                               openTime: storeData["openTime"] ?? "",
-                                                                                               price: storeData["price"] ?? "",
-                                                                                               tel: storeData["tel"] ?? "",
-                                                                                               storeLogo: url,
-                                                                                               allianceType : "총학"))
-                                                }
-                                            }
-                                            
-                                            else{
+                                            self.getFavorite(id : storeData["id"] ?? ""){result in
+                                                guard let result = result else{return}
+                                                
+                                                favorite = result
+                                                
                                                 self.allianceList.append(AllianceDataModel(storeName: store,
                                                                                            benefits: storeData["benefits"] ?? "",
                                                                                            breakTime: storeData["breakTime"] ?? "",
@@ -238,8 +297,70 @@ class AllianceHelper : ObservableObject{
                                                                                            price: storeData["price"] ?? "",
                                                                                            tel: storeData["tel"] ?? "",
                                                                                            storeLogo: url,
-                                                                                           allianceType : "총학"))
+                                                                                           allianceType : "총학",
+                                                                                           URL_Naver : storeData["URL_Naver"] ?? "",
+                                                                                           URL_Baemin : storeData["URL_Baemin"] ?? "",
+                                                                                           pos : storeData["pos"] ?? "",
+                                                                                          isFavorite: result))
                                             }
+                                            
+                                            
+                                        }
+                                        
+                                        else{
+                                            let index = self.allianceList.firstIndex(where: {$0.id == storeData["id"] ?? ""})
+                                            
+                                            var favorite = false
+                                            
+                                            self.getFavorite(id : storeData["id"] ?? ""){result in
+                                                guard let result = result else{return}
+                                                
+                                                favorite = result
+                                                
+                                                if index != nil{
+                                                    if self.allianceList[index!].allianceType != "총학"{
+                                                        self.allianceList.append(AllianceDataModel(storeName: store,
+                                                                                                   benefits: storeData["benefits"] ?? "",
+                                                                                                   breakTime: storeData["breakTime"] ?? "",
+                                                                                                   closeTime: storeData["closeTime"] ?? "",
+                                                                                                   closed: storeData["closed"] ?? "",
+                                                                                                   id: storeData["id"] ?? "",
+                                                                                                   location: storeData["location"] ?? "",
+                                                                                                   menu: storeData["menu"] ?? "",
+                                                                                                   openTime: storeData["openTime"] ?? "",
+                                                                                                   price: storeData["price"] ?? "",
+                                                                                                   tel: storeData["tel"] ?? "",
+                                                                                                   storeLogo: url,
+                                                                                                   allianceType : "총학",
+                                                                                                   URL_Naver : storeData["URL_Naver"] ?? "",
+                                                                                                   URL_Baemin : storeData["URL_Baemin"] ?? "",
+                                                                                                   pos : storeData["pos"] ?? "",
+                                                                                                  isFavorite: result))
+                                                    }
+                                                }
+                                                
+                                                else{
+                                                    self.allianceList.append(AllianceDataModel(storeName: store,
+                                                                                               benefits: storeData["benefits"] ?? "",
+                                                                                               breakTime: storeData["breakTime"] ?? "",
+                                                                                               closeTime: storeData["closeTime"] ?? "",
+                                                                                               closed: storeData["closed"] ?? "",
+                                                                                               id: storeData["id"] ?? "",
+                                                                                               location: storeData["location"] ?? "",
+                                                                                               menu: storeData["menu"] ?? "",
+                                                                                               openTime: storeData["openTime"] ?? "",
+                                                                                               price: storeData["price"] ?? "",
+                                                                                               tel: storeData["tel"] ?? "",
+                                                                                               storeLogo: url,
+                                                                                               allianceType : "총학",
+                                                                                               URL_Naver : storeData["URL_Naver"] ?? "",
+                                                                                               URL_Baemin : storeData["URL_Baemin"] ?? "",
+                                                                                               pos : storeData["pos"] ?? "",
+                                                                                              isFavorite: result))
+                                                }
+                                            }
+                                            
+
                                             
 
                                         }
@@ -280,6 +401,14 @@ class AllianceHelper : ObservableObject{
                                 let id : String = storeData["id"] as? String ?? ""
                                 let storeLogoRef = self.storage.reference(withPath : "storeLogo/\(id).png")
                                 
+                                var favorite = false
+                                
+                                self.getFavorite(id : storeData["id"] ?? ""){result in
+                                    guard let result = result else{return}
+                                    
+                                    favorite = result
+                                }
+                                
                                 storeLogoRef.downloadURL{url, error in
                                     if error != nil{
                                         print(error)
@@ -297,7 +426,11 @@ class AllianceHelper : ObservableObject{
                                                                                price: storeData["price"] ?? "",
                                                                                tel: storeData["tel"] ?? "",
                                                                                storeLogo: url,
-                                                                               allianceType : "단대"))
+                                                                               allianceType : "단대",
+                                                                               URL_Naver : storeData["URL_Naver"] ?? "",
+                                                                               URL_Baemin : storeData["URL_Baemin"] ?? "",
+                                                                               pos : storeData["pos"] ?? "",
+                                                                              isFavorite: favorite))
                                 }
                             }
                         }
@@ -323,6 +456,13 @@ class AllianceHelper : ObservableObject{
                                     let storeData = data[index] as! [String : String?]
                                     let id : String = storeData["id"] as? String ?? ""
                                     let storeLogoRef = self.storage.reference(withPath : "storeLogo/\(id).png")
+                                    var favorite = false
+                                    
+                                    self.getFavorite(id : storeData["id"] ?? ""){result in
+                                        guard let result = result else{return}
+                                        
+                                        favorite = result
+                                    }
                                     
                                     storeLogoRef.downloadURL{url, error in
                                         if error != nil{
@@ -341,7 +481,11 @@ class AllianceHelper : ObservableObject{
                                                                                    price: storeData["price"] ?? "",
                                                                                    tel: storeData["tel"] ?? "",
                                                                                    storeLogo: url,
-                                                                                   allianceType : "총학"))
+                                                                                   allianceType : "총학",
+                                                                                   URL_Naver : storeData["URL_Naver"] ?? "",
+                                                                                   URL_Baemin : storeData["URL_Baemin"] ?? "",
+                                                                                   pos : storeData["pos"] ?? "",
+                                                                                  isFavorite: favorite))
                                     }
                                     
                                     

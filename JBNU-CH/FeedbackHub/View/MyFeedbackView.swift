@@ -44,7 +44,7 @@ struct MyFeedbackView: View {
                         }
                     }
                 }
-                .searchable(text : $searchText, prompt : "피드백 검색")
+                .searchable(text : $searchText, prompt : "피드백 검색".localized())
             }.navigationBarTitle("보낸 피드백")
 
                 .onAppear{

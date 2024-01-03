@@ -13,6 +13,7 @@ import SwiftUI
 class NoticeHelper : ObservableObject{
     @Published var noticeList : [NoticeDataModel] = []
     @Published var urlList : [URLListModel] = []
+    @Published var translatedText : String? = nil
     private let db = Firestore.firestore()
     private let storage = Storage.storage()
     private let userManagement = UserManagement()
@@ -34,7 +35,8 @@ class NoticeHelper : ObservableObject{
                                                            dateTime: noticeData["dateTime"] as? String ?? "",
                                                            imageIndex: noticeData["imageIndex"] as? Int ?? 0,
                                                            url: noticeData["url"] as? String ?? "",
-                                                           type : .CH))
+                                                           type : .CH,
+                                                          translatedText: nil))
                     
                     self.noticeList.sort(by: {$0.dateTime ?? "" > $1.dateTime ?? ""})
 
@@ -59,7 +61,8 @@ class NoticeHelper : ObservableObject{
                                                                dateTime: noticeData["dateTime"] as? String ?? "",
                                                                imageIndex: noticeData["imageIndex"] as? Int ?? 0,
                                                                url: noticeData["url"] as? String ?? "",
-                                                               type : .College))
+                                                               type : .College,
+                                                              translatedText: nil))
                         
                         self.noticeList.sort(by: {$0.dateTime ?? "" > $1.dateTime ?? ""})
 
@@ -226,6 +229,9 @@ class NoticeHelper : ObservableObject{
             
         case .College:
             docRef = db.collection("Notice").document(userManagement.convertCollegeCodeAsString(collegeCode: userManagement.userInfo?.collegeCode))
+            
+        case .Petition:
+            return
         }
         
         if docRef != nil{

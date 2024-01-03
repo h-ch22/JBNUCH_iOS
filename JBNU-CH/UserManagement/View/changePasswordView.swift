@@ -125,7 +125,7 @@ struct changePasswordView: View {
                             })
                             
                         case .fail :
-                            return Alert(title: Text("오류"), message: Text("요청을 처리하는 중 오류가 발생했습니다.\n나중에 다시 시도하십시오."), dismissButton: .default(Text("확인")))
+                            return Alert(title: Text("오류"), message: Text("작업을 처리하는 중 오류가 발생했습니다.\n나중에 다시 시도하십시오."), dismissButton: .default(Text("확인")))
                             
                         case .none:
                             return Alert(title: Text(""), message: Text(""), dismissButton: .default(Text("확인")))

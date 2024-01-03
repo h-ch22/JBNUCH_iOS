@@ -5,7 +5,7 @@
 //  Created by 하창진 on 2021/12/29.
 //
 
-import SwiftUI
+/*import SwiftUI
 
 struct MealView: View {
     @State private var selectedTab = 0
@@ -307,4 +307,4 @@ struct MealView_Previews: PreviewProvider {
     static var previews: some View {
         MealView()
     }
-}
+}*/

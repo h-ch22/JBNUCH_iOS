@@ -12,6 +12,10 @@ struct HomeView: View {
     @StateObject private var noticeHelper = NoticeHelper()
     @StateObject private var sportsHelper = SportsHelper()
     @StateObject private var petitionHelper = PetitionHelper()
+    @StateObject private var homeHelper = HomeCalendarHelper()
+    @State private var today = ""
+    @State private var month = ""
+    @State private var day = ""
     
     var body: some View {
         NavigationView{
@@ -26,6 +30,17 @@ struct HomeView: View {
                                     .fontWeight(.semibold)
                                 
                                 Spacer()
+                                
+                                VStack(alignment : .trailing){
+                                    Text(today)
+                                        .font(.caption)
+                                        .fontWeight(.light)
+                                        .foregroundColor(.gray)
+                                    
+                                    Text(day)
+                                        .font(.title2)
+                                        .fontWeight(.semibold)
+                                }
                             }
                             
                             Spacer().frame(height : 20)
@@ -103,13 +118,13 @@ struct HomeView: View {
                                 
                                 Spacer().frame(width : 50)
                                 
-                                NavigationLink(destination : PledgeMainView().environmentObject(helper)){
+                                NavigationLink(destination : CalendarMainView().environmentObject(helper)){
                                     VStack{
-                                        Image("ic_percentage")
+                                        Image("ic_calendar")
                                             .resizable()
                                             .frame(width : 40, height : 40)
                                         
-                                        Text("공약")
+                                        Text("캘린더")
                                             .foregroundColor(.txtColor)
                                     }
                                 }.frame(width : 60, height : 60)
@@ -131,7 +146,7 @@ struct HomeView: View {
                             ScrollView(.horizontal){
                                 HStack(spacing : 15){
                                     ForEach(noticeHelper.noticeList, id : \.self){index in
-                                        NavigationLink(destination : NoticeDetailView(data : index, userInfo : helper.userInfo, userManagement: helper).environmentObject(noticeHelper)){
+                                        NavigationLink(destination : NoticeDetailView(data : index, userInfo : helper.userInfo, helper : noticeHelper, userManagement: helper)){
                                             HomeListModel(title: index.title ?? "", dateTime: index.dateTime ?? "")
                                                 .padding(5)
 
@@ -145,7 +160,7 @@ struct HomeView: View {
                         
                         Group{
                             HStack{
-                                Text("⚽️ 스포츠로 몸을 풀어볼까요?")
+                                Text("🗓 다가올 취업/대외활동/학사일정")
                                     .foregroundColor(.txtColor)
                                 
                                 Spacer()
@@ -155,11 +170,18 @@ struct HomeView: View {
 
                             ScrollView(.horizontal){
                                 HStack(spacing : 15){
-                                    ForEach(sportsHelper.sportsList, id : \.self){index in
-                                        NavigationLink(destination : SportsDetailView(data: index, helper: sportsHelper).environmentObject(helper)){
-                                            HomeListModel(title: index.roomName ?? "", dateTime: index.dateTime ?? "")
-                                                .padding(5)
-
+                                    ForEach(homeHelper.data, id : \.self){index in
+                                        NavigationLink(destination : CalendarMainView()){
+                                            if index.isAllDay{
+                                                HomeListModel(title: index.title, dateTime: "\(index.startDate)")
+                                                    .padding(5)
+                                            }
+                                            
+                                            else{
+                                                HomeListModel(title: index.title, dateTime: "\(index.startDate) ~ \(index.endDate)")
+                                                    .padding(5)
+                                            }
+                                            
                                         }
                                     }
                                 }
@@ -197,6 +219,20 @@ struct HomeView: View {
                 .animation(.easeOut)
 
                 .onAppear{
+                    var formatter = DateFormatter()
+                    formatter.dateFormat = "MM/dd"
+                    
+                    today = formatter.string(from: Date())
+                    
+                    var formatter_day = DateFormatter()
+                    formatter_day.dateFormat = "E"
+                    
+                    day = formatter_day.string(from: Date())
+                    
+                    homeHelper.getData(){ result in
+                        guard let result = result else{return}
+                    }
+                    
                     noticeHelper.noticeList.removeAll()
 
                     noticeHelper.getNotice(userInfo : helper.userInfo){result in

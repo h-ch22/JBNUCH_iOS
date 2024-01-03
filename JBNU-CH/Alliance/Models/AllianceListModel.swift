@@ -67,6 +67,11 @@ struct AllianceListModel: View {
                         .foregroundColor(.txtColor)
                         .fontWeight(.semibold)
 
+                    Spacer().frame(width : 5)
+                    
+                    Image(systemName: "star.fill")
+                        .foregroundColor(data.isFavorite! ? .accent : .gray)
+                    
                     Spacer()
                 }
                 

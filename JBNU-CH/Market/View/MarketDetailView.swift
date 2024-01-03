@@ -68,22 +68,24 @@ struct MarketDetailView: View {
                     .frame(height : 300)
             }
             
-            HStack {
-                Text(data.title)
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                .foregroundColor(.txtColor)
-                
-                Spacer()
-                
-            }
-            
-            HStack{
-                Text(String(data.price ?? 0))
-                    .foregroundColor(.txtColor)
-                
-                Spacer()
-            }
+//            HStack {
+//                Text(data.title)
+//                    .font(.title3)
+//                    .fontWeight(.semibold)
+//                .foregroundColor(.txtColor)
+//                
+//                Spacer()
+//                
+//            }
+//            
+//            HStack{
+//                Text(String(data.price ?? 0))
+//                    .foregroundColor(.txtColor)
+//                
+//                Spacer()
+//            }
+//            
+            MarketListModel(data: data)
             
             Spacer()
             

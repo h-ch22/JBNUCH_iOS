@@ -10,11 +10,13 @@ import SwiftUIPager
 import SDWebImageSwiftUI
 
 struct NoticeDetailView: View {
-    let data : NoticeDataModel
+    @State var data : NoticeDataModel
     let userInfo : UserInfoModel?
     
-    @EnvironmentObject var helper : NoticeHelper
+    @StateObject var helper : NoticeHelper
     @StateObject var userManagement : UserManagement
+    @State private var contents : String = ""
+    @State private var showSelectLanguage = false
     @State private var showAlert = false
     @State private var alertModel : NoticeRemoveAlertModel? = nil
     @State private var showOverlay = false
@@ -23,67 +25,41 @@ struct NoticeDetailView: View {
     @State private var showEditWindow = false
     @State private var selectedImg : URL? = nil
     @State private var redrawPreview = false
-    @State private var downloadState = true
+    @State private var downloadState = false
+    @State private var useTranslate = false
     @State private var url : [String] = []
-    
-//    func imgView(_ page : Int) -> some View{
-//
-//
-//
-//
-//    }
     
     var body: some View {
         ScrollView{
             VStack{
-                if data.imageIndex! > 0 {
-                    if downloadState{
+                if data.imageIndex! > 0 && downloadState && !helper.urlList.isEmpty{
                         Pager(page : self.page,
                               data : helper.urlList.indices,
                               id : \.self,
                               content : {index in
-//                            AsyncImage(url : helper.urlList[index].url!, content : {phase in
-//                                if let image = phase.image{
-//                                    image
-//                                        .resizable()
-//                                        .aspectRatio(contentMode: .fit)
-//                                        .frame(width : 300, height : 300)
-//                                        .onTapGesture {
-//                                            self.selectedImg = helper.urlList[index].url!
-//
-//                                            if selectedImg != nil{
-//                                                showSheet = true
-//                                            }
-//                                        }
-//                                        .onAppear{
-//                                            print("page : \(index)")
-//                                            print(helper.urlList)
-//                                        }
-//                                } else if phase.error != nil{
-//                                    Image(systemName: "exclamationmark.triangle.fill")
-//                                        .resizable()
-//                                        .frame(width : 200, height : 200)
-//                                        .foregroundColor(.red)
-//                                } else{
-//                                    ProcessView()
-//                                }
-//
-//                            })
-                            
+
                             WebImage(url : helper.urlList[index].url!)
-                                .onSuccess{image, data, cacheType in }
+                                .onSuccess{image, data, cacheType in
+                                    print("notice Image loaded successfully.")
+                                }
                                 .placeholder{
                                     ProcessView()
                                 }
+                                .onFailure(perform: {error in
+                                    print("notice Image Error : " + error.localizedDescription)
+                                })
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width : 300, height : 300)
                                 .onTapGesture {
                                     self.selectedImg = helper.urlList[index].url!
-                                    
+
                                     if selectedImg != nil{
                                         showSheet = true
                                     }
+                                }
+                                .onAppear{
+                                    print("notice Image loading...")
                                 }
 
                             .cornerRadius(15)
@@ -101,27 +77,48 @@ struct NoticeDetailView: View {
                                 let generator = UIImpactFeedbackGenerator(style: .soft)
                                 generator.impactOccurred()
                             })
-                        
+
                             .frame(height : 300)
-                    }
+                            .onAppear{
+                                print("Pager loading...")
+                            }
                     
-                    else{
-                        VStack{
-                            ProgressView()
-                        }
-                    }
+                
                     
+                }
+                
+                else if data.imageIndex! > 0 && (!downloadState || helper.urlList.isEmpty){
+                    VStack{
+                        ProgressView()
+                    }
                 }
                 
                 Spacer().frame(height : 20)
                 
                 HStack{
-                    Text(data.contents!)
-                        .lineLimit(nil)
-                        .font(.body)
-                        .foregroundColor(.txtColor)
+                    if useTranslate{
+                        if helper.translatedText == nil{
+                            ProgressView()
+                        }
+                        
+                        else{
+                            Text(helper.translatedText ?? data.contents!)
+                                .lineLimit(nil)
+                                .font(.body)
+                                .foregroundColor(.txtColor)
+                            
+                            Spacer()
+                        }
+                    }
                     
-                    Spacer()
+                    else{
+                        Text(data.contents!)
+                            .lineLimit(nil)
+                            .font(.body)
+                            .foregroundColor(.txtColor)
+                        
+                        Spacer()
+                    }
                 }
                 
                 if !url.isEmpty{
@@ -138,7 +135,9 @@ struct NoticeDetailView: View {
             
         }.background(Color.background.edgesIgnoringSafeArea(.all)).navigationTitle(data.title!)
             .sheet(isPresented : $showSheet){
-                FullScreenImageView(image: selectedImg?.absoluteString ?? "")
+                FullScreenImageView(image: selectedImg?.absoluteString ?? "").onAppear{
+                    print("\(helper.urlList), \(downloadState), \(data.imageIndex!)")
+                }
             }
         
             .sheet(isPresented : $showEditWindow){
@@ -159,6 +158,20 @@ struct NoticeDetailView: View {
                     }){
                         Image(systemName: "xmark").foregroundColor(.red)
                     }.isHidden(userManagement.userInfo?.admin == nil)
+                    
+                    Button(action : {
+                        TranslationManager.shared.detectLanguage(forText : data.contents ?? ""){(language) in
+                            if let language = language{
+                                self.showSelectLanguage = true
+                            }
+                            
+                            else{
+                                
+                            }
+                        }
+                    }){
+                        Image(systemName : "t.bubble.fill")
+                    }
                 }
             }
         
@@ -196,14 +209,24 @@ struct NoticeDetailView: View {
                     
                 }
             }
-        
+            .fullScreenCover(isPresented : $showSelectLanguage, content : {
+                SelectLanguageToTranslateView(data : self.data, helper : self.helper).onAppear{
+                    self.useTranslate = true
+                }
+            })
             .overlay(ProcessView().isHidden(!showOverlay))
+            .animation(.easeOut)
             .onAppear{
+                self.contents = data.contents ?? ""
                 if data.imageIndex ?? 0 > 0{
                     helper.downloadImage(userInfo: userInfo, id: data.id!, type: data.type, imageIndex: data.imageIndex ?? 0){result in
                         guard let result = result else{return}
                         
                         self.downloadState = result
+                        
+                        if !result{
+                            print("download Notice Image Error")
+                        }
                     }
                 }
                 

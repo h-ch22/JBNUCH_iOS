@@ -59,8 +59,6 @@ struct ProductView: View {
                 .navigationBarItems(trailing: NavigationLink(destination : ProductLogView_Tabs().environmentObject(userManagement)){
                     Text("대여 기록")
                 })
-                .animation(.easeOut)
-
             
 
         }.onAppear{

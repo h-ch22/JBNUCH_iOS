@@ -5,7 +5,7 @@
 //  Created by 하창진 on 2022/02/23.
 //
 
-import Foundation
+/*import Foundation
 import SwiftSoup
 
 class MealHelper : ObservableObject{
@@ -242,4 +242,4 @@ class MealHelper : ObservableObject{
 
 
     }
-}
+}*/

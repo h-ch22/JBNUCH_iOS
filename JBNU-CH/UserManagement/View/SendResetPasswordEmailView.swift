@@ -32,7 +32,7 @@ struct SendResetPasswordEmailView: View {
                     }
                     
                     HStack {
-                        Text("비밀번호 재설정")
+                        Text("비밀번호 재설정".localized())
                             .font(.title)
                             .fontWeight(.semibold)
                         
@@ -40,7 +40,7 @@ struct SendResetPasswordEmailView: View {
                     }
                     
                     HStack {
-                        Text("아래 필드에 가입한 E-Mail을 입력해주세요.")
+                        Text("아래 필드에 가입한 E-Mail을 입력해주세요.".localized())
                         
                         Spacer()
                     }
@@ -76,7 +76,7 @@ struct SendResetPasswordEmailView: View {
                     }
                 }){
                     HStack {
-                        Text("재설정 메일 발송")
+                        Text("재설정 메일 발송".localized())
                         
                         Image(systemName: "chevron.right")
                     }

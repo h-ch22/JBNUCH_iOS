@@ -84,7 +84,7 @@ struct ProfileView: View {
                     Button(action: {
                         showPicker = true
                     }){
-                        Text("프로필 이미지 변경")
+                        Text("프로필 이미지 변경".localized())
                             .foregroundColor(.accent)
                     }
                     
@@ -108,7 +108,7 @@ struct ProfileView: View {
                     Button(action: {
                         showChangePhoneView = true
                     }){
-                        PlainButtonFramework(imageName: "ic_phone", txt: "연락처 변경")
+                        PlainButtonFramework(imageName: "ic_phone", txt: "연락처 변경".localized())
                     }
                     
                     Spacer().frame(height : 10)
@@ -116,7 +116,7 @@ struct ProfileView: View {
                     Button(action: {
                         showSheet = true
                     }){
-                        PlainButtonFramework(imageName: "ic_password", txt: "비밀번호 변경")
+                        PlainButtonFramework(imageName: "ic_password", txt: "비밀번호 변경".localized())
                     }
                     
                     Spacer().frame(height : 10)
@@ -125,7 +125,7 @@ struct ProfileView: View {
                         alertModel = .confirmSignOut
                         showAlert = true
                     }){
-                        PlainButtonFramework(imageName: "ic_signout", txt: "로그아웃")
+                        PlainButtonFramework(imageName: "ic_signout", txt: "로그아웃".localized())
                     }
                     
                     Spacer().frame(height : 10)
@@ -134,7 +134,7 @@ struct ProfileView: View {
                         alertModel = .confirmSecession
                         showAlert = true
                     }){
-                        PlainButtonFramework(imageName: "ic_cancel", txt: "회원 탈퇴")
+                        PlainButtonFramework(imageName: "ic_cancel", txt: "회원 탈퇴".localized())
                     }
                 }
                 
@@ -181,10 +181,30 @@ struct ProfileView: View {
             .alert(isPresented : $showAlert, content : {
                 switch alertModel{
                 case .confirmSecession:
-                    return Alert(title: Text("회원 탈퇴"), message: Text("회원 탈퇴 시 계정 정보가 제거되며, 가입 기간 중 활동 내역(예 : 합격자 수기 공유)는 제거되지 않습니다.\n계속하시겠습니까?"), primaryButton: .default(Text("예")), secondaryButton: .default(Text("아니오")))
+                    return Alert(title: Text("회원 탈퇴".localized()), message: Text("회원 탈퇴 시 계정 정보가 제거되며, 가입 기간 중 활동 내역(예 : 합격자 수기 공유)는 제거되지 않습니다.\n계속하시겠습니까?".localized()), primaryButton: .default(Text("예".localized())){
+                        showOverlay = true
+
+                        helper.secession(){result in
+                            guard let result = result else{return}
+                            
+                            showOverlay = false
+                            
+                            if result{
+                                alertModel = .secessionSuccess
+                                showAlert = true
+                            }
+                            
+                            else{
+                                alertModel = .secessionFail
+                                showAlert = true
+                            }
+                        }
+                    }, secondaryButton: .default(Text("아니오".localized())))
                     
                 case .secessionSuccess:
-                    return Alert(title : Text("회원 탈퇴 완료"), message: Text("회원 탈퇴가 완료되었습니다.\n그 동안 서비스를 이용해주셔서 감사드리며, 더 좋은 모습으로 다시 찾아뵐 수 있도록 항상 노력하겠습니다."), dismissButton: .default(Text("확인")))
+                    return Alert(title : Text("회원 탈퇴 완료"), message: Text("회원 탈퇴가 완료되었습니다.\n그 동안 서비스를 이용해주셔서 감사드리며, 더 좋은 모습으로 다시 찾아뵐 수 있도록 항상 노력하겠습니다."), dismissButton: .default(Text("확인")){
+                        changeView = true
+                    })
                     
                 case .secessionFail:
                     return Alert(title : Text("오류"), message: Text("작업을 처리하는 중 오류가 발생했습니다.\n나중에 다시 시도하십시오."), dismissButton: .default(Text("확인")))

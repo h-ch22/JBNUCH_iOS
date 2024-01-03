@@ -196,7 +196,7 @@ struct PetitionListView: View {
             }.refreshable{
                 
             }
-            .searchable(text : $searchText, prompt : "청원 검색")
+            .searchable(text : $searchText, prompt : "청원 검색".localized())
         }.navigationBarTitle("전대 청원제도", displayMode: .large)
             .navigationBarItems(trailing: Button(action : {
                 self.showSheet = true

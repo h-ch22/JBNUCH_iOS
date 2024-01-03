@@ -65,7 +65,7 @@ class SportsHelper : ObservableObject{
                 let manager = diff.document.get("manager") as? String ?? ""
                 let location = diff.document.get("location") as? String ?? ""
                 let dateTime = diff.document.get("dateTime") as? String ?? ""
-                let userInfo = UserInfoModel(name: "", phone: "", studentNo: "", college: "", collegeCode: nil, uid: "", admin: nil, spot : "", profile : nil)
+                let userInfo = UserInfoModel(name: "", phone: "", studentNo: "", college: "", collegeCode: nil, uid: "", admin: nil, spot : "", profile : nil, countryCode : nil)
                 let id = diff.document.documentID
                 let address = diff.document.get("address") as? String ?? ""
                 let isOnline = diff.document.get("isOnline") as? Bool ?? false
