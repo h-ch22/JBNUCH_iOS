@@ -1,9 +1,84 @@
 ![ ](ReadMe/render_final.png)</br>
-# JBNU-CH</br>
-### An official mobile application of Jeonbuk National University Student Council. get notice and welfare for fastest<br>
+# JBNU General Student Council</br>
+### An official mobile application of Jeonbuk National University Student Council. The fastest way to access campus notices and welfare.<br>
 ⓒ 2022-2024. Changjin Ha. All Rights Reserved.<br><br>
 
-## Features</br>
+## 🚀 Tech Stack
+
+### Client (iOS)
+- **Framework:** SwiftUI (Declarative UI / iOS 15.0+)
+- **Architecture:** Feature-based Modular Structure (Home, Notice, Sports, Rent, etc.)
+- **Maps:** Naver Maps SDK for Campus POI (Points of Interest)
+
+### Backend (BaaS & Serverless)
+- **Firebase Auth:** Authentication
+- **Firebase Firestore:** Real-time data sync for rental items & petitions, notifications, associate stores
+- **Firebase Functions:** Serverless business logic for sports matching & push triggers
+- **Firebase Messaging (FCM):** Push notifications for council notices
+- **Firebase Storage:** Handling image uploads for petitions and notices
+
+
+## 🏗️ Architecture
+
+```mermaid
+graph TD
+    %% Client Modular Structure
+    subgraph ClientApp [📱 JBNU-CH: SwiftUI Client]
+        subgraph ModularDesign [Feature-based Modules]
+            Notice[Notice]
+            Petitions[Petitions]
+            Map[Campus Map / NaverMaps]
+            Sports[Sports Matching]
+            Rental[Rent items]
+            Stores[Associate Stores]
+        end
+        
+        subgraph InternalLayer [Module Internal]
+            View[SwiftUI View]
+            Model[Data Models]
+            Helper[Helper / Service]
+        end
+
+        View <--> Model
+        Model <--> Helper
+    end
+
+    %% Firebase Infrastructure
+    subgraph Firebase [☁️ Firebase Backend]
+        Auth[Auth]
+        FS[(Firestore)]
+        Functions[Cloud Functions]
+        FCM[Cloud Messaging]
+    end
+
+    %% Flow
+    Helper <--> Auth
+    Helper <--> FS
+    Helper --> Functions
+    Functions --> FCM
+    FCM -.->|Push| ClientApp
+    Map -->|External| NMaps[Naver Maps SDK]
+```
+
+## 🧱 If I were to rebuild it in 2026
+
+| Layer | Original | 2026 Pick | Reason |
+|---|---|---|---|
+| Package manager | CocoaPods | Swift Package Manager | Removes Ruby dep, faster CI, native Xcode integration |
+| Firebase SDK | 6.34.0 | 11.x via SPM | Unblocks security patches, async/await APIs, smaller binary |
+| ML features | `Firebase/MLVision` 0.21.0 | `GoogleMLKit` standalone | Direct successor, Firebase-version-independent |
+| Async model | Completion handlers | `async/await` + `AsyncStream` | Cleaner code, native Swift Concurrency error handling |
+| State | `ObservableObject` + `@Published` | `@Observable` (iOS 17+) or backport | Eliminates boilerplate, finer-grained invalidation |
+| Navigation | `NavigationView` | `NavigationStack` | Programmatic routing, deep-linking, state restoration |
+| Image loading | `SDWebImageSwiftUI` | Native `AyncImage` + `URLSession` cache | Zero dep, iOS 15+ is already required |
+| JSON parsing | `SwiftyJSON` | `Codable` + `FirebaseFirestoreSwift` | Already in Podfile, type-safe, no extra dep |
+| HTTP Client | Alamofire | `URLSession` async/await | Simpler for typical REST calls |
+| Maps | `NMapsMap` 3.16.0 | `NMapsMap` (SPM) + latest | Same SDK, just via SPM |
+
+## ✨ Core Features</br>
+<details>
+<summary>Show Contents</summary>
+
 #### Home</br>
 > Check out the features you use often and the latest news on one screen.</br>
 
@@ -24,7 +99,7 @@
 ![](imgs/notice_details.PNG)<br>
 
 #### JBNU Petitions</br>
-> Revised school regulations that You make with your own hands<br>
+> Revised school regulations that Shape university regulations with your own hands.<br>
 
 ![](imgs/petition.PNG)
 ![](imgs/petition_details.PNG)<br>
@@ -36,7 +111,7 @@
 ![](imgs/producs_log.PNG)<br>
 
 #### Campus Map</br>
-> How to forget how to get lost</br>
+> Never get lost on campus again.</br>
 
 ![](imgs/campusMap.PNG)<br>
 
@@ -129,3 +204,6 @@
  * 500MB or higher storage required for install application.
 
 
+
+
+</details>
